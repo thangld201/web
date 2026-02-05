@@ -1,9 +1,18 @@
 publications:
   - title: "Question‑Instructed Visual Descriptions for Zero‑Shot Video Answering"
     authors: "David Mogrovejo, Thamar Solorio"
-    source: "Findings of the Association for Computational Linguistics ACL 2024 (Publication Date: 2024/8)"
+    venue: "Findings of the Association for Computational Linguistics: ACL 2024"
+    year: 2024
     type: "conference"
+    badge: "ACL"
+    links:
+      paper: "#"
+      code: "#"
   - title: "HyperLoader: Integrating Hypernetwork‑Based LoRA and Adapter Layers into Multi‑Task Transformers for Sequence Labelling"
     authors: "Jesus‑German Ortiz‑Barajas, Helena Gomez‑Adorno, Thamar Solorio"
-    source: "arXiv preprint arXiv:2407.01411 (Publication Date: 2024/7/1)"
+    venue: "arXiv preprint arXiv:2407.01411"
+    year: 2024
     type: "journal"
+    badge: "arXiv"
+    links:
+      arxiv: "https://arxiv.org/abs/2407.01411"

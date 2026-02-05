@@ -36,24 +36,23 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   };
 
-  // Function to initialise publication filtering; will be called after publications are loaded
-  let publicationItems;
+  // Function to initialise publication filtering
   const initPublicationFilter = () => {
     const filterButtons = document.querySelectorAll('.filter-btn');
-    publicationItems = document.querySelectorAll('.publication-list li');
-    if (filterButtons.length > 0 && publicationItems.length > 0) {
+    const publicationCards = document.querySelectorAll('.pub-card');
+    if (filterButtons.length > 0 && publicationCards.length > 0) {
       filterButtons.forEach(btn => {
         btn.addEventListener('click', function () {
           // Set active class on clicked button
           filterButtons.forEach(b => b.classList.remove('active'));
           this.classList.add('active');
           const filter = this.getAttribute('data-filter');
-          publicationItems.forEach(item => {
-            const type = item.getAttribute('data-type');
+          publicationCards.forEach(card => {
+            const type = card.getAttribute('data-type');
             if (filter === 'all' || filter === type) {
-              item.style.display = 'block';
+              card.style.display = 'block';
             } else {
-              item.style.display = 'none';
+              card.style.display = 'none';
             }
           });
         });
@@ -67,14 +66,71 @@ document.addEventListener('DOMContentLoaded', function () {
    * publication filtering (if a publication list exists) and run the reveal animations on page load.
    */
 
-  // Initialise filters for the publication list
-  const publicationList = document.getElementById('publicationList');
-  if (publicationList) {
+  // Initialise filters for publications
+  const pubSection = document.querySelector('.publications-section');
+  if (pubSection) {
     initPublicationFilter();
   }
 
   // Initial reveal on page load for any static elements
   initReveal();
+
+  /* Carousel: auto-play, controls, and dots */
+  const initCarousel = () => {
+    const carousel = document.querySelector('.hero-carousel');
+    if (!carousel) return;
+    const track = carousel.querySelector('.carousel-track');
+    const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+    const prevBtn = carousel.querySelector('.carousel-btn.prev');
+    const nextBtn = carousel.querySelector('.carousel-btn.next');
+    const dots = Array.from(carousel.querySelectorAll('.dot'));
+    let current = 0;
+    let slideWidth = carousel.clientWidth;
+    let timer = null;
+
+    const updateSizes = () => {
+      slideWidth = carousel.clientWidth;
+      track.style.transform = `translateX(${-current * slideWidth}px)`;
+    };
+    window.addEventListener('resize', updateSizes);
+
+    const moveTo = index => {
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+      current = index;
+      track.style.transform = `translateX(${-index * slideWidth}px)`;
+      dots.forEach(d => d.classList.remove('active'));
+      if (dots[current]) dots[current].classList.add('active');
+    };
+
+    const next = () => moveTo(current + 1);
+    const prev = () => moveTo(current - 1);
+
+    nextBtn && nextBtn.addEventListener('click', () => { next(); resetTimer(); });
+    prevBtn && prevBtn.addEventListener('click', () => { prev(); resetTimer(); });
+    dots.forEach(d => d.addEventListener('click', e => { moveTo(Number(e.currentTarget.dataset.index)); resetTimer(); }));
+
+    // Auto-play
+    const startTimer = () => { if (!timer) timer = setInterval(next, 4500); };
+    const stopTimer = () => { if (timer) { clearInterval(timer); timer = null; } };
+    const resetTimer = () => { stopTimer(); startTimer(); };
+    carousel.addEventListener('mouseenter', stopTimer);
+    carousel.addEventListener('mouseleave', startTimer);
+
+    // Touch support
+    let startX = 0;
+    carousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; stopTimer(); });
+    carousel.addEventListener('touchend', e => {
+      const endX = e.changedTouches[0].clientX;
+      if (endX - startX > 40) prev();
+      else if (startX - endX > 40) next();
+      resetTimer();
+    });
+
+    // Initialise and start autoplay
+    setTimeout(() => { updateSizes(); moveTo(0); startTimer(); }, 50);
+  };
+  initCarousel();
 
   // Back to top button functionality
   const toTopBtn = document.getElementById('toTop');

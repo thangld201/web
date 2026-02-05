@@ -4,13 +4,42 @@ title: Home
 permalink: /
 ---
 
-<!-- Hero section with background image and overlay -->
-<section class="hero">
-  <div class="overlay"></div>
-  <div class="hero-content container">
-    <h1>Welcome to RiTUAL Research Group</h1>
-    <p>Exploring the frontiers of knowledge in <span class="highlight">NLP</span></p>
-    <a href="{{ '/team/' | relative_url }}" class="btn">Meet the Team <i class="fas fa-arrow-right"></i></a>
+<!-- Hero carousel: full-width sliding images with overlaid text -->
+<section class="hero-carousel" aria-label="Homepage carousel">
+  <div class="carousel-track">
+    <div class="carousel-slide" style="background-image: url('{{ '/images/ritual_team.png' | relative_url }}');">
+      <div class="overlay"></div>
+      <div class="hero-content container">
+        <h1>Welcome to RiTUAL Research Group</h1>
+        <p>Exploring the frontiers of knowledge in <span class="highlight">NLP</span></p>
+        <a href="{{ '/team/' | relative_url }}" class="btn">Meet the Team <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="carousel-slide" style="background-image: url('{{ '/images/ritual_team_2.png' | relative_url }}');">
+      <div class="overlay"></div>
+      <div class="hero-content container">
+        <h1>Our Team at Work</h1>
+        <p>Snapshots from our recent workshops and collaborative sessions</p>
+        <a href="{{ '/team/' | relative_url }}" class="btn">Meet the Team <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="carousel-slide" style="background-image: url('{{ '/images/ritual_team_3.png' | relative_url }}');">
+      <div class="overlay"></div>
+      <div class="hero-content container">
+        <h1>Research in Action</h1>
+        <p>Presenting our work and engaging with the wider community</p>
+        <a href="{{ '/publications/' | relative_url }}" class="btn">View Publications <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-btn prev" aria-label="Previous">‹</button>
+  <button class="carousel-btn next" aria-label="Next">›</button>
+
+  <div class="carousel-dots" role="tablist">
+    <button class="dot active" data-index="0" aria-label="Slide 1"></button>
+    <button class="dot" data-index="1" aria-label="Slide 2"></button>
+    <button class="dot" data-index="2" aria-label="Slide 3"></button>
   </div>
 </section>
 
@@ -24,29 +53,79 @@ permalink: /
   </p>
 </section>
 
-<!-- Research areas section highlighting core domains -->
-<section class="areas container">
-  <h2>Research Areas</h2>
-  <div class="areas-grid">
-    <div class="area reveal">
-      <i class="fas fa-eye"></i>
+<!-- Research areas section with images and alternating layout -->
+<section class="areas">
+  <div class="container">
+    <h2 class="section-title">Our Research Areas</h2>
+    <p class="section-subtitle">Pushing the boundaries of NLP through innovative, socially-aware research</p>
+  </div>
+
+  <div class="research-area reveal">
+    <div class="area-image" style="background-image: url('{{ '/images/research-vqa.jpg' | relative_url }}');"></div>
+    <div class="area-content">
+      <div class="area-icon"><i class="fas fa-eye"></i></div>
       <h3>Visual Question Answering</h3>
-      <p>Building evaluation benchmarks and systems for culturally diverse visual question‑answering tasks.</p>
+      <p>Building evaluation benchmarks and systems for culturally diverse visual question‑answering tasks. We focus on creating inclusive datasets that represent diverse perspectives and cultural contexts.</p>
+      <a href="#" class="area-link">Learn More <i class="fas fa-arrow-right"></i></a>
     </div>
-    <div class="area reveal">
-      <i class="fas fa-language"></i>
+  </div>
+
+  <div class="research-area reverse reveal">
+    <div class="area-image" style="background-image: url('{{ '/images/research-multilingual.jpg' | relative_url }}');"></div>
+    <div class="area-content">
+      <div class="area-icon"><i class="fas fa-language"></i></div>
       <h3>Multilingual &amp; Code‑Switched NLP</h3>
-      <p>Developing NLP technology to support tasks involving multilingual and code‑switched data.</p>
+      <p>Developing NLP technology to support tasks involving multilingual and code‑switched data. Our work enables seamless communication across languages and linguistic boundaries.</p>
+      <a href="#" class="area-link">Learn More <i class="fas fa-arrow-right"></i></a>
     </div>
-    <div class="area reveal">
-      <i class="fas fa-layer-group"></i>
+  </div>
+
+  <div class="research-area reveal">
+    <div class="area-image" style="background-image: url('{{ '/images/research-multimodal.jpg' | relative_url }}');"></div>
+    <div class="area-content">
+      <div class="area-icon"><i class="fas fa-layer-group"></i></div>
       <h3>Multimodal Models</h3>
-      <p>Designing models that fuse information from multiple modalities for richer content understanding.</p>
+      <p>Designing models that fuse information from multiple modalities for richer content understanding. We combine vision, language, and other signals to create more comprehensive AI systems.</p>
+      <a href="#" class="area-link">Learn More <i class="fas fa-arrow-right"></i></a>
     </div>
-    <div class="area reveal">
-      <i class="fas fa-bolt"></i>
+  </div>
+
+  <div class="research-area reverse reveal">
+    <div class="area-image" style="background-image: url('{{ '/images/research-lowresource.jpg' | relative_url }}');"></div>
+    <div class="area-content">
+      <div class="area-icon"><i class="fas fa-bolt"></i></div>
       <h3>Low‑Resource &amp; Socially‑Aware NLP</h3>
-      <p>Advancing NLP methods for low‑resource settings and incorporating social intelligence into AI systems.</p>
+      <p>Advancing NLP methods for low‑resource settings and incorporating social intelligence into AI systems. We develop efficient models that work effectively with limited data while being sensitive to social contexts.</p>
+      <a href="#" class="area-link">Learn More <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- News section -->
+<section class="home-news">
+  <div class="container">
+    <div class="news-header">
+      <div>
+        <h2 class="section-title">Latest News</h2>
+      </div>
+      <a class="news-link" href="{{ '/news/' | relative_url }}">View all news <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="news-grid">
+      {% for item in site.data.news.news limit: 3 %}
+      <article class="news-card reveal">
+        <div class="news-date-block">
+          <span class="news-date-day">{{ item.date | date: "%d" }}</span>
+          <span class="news-date-month">{{ item.date | date: "%b" }}</span>
+          <span class="news-date-year">{{ item.date | date: "%Y" }}</span>
+        </div>
+        <div class="news-body">
+          <h3 class="news-title">{{ item.title }}</h3>
+          <p class="news-excerpt">{{ item.content | strip_html | truncate: 160 }}</p>
+          <a class="news-cta" href="{{ '/news/' | relative_url }}">Read more <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+      {% endfor %}
     </div>
   </div>
 </section>

@@ -6,20 +6,33 @@ permalink: /publications/
 
 <section class="page-header container">
   <h1>Publications</h1>
-  <p>Explore our recent work and achievements.</p>
+  <p class="scholar-link">For a comprehensive list, visit our <a href="https://scholar.google.com/citations?user=Gmjwy-IAAAAJ&hl=en" target="_blank">Google Scholar <i class="fas fa-external-link-alt"></i></a></p>
 </section>
-<section class="publications container">
-  <div class="filter-controls">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="journal">Journal</button>
-    <button class="filter-btn" data-filter="conference">Conference</button>
-  </div>
-  <ul id="publicationList" class="publication-list">
-    {% for pub in site.data.publications.publications %}
-    <li class="reveal" data-type="{{ pub.type }}">
-      <strong>{{ pub.title }}</strong> &ndash; {{ pub.authors }}. {{ pub.source }}
-    </li>
+
+<section class="publications-section">
+  <div class="container">
+    <div class="pub-filters">
+      <button class="filter-btn active" data-filter="all">All Publications</button>
+      <button class="filter-btn" data-filter="conference">Conference</button>
+      <button class="filter-btn" data-filter="journal">Journal</button>
+    </div>
+
+    {% assign publications_by_year = site.data.publications.publications | group_by: 'year' | sort: 'name' | reverse %}
+    
+    {% for year_group in publications_by_year %}
+    <div class="year-section reveal">
+      <h2 class="year-heading">{{ year_group.name }}</h2>
+      <div class="publications-list">
+        {% for pub in year_group.items %}
+        <article class="pub-card" data-type="{{ pub.type }}">
+          <div class="pub-type-badge {{ pub.type }}">{{ pub.badge }}</div>
+          <h3 class="pub-title">{{ pub.title }}</h3>
+          <p class="pub-authors">{{ pub.authors }}</p>
+          <p class="pub-venue">{{ pub.venue }}</p>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
     {% endfor %}
-  </ul>
-  <p>For a comprehensive list of publications, please visit our <a href="https://scholar.google.com/citations?user=Gmjwy-IAAAAJ&hl=en" target="_blank">Google Scholar</a> profile.</p>
+  </div>
 </section>
