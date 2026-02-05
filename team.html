@@ -141,7 +141,9 @@ permalink: /team/
     </div>
     {% endif %}
 
-    {% assign msc_students = site.data.team.members | where_exp: "m", "m.role contains 'MSc' or m.role contains 'Master'" %}
+    {% assign msc_students = site.data.team.members | where_exp: "m", "m.role contains 'MSc'" %}
+    {% assign msc_students_master = site.data.team.members | where_exp: "m", "m.role contains 'Master'" %}
+    {% assign msc_students = msc_students | concat: msc_students_master | uniq %}
     {% if msc_students and msc_students.size > 0 %}
     <div class="team-group reveal">
       <h2 class="group-title">Master's Students</h2>
