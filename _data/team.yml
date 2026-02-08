@@ -34,7 +34,7 @@ members:
     photo: "aseem.jpeg"
     email: "mailto:aseem.srivastava@mbzuai.ac.ae"
     linkedin: "#"
-    website: "#"
+    website: "https://aseemsrivastava.com/"
     scholar: "#"
 
   # Doctoral students
@@ -90,5 +90,16 @@ members:
     photo: "diana.jpg"
     email: "mailto:diana.turmakhan [at] mbzuai.ac.ae"
     linkedin: "https://www.linkedin.com/in/diana-turmakhan/"
+    website: "#"
+    scholar: "#"
+
+  # Research assistants
+  - name: "Placeholder"
+    role: "Research Assistant"
+    bio: "Placeholder"
+    timeline: "2023-2024"
+    photo: "placeholder.jpg"
+    email: "mailto:placeholder@example.com"
+    linkedin: "#"
     website: "#"
     scholar: "#"
