@@ -958,8 +958,8 @@ a {
   min-width: 0;
 }
 .pub-thumb {
-  width: 84px;
-  height: 84px;
+  width: 128px;
+  height: 128px;
   border-radius: 10px;
   object-fit: cover;
   display: block;
