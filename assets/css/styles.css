@@ -31,7 +31,7 @@
 }
 
 body {
-  font-family: 'Playfair Display', sans-serif;
+  font-family: 'Playfair Display', serif;
   color: var(--text-color);
   background-color: #ffffff;
   line-height: 1.6;
