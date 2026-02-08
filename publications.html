@@ -11,24 +11,26 @@ permalink: /publications/
 
 <section class="publications-section">
   <div class="container">
+    {% assign publications_by_year = site.data.publications.publications | group_by: 'year' | sort: 'name' | reverse %}
     <div class="pub-filters">
       <button class="filter-btn active" data-filter="all">All Publications</button>
-      <button class="filter-btn" data-filter="conference">Conference</button>
-      <button class="filter-btn" data-filter="journal">Journal</button>
+      <button class="filter-btn" data-filter="2025">2025</button>
+      <button class="filter-btn" data-filter="2024">2024</button>
     </div>
 
-    {% assign publications_by_year = site.data.publications.publications | group_by: 'year' | sort: 'name' | reverse %}
-    
     {% for year_group in publications_by_year %}
-    <div class="year-section reveal">
+    <div class="year-section reveal" data-year="{{ year_group.name }}">
       <h2 class="year-heading">{{ year_group.name }}</h2>
       <div class="publications-list">
         {% for pub in year_group.items %}
-        <article class="pub-card" data-type="{{ pub.type }}">
-          <div class="pub-type-badge {{ pub.type }}">{{ pub.badge }}</div>
-          <h3 class="pub-title">{{ pub.title }}</h3>
-          <p class="pub-authors">{{ pub.authors }}</p>
-          <p class="pub-venue">{{ pub.venue }}</p>
+        <article class="pub-card" data-type="{{ pub.year }}">
+          <div class="pub-card-content">
+            <div class="pub-type-badge {{ pub.type }}">{{ pub.badge }}</div>
+            <h3 class="pub-title">{{ pub.title }}</h3>
+            <p class="pub-authors">{{ pub.authors }}</p>
+            <p class="pub-venue">{{ pub.venue }}</p>
+          </div>
+          <img class="pub-thumb" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuk0lKGzJxf07KoM7-YDN0UD71cDfRfToS2A&s" alt="Publication thumbnail" />
         </article>
         {% endfor %}
       </div>

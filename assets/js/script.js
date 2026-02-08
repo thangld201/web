@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const initPublicationFilter = () => {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const publicationCards = document.querySelectorAll('.pub-card');
+    const yearSections = document.querySelectorAll('.year-section');
     if (filterButtons.length > 0 && publicationCards.length > 0) {
       filterButtons.forEach(btn => {
         btn.addEventListener('click', function () {
@@ -47,12 +48,21 @@ document.addEventListener('DOMContentLoaded', function () {
           filterButtons.forEach(b => b.classList.remove('active'));
           this.classList.add('active');
           const filter = this.getAttribute('data-filter');
+          const showAll = filter === 'all';
+
           publicationCards.forEach(card => {
-            const type = card.getAttribute('data-type');
-            if (filter === 'all' || filter === type) {
-              card.style.display = 'block';
-            } else {
-              card.style.display = 'none';
+            const cardYear = (card.getAttribute('data-type') || '').trim();
+            const matches = showAll || String(cardYear) === String(filter);
+            card.style.display = matches ? 'block' : 'none';
+          });
+
+          yearSections.forEach(section => {
+            const hasVisibleCard = Array.from(section.querySelectorAll('.pub-card'))
+              .some(card => card.style.display !== 'none');
+            const showSection = showAll || hasVisibleCard;
+            section.style.display = showSection ? 'block' : 'none';
+            if (showSection) {
+              section.classList.add('active');
             }
           });
         });
