@@ -1024,7 +1024,9 @@ a {
 .pub-authors {
   font-size: 1rem;
   color: #666;
-  margin-bottom: 0.5rem;
+  margin-left: 0;
+  margin-top: 0;
+  flex-shrink: 0;
   line-height: 1.6;
 }
 
