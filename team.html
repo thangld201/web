@@ -17,7 +17,15 @@ permalink: /team/
       <div class="team-lead">
         <img class="lead-photo" src="{{ '/images/' | append: leader.photo | relative_url }}" alt="{{ leader.name }}">
         <div class="lead-info">
+          {% if leader.website and leader.website != '#' %}
+          {% if leader.website contains 'http' %}
+          <h3><a href="{{ leader.website }}" target="_blank" rel="noopener">{{ leader.name }}</a></h3>
+          {% else %}
+          <h3><a href="{{ leader.website | prepend: '/' | relative_url }}">{{ leader.name }}</a></h3>
+          {% endif %}
+          {% else %}
           <h3>{{ leader.name }}</h3>
+          {% endif %}
           <p class="lead-role">{{ leader.role }}</p>
           <p class="lead-bio">{{ leader.bio }}</p>
           <div class="member-links">
@@ -60,7 +68,15 @@ permalink: /team/
         <article class="member-card">
           <img class="member-photo" src="{{ '/images/' | append: member.photo | relative_url }}" alt="{{ member.name }}">
           <div class="member-meta">
+            {% if member.website and member.website != '#' %}
+            {% if member.website contains 'http' %}
+            <h3><a href="{{ member.website }}" target="_blank" rel="noopener">{{ member.name }}</a></h3>
+            {% else %}
+            <h3><a href="{{ member.website | prepend: '/' | relative_url }}">{{ member.name }}</a></h3>
+            {% endif %}
+            {% else %}
             <h3>{{ member.name }}</h3>
+            {% endif %}
             <p class="role">{{ member.role }}</p>
             <p class="member-bio">{{ member.bio }}</p>
             <div class="member-links">
@@ -105,7 +121,15 @@ permalink: /team/
         <article class="member-card">
           <img class="member-photo" src="{{ '/images/' | append: member.photo | relative_url }}" alt="{{ member.name }}">
           <div class="member-meta">
+            {% if member.website and member.website != '#' %}
+            {% if member.website contains 'http' %}
+            <h3><a href="{{ member.website }}" target="_blank" rel="noopener">{{ member.name }}</a></h3>
+            {% else %}
+            <h3><a href="{{ member.website | prepend: '/' | relative_url }}">{{ member.name }}</a></h3>
+            {% endif %}
+            {% else %}
             <h3>{{ member.name }}</h3>
+            {% endif %}
             <p class="role">{{ member.role }}</p>
             <p class="member-bio">{{ member.bio }}</p>
             <div class="member-links">
@@ -152,8 +176,72 @@ permalink: /team/
         <article class="member-card">
           <img class="member-photo" src="{{ '/images/' | append: member.photo | relative_url }}" alt="{{ member.name }}">
           <div class="member-meta">
+            {% if member.website and member.website != '#' %}
+            {% if member.website contains 'http' %}
+            <h3><a href="{{ member.website }}" target="_blank" rel="noopener">{{ member.name }}</a></h3>
+            {% else %}
+            <h3><a href="{{ member.website | prepend: '/' | relative_url }}">{{ member.name }}</a></h3>
+            {% endif %}
+            {% else %}
             <h3>{{ member.name }}</h3>
+            {% endif %}
             <p class="role">{{ member.role }}</p>
+            <p class="member-bio">{{ member.bio }}</p>
+            <div class="member-links">
+              <a href="{{ member.email }}" aria-label="Email {{ member.name }}">
+                <i class="fa-solid fa-envelope"></i>
+              </a>
+              {% if member.linkedin and member.linkedin != '#' %}
+              <a href="{{ member.linkedin }}" aria-label="LinkedIn {{ member.name }}" target="_blank">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              {% endif %}
+              {% if member.website and member.website != '#' %}
+              {% if member.website contains 'http' %}
+              <a href="{{ member.website }}" aria-label="Website for {{ member.name }}" target="_blank">
+                <i class="fa-solid fa-house"></i>
+              </a>
+              {% else %}
+              <a href="{{ member.website | prepend: '/' | relative_url }}" aria-label="Website for {{ member.name }}">
+                <i class="fa-solid fa-house"></i>
+              </a>
+              {% endif %}
+              {% endif %}
+              {% if member.scholar and member.scholar != '#' %}
+              <a href="{{ member.scholar }}" aria-label="Google Scholar for {{ member.name }}" target="_blank">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% assign research_assistants = site.data.team.members | where_exp: "m", "m.role contains 'Research Assistant'" %}
+    {% if research_assistants and research_assistants.size > 0 %}
+    <div class="team-group reveal">
+      <h2 class="group-title">Alumni</h2>
+      <div class="team-grid-simple">
+        {% for member in research_assistants %}
+        <article class="member-card">
+          <img class="member-photo" src="{{ '/images/' | append: member.photo | relative_url }}" alt="{{ member.name }}">
+          <div class="member-meta">
+            {% if member.website and member.website != '#' %}
+            {% if member.website contains 'http' %}
+            <h3><a href="{{ member.website }}" target="_blank" rel="noopener">{{ member.name }}</a></h3>
+            {% else %}
+            <h3><a href="{{ member.website | prepend: '/' | relative_url }}">{{ member.name }}</a></h3>
+            {% endif %}
+            {% else %}
+            <h3>{{ member.name }}</h3>
+            {% endif %}
+            <p class="role">{{ member.role }}</p>
+            {% if member.timeline %}
+            <p class="member-timeline">{{ member.timeline }}</p>
+            {% endif %}
             <p class="member-bio">{{ member.bio }}</p>
             <div class="member-links">
               <a href="{{ member.email }}" aria-label="Email {{ member.name }}">
