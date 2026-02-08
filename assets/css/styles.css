@@ -31,7 +31,7 @@
 }
 
 body {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', sans-serif;
   color: var(--text-color);
   background-color: #ffffff;
   line-height: 1.6;
@@ -299,7 +299,7 @@ a {
 
 /* Join page */
 .join-simple {
-  padding: 0.5rem 0 3rem;
+  padding: 1.5rem 0 3rem;
   text-align: left;
 }
 .join-position-list {
