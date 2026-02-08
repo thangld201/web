@@ -21,6 +21,7 @@ Thumbs.db
 *~
 
 # Gemfiles
+Gemfile.lock
 
 # Backup files (in case you create more)
 *.backup
