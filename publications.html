@@ -6,14 +6,15 @@ permalink: /publications/
 
 <section class="page-header container">
   <h1>Publications</h1>
-  <p class="scholar-link">For a comprehensive list, visit our <a href="https://scholar.google.com/citations?user=Gmjwy-IAAAAJ&hl=en" target="_blank">Google Scholar <i class="fas fa-external-link-alt"></i></a></p>
+  <!-- <p class="scholar-link">For a comprehensive list, visit our <a href="https://scholar.google.com/citations?user=Gmjwy-IAAAAJ&hl=en" target="_blank">Google Scholar <i class="fas fa-external-link-alt"></i></a></p> -->
 </section>
 
 <section class="publications-section">
   <div class="container">
     {% assign publications_by_year = site.data.publications.publications | group_by: 'year' | sort: 'name' | reverse %}
     <div class="pub-filters">
-      <button class="filter-btn active" data-filter="all">All Publications</button>
+      <button class="filter-btn active" data-filter="selected">Selected</button>
+      <button class="filter-btn" data-filter="all">All</button>
       <button class="filter-btn" data-filter="2025">2025</button>
       <button class="filter-btn" data-filter="2024">2024</button>
     </div>
@@ -23,13 +24,21 @@ permalink: /publications/
       <h2 class="year-heading">{{ year_group.name }}</h2>
       <div class="publications-list">
         {% for pub in year_group.items %}
-        <article class="pub-card" data-type="{{ pub.year }}">
+        <article class="pub-card" data-year="{{ pub.year }}" data-selected="{{ pub.selected }}" style="background-image: url('{{ pub.image }}');">
+        <!-- <article class="pub-card" data-year="{{ pub.year }}"> -->
           <div class="pub-card-content">
             <div class="pub-type-badge {{ pub.type }}">{{ pub.badge }}</div>
             <h3 class="pub-title">{{ pub.title }}</h3>
             <p class="pub-authors">{{ pub.authors }}</p>
-            <p class="pub-venue">{{ pub.venue }}</p>
-            <img class="pub-thumb" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuk0lKGzJxf07KoM7-YDN0UD71cDfRfToS2A&s" alt="Publication thumbnail" />
+            <!-- <p class="pub-venue">{{ pub.venue }}</p> -->
+            <div class="pub-links">
+              {% if pub.links.paper and pub.links.paper != "#" %}
+              <a href="{{ pub.links.paper }}" class="pub-link-btn paper-btn" target="_blank">Paper</a>
+              {% endif %}
+              {% if pub.links.code and pub.links.code != "#" %}
+              <a href="{{ pub.links.code }}" class="pub-link-btn code-btn" target="_blank">Code</a>
+              {% endif %}
+            </div>
           </div>
           
           

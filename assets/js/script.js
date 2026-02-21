@@ -40,21 +40,39 @@ document.addEventListener('DOMContentLoaded', function () {
   const initPublicationFilter = () => {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const publicationCards = document.querySelectorAll('.pub-card');
+    
+    const applyFilter = (filterValue) => {
+      publicationCards.forEach(card => {
+        const year = card.getAttribute('data-year');
+        const isSelected = card.getAttribute('data-selected') === 'true';
+        let shouldShow = false;
+        
+        if (filterValue === 'all') {
+          shouldShow = true;
+        } else if (filterValue === 'selected') {
+          shouldShow = isSelected;
+        } else if (filterValue === year) {
+          shouldShow = true;
+        }
+        
+        card.style.display = shouldShow ? 'block' : 'none';
+      });
+    };
+    
     if (filterButtons.length > 0 && publicationCards.length > 0) {
+      // Apply default filter on page load
+      const activeBtn = document.querySelector('.filter-btn.active');
+      if (activeBtn) {
+        applyFilter(activeBtn.getAttribute('data-filter'));
+      }
+      
       filterButtons.forEach(btn => {
         btn.addEventListener('click', function () {
           // Set active class on clicked button
           filterButtons.forEach(b => b.classList.remove('active'));
           this.classList.add('active');
           const filter = this.getAttribute('data-filter');
-          publicationCards.forEach(card => {
-            const type = card.getAttribute('data-type');
-            if (filter === 'all' || filter === type) {
-              card.style.display = 'block';
-            } else {
-              card.style.display = 'none';
-            }
-          });
+          applyFilter(filter);
         });
       });
     }

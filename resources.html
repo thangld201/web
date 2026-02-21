@@ -1,0 +1,56 @@
+---
+layout: default
+title: Resources
+permalink: /resources/
+---
+
+<section class="page-header container">
+  <h1>Datasets</h1>
+</section>
+
+<section class="join-simple container">
+  <div class="publications-list join-position-list">
+    {% assign datasets = site.data.resources.publications | where_exp: "item", "item.type == 'dataset'" %}
+    {% for resource in datasets %}
+    <article class="pub-card" style="background-image: url('{{ resource.image }}');">
+      <div class="pub-card-content">
+        <h3 class="pub-title">{{ resource.title }}</h3>
+        <p class="pub-authors">{{ resource.description }}</p>
+        <div class="pub-links" style="margin-top: 1rem;">
+          {% if resource.links.report and resource.links.report != "#" %}
+          <a href="{{ resource.links.report }}" class="pub-link-btn" target="_blank">Report</a>
+          {% endif %}
+          {% if resource.links.source and resource.links.source != "#" %}
+          <a href="{{ resource.links.source }}" class="pub-link-btn" target="_blank">Sources</a>
+          {% endif %}
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="page-header container">
+  <h1>Softwares</h1>
+</section>
+
+<section class="join-simple container">
+  <div class="publications-list join-position-list">
+    {% assign softwares = site.data.resources.publications | where_exp: "item", "item.type == 'software'" %}
+    {% for resource in softwares %}
+    <article class="pub-card" style="background-image: url('{{ resource.image }}');">
+      <div class="pub-card-content">
+        <h3 class="pub-title">{{ resource.title }}</h3>
+        <p class="pub-authors">{{ resource.description }}</p>
+        <div class="pub-links" style="margin-top: 1rem;">
+          {% if resource.links.report and resource.links.report != "#" %}
+          <a href="{{ resource.links.report }}" class="pub-link-btn" target="_blank">Report</a>
+          {% endif %}
+          {% if resource.links.source and resource.links.source != "#" %}
+          <a href="{{ resource.links.source }}" class="pub-link-btn" target="_blank">Sources</a>
+        {% endif %}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>

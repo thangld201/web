@@ -6,9 +6,11 @@ publications:
     year: 2025
     type: "conference"
     badge: "ACL"
+    selected: true
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuk0lKGzJxf07KoM7-YDN0UD71cDfRfToS2A&s"
     links:
-      paper: "#"
-      code: "#"
+      paper: "https://aclanthology.org/2020.acl-main.485"
+      code: "https://huggingface.co"
       
 
   - title: "Question‑Instructed Visual Descriptions for Zero‑Shot Video Answering"
@@ -17,9 +19,11 @@ publications:
     year: 2024
     type: "conference"
     badge: "ACL"
+    selected: true
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuk0lKGzJxf07KoM7-YDN0UD71cDfRfToS2A&s"
     links:
-      paper: "#"
-      code: "#"
+      paper: "https://aclanthology.org/2020.acl-main.485"
+      code: "https://huggingface.co"
 
 
   - title: "HyperLoader: Integrating Hypernetwork‑Based LoRA and Adapter Layers into Multi‑Task Transformers for Sequence Labelling"
@@ -28,5 +32,7 @@ publications:
     year: 2024
     type: "journal"
     badge: "arXiv"
+    selected: false
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuk0lKGzJxf07KoM7-YDN0UD71cDfRfToS2A&s"
     links:
-      arxiv: "https://arxiv.org/abs/2407.01411"
+      paper: "https://arxiv.org/abs/2407.01411"

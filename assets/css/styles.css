@@ -943,7 +943,9 @@ a {
 
 /* Publication card */
 .pub-card {
-  background: linear-gradient(135deg, #ffffff 0%, #fafbfd 100%);
+  background-size: auto;
+  background-position: right center;
+  background-repeat: no-repeat;
   border-radius: 16px;
   padding: 2rem 2.5rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.06);
@@ -958,18 +960,11 @@ a {
 .pub-card-content {
   flex: 1;
   min-width: 0;
+  position: relative;
+  z-index: 2;
 }
 .pub-thumb {
-  width: 164px;
-  height: 84px;
-  border-radius: 10px;
-  object-fit: cover;
-  display: block;
-  flex-shrink: 0;
-  margin-left: 0;
-  margin-top: 0;
-  border: 1px solid rgba(10, 25, 47, 0.08);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: none;
 }
 .pub-card::before {
   content: '';
@@ -981,7 +976,21 @@ a {
   background: linear-gradient(180deg, var(--secondary-color), #ffb3b3);
   opacity: 0;
   transition: opacity 0.4s ease;
+  z-index: 3;
 }
+
+.pub-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+  z-index: 1;
+}
+
 .pub-card:hover {
   transform: translateX(8px);
   box-shadow: 0 8px 24px rgba(0,0,0,0.12);
@@ -1039,6 +1048,33 @@ a {
   margin: 0;
   line-height: 1.6;
   font-style: italic;
+}
+
+/* Publication links */
+.pub-links {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.pub-link-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.pub-link-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(10, 25, 47, 0.3);
 }
 
 @media (max-width: 768px) {
@@ -1213,6 +1249,7 @@ a {
   border: 1px solid rgba(10, 25, 47, 0.08);
   box-shadow: 0 8px 22px rgba(0,0,0,0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  align-items: center;
 }
 .news-card:hover {
   transform: translateY(-4px);
