@@ -673,7 +673,7 @@ a {
 .member-meta h3 {
   font-size: 1.15rem;
   margin-bottom: 0.25rem;
-  color: rgba(241, 232, 103, 0.12);
+  color: #0066cc;
   /* color: var(--primary-color); */
 }
 .member-meta .role {
