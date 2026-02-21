@@ -95,6 +95,7 @@ a {
   display: flex;
   gap: 1.5rem;
   align-items: center;
+  padding-right: 1.5rem;
 }
 .nav a {
   color: var(--nav-link-color);
