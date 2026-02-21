@@ -7,8 +7,8 @@ members:
     email: "mailto:firstname.lastname [at] mbzuai.ac.ae"
     linkedin: "#" # update with real LinkedIn URL if available
     website: "leader" # links to the leader profile page
-    scholar: "https://scholar.google.com/citations?user=Gmjwy-IAAAAJ&hl=en" # replace with actual Google Scholar profile
-
+    scholar: "https://scholar.google.com/citations?user=Gmjwy-IAAAAJ&hl=en"
+    
   # Postdoctoral researchers
   - name: "Injy Hamed"
     role: "Postdoctoral Associate"
@@ -18,6 +18,7 @@ members:
     linkedin: "#"
     website: "#"
     scholar: "#"
+    github: "https://github.com/as3eem"
 
   - name: "Atnafu Lambebo Tonja"
     role: "Postdoctoral Researcher"
@@ -27,6 +28,7 @@ members:
     linkedin: "https://www.linkedin.com/in/atnafu-lambebo-t-6b21a5184/"
     website: "https://atnafuatx.github.io/"
     scholar: "https://scholar.google.com/citations?user=rubyApkAAAAJ&hl=en"
+    github: "https://github.com/as3eem"
 
   - name: "Aseem Srivastava"
     role: "Postdoctoral Researcher"
@@ -36,6 +38,7 @@ members:
     linkedin: "#"
     website: "https://aseemsrivastava.com/"
     scholar: "#"
+    github: "https://github.com/as3eem"
 
   # Doctoral students
   - name: "Emilio Villa-Cueva"
@@ -45,8 +48,9 @@ members:
     email: "mailto:evillacueva@gmail.com"
     linkedin: "#"
     website: "https://villacu.github.io/"
-    scholar: "#"
-    
+    scholar: "#"    
+    github: "https://github.com/as3eem"    
+
   - name: "Fadel Thior"
     role: "PhD Student"
     bio: "Fadel Thior is a PhD student in NLP at MBZUAI. His research interests are on code‑switched text and ASR, with an emphasis on data‑efficient training, and robust evaluation. He aims to build inclusive speech technologies that work reliably for underrepresented communities."
@@ -55,6 +59,7 @@ members:
     linkedin: "#"
     website: "#"
     scholar: "#"
+    github: "https://github.com/as3eem"
 
   # Master's students
   - name: "Kareem Elzeky"
@@ -65,6 +70,7 @@ members:
     linkedin: "https://www.linkedin.com/in/kareemelzeky/"
     website: "#"
     scholar: "https://scholar.google.com/citations?view_op=list_works&hl=en&user=6MrdmXIAAAAJ&gmla=AH8HC4yHeV5oOn5NCQQErGm8vcJwHW7M85p5Aoj8U33IBV36Uv4SFOGU7C8V80mqY77gYHB2R4tgYHgvIruodeqCfRWZrbm_bBayhDLin2thwgvKyFI"
+    github: "https://github.com/as3eem"
 
   - name: "Mena Attia"
     role: "MSc Student"
@@ -73,33 +79,37 @@ members:
     email: "mailto:mena.attia@mbzuai.ac.ae"
     linkedin: "https://www.linkedin.com/in/mena-attia/"
     website: "https://menaattia.com/"
-    scholar: "#"
-
+    scholar: "#"    
+    github: "https://github.com/as3eem"
+    
   - name: "Sholpan Bolatzhanova"
-    role: "2nd year MSc student"
+    role: "MSc Student"
     bio: "Sholpan Bolatzhanova is a 2nd year MSc student at MBZUAI. Her research interests are Multimodal LLMs and Theory of Mind."
     photo: "sholpan.jpg"
     email: "mailto:sholpan.bolatzhanova@gmail.com"
     linkedin: "https://www.linkedin.com/in/sholpan-bolatzhanova/"
     website: "https://github.com/shellypek"
     scholar: "#"
+    github: "https://github.com/as3eem"
 
   - name: "Diana Turmakhan"
-    role: "2nd year MSc student"
+    role: "MSc Student"
     bio: "Diana Turmakhan is a 2nd year MSc student at MBZUAI. Her research interests include vision-language models, multimodal reasoning, low-resource NLP, and culturally-aware AI."
     photo: "diana.jpg"
     email: "mailto:diana.turmakhan [at] mbzuai.ac.ae"
     linkedin: "https://www.linkedin.com/in/diana-turmakhan/"
     website: "#"
     scholar: "#"
+    github: "https://github.com/as3eem"
 
   # Research assistants
   - name: "Placeholder"
     role: "Research Assistant"
     bio: "Placeholder"
     timeline: "2023-2024"
-    photo: "placeholder.jpg"
+    photo: "diana.jpg"
     email: "mailto:placeholder@example.com"
     linkedin: "#"
     website: "#"
     scholar: "#"
+    github: "https://github.com/as3eem"
