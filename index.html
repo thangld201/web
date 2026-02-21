@@ -116,20 +116,17 @@ permalink: /
       <a class="news-link" href="{{ '/news/' | relative_url }}">View all news <i class="fas fa-arrow-right"></i></a>
     </div>
 
-    <div class="news-grid">
-      {% for item in site.data.news.news limit: 2 %}
+    <div class="news-year-group reveal">
+      <div class="news-list">
+      {% for item in site.data.news.news limit: 3 %}
       <article class="news-card reveal">
-        <div class="news-date-block">
-          <span class="news-date-month">{{ item.date | date: "%b" }}</span>
-          <span class="news-date-year">{{ item.date | date: "%Y" }}</span>
-        </div>
+        <div class="news-date-badge">{{ item.date | date: "%b %Y" }}</div>
         <div class="news-body">
           <h3 class="news-title">{{ item.title }}</h3>
-          <!-- <p class="news-excerpt">{{ item.content | strip_html | truncate: 160 }}</p> -->
-          <a class="news-cta" href="{{ '/news/' | relative_url }}">Read more <i class="fas fa-arrow-right"></i></a>
         </div>
       </article>
       {% endfor %}
+    </div>
     </div>
   </div>
 </section>

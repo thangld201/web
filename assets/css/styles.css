@@ -1196,10 +1196,9 @@ a {
   color: var(--secondary-color);
 }
 .news-grid {
-  margin-bottom: 3rem;
-  /* display: grid; */
-  /* grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); */
-  /* gap: 1.5rem; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
 }
 .news-card {
   display: grid;
