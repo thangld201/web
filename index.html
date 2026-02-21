@@ -117,7 +117,7 @@ permalink: /
     </div>
 
     <div class="news-grid">
-      {% for item in site.data.news.news limit: 3 %}
+      {% for item in site.data.news.news limit: 2 %}
       <article class="news-card reveal">
         <div class="news-date-block">
           <span class="news-date-month">{{ item.date | date: "%b" }}</span>
@@ -125,7 +125,7 @@ permalink: /
         </div>
         <div class="news-body">
           <h3 class="news-title">{{ item.title }}</h3>
-          <p class="news-excerpt">{{ item.content | strip_html | truncate: 160 }}</p>
+          <!-- <p class="news-excerpt">{{ item.content | strip_html | truncate: 160 }}</p> -->
           <a class="news-cta" href="{{ '/news/' | relative_url }}">Read more <i class="fas fa-arrow-right"></i></a>
         </div>
       </article>

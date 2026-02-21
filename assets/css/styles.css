@@ -1198,7 +1198,7 @@ a {
 .news-grid {
   display: grid;
   grid-auto-flow: column;
-  grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+  /* grid-template-rows: repeat(auto-fit, minmax(100px, 1fr)); */
   gap: 1.5rem;
 }
 .news-card {
