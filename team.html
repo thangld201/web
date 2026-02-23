@@ -28,6 +28,14 @@ permalink: /team/
           {% endif %}
           <p class="lead-role">{{ leader.role }}</p>
           <p class="lead-bio">{{ leader.bio }}</p>
+          {% if leader.keywords %}
+          <div class="member-keywords">
+            {% assign keyword_list = leader.keywords | split: ', ' %}
+            {% for keyword in keyword_list %}
+            <span class="keyword-tag">{{ keyword }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
           <div class="member-links">
             <a href="{{ leader.email }}" aria-label="Email {{ leader.name }}">
               <i class="fa-solid fa-envelope"></i>
@@ -84,6 +92,14 @@ permalink: /team/
             {% endif %}
             <p class="role">{{ member.role }}</p>
             <p class="member-bio">{{ member.bio }}</p>
+            {% if member.keywords %}
+            <div class="member-keywords">
+              {% assign keyword_list = member.keywords | split: ', ' %}
+              {% for keyword in keyword_list %}
+              <span class="keyword-tag">{{ keyword }}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
             <div class="member-links">
               <a href="{{ member.email }}" aria-label="Email {{ member.name }}">
                 <i class="fa-solid fa-envelope"></i>
@@ -122,7 +138,7 @@ permalink: /team/
     </div>
     {% endif %}
 
-    {% assign phd_students = site.data.team.members | where_exp: "m", "m.role contains 'PhD'" %}
+    {% assign phd_students = site.data.team.members | where_exp: "m", "m.role == 'PhD Student'" %}
     {% if phd_students and phd_students.size > 0 %}
     <div class="team-group reveal">
       <h2 class="group-title">PhD Students</h2>
@@ -142,6 +158,14 @@ permalink: /team/
             {% endif %}
             <p class="role">{{ member.role }}</p>
             <p class="member-bio">{{ member.bio }}</p>
+            {% if member.keywords %}
+            <div class="member-keywords">
+              {% assign keyword_list = member.keywords | split: ', ' %}
+              {% for keyword in keyword_list %}
+              <span class="keyword-tag">{{ keyword }}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
             <div class="member-links">
               <a href="{{ member.email }}" aria-label="Email {{ member.name }}">
                 <i class="fa-solid fa-envelope"></i>
@@ -202,6 +226,14 @@ permalink: /team/
             {% endif %}
             <p class="role">{{ member.role }}</p>
             <p class="member-bio">{{ member.bio }}</p>
+            {% if member.keywords %}
+            <div class="member-keywords">
+              {% assign keyword_list = member.keywords | split: ', ' %}
+              {% for keyword in keyword_list %}
+              <span class="keyword-tag">{{ keyword }}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
             <div class="member-links">
               <a href="{{ member.email }}" aria-label="Email {{ member.name }}">
                 <i class="fa-solid fa-envelope"></i>

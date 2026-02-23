@@ -731,6 +731,35 @@ a {
 
 
 
+/* Member keywords styling */
+.member-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  opacity: 1;
+}
+
+.keyword-tag {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  background: linear-gradient(135deg, #e8f4f8 0%, #f0f8ff 100%);
+  border: 1px solid rgba(10, 25, 47, 0.12);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.keyword-tag:hover {
+  background: linear-gradient(135deg, #d4e9f2 0%, #e1f0ff 100%);
+  border-color: rgba(10, 25, 47, 0.2);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
 /* Always show leader contact icons */
 .team-lead .member-links {
   opacity: 1;
@@ -754,6 +783,9 @@ a {
     margin: 0 auto;
   }
   .member-links {
+    justify-content: center;
+  }
+  .member-keywords {
     justify-content: center;
   }
 }

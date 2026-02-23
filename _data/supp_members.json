@@ -1,0 +1,128 @@
+[
+    {
+        "Full Name": "An Vo",
+        "Position in Lab": "Research Engineer",
+        "Research Summary": "An Vo obtained his MS from KAIST, where he received the Outstanding Thesis Award. He is broadly interested in foundation models, with a focus on making them more trustworthy and explainable. His work has been used and featured by industry labs (Google DeepMind, ByteDance, Cohere) and accepted at top-tier AI conferences (ICLR, ICML, AAAI, GECCO).",
+        "Research Keywords": "Trustworthy AI, Explainable AI",
+        "LinkedIn Profile": "https://www.linkedin.com/in/vokhanhan25/",
+        "x.com Profile": "https://x.com/an_vo12",
+        "GitHub Page": "https://anvo25.github.io/",
+        "Profile Photo": "https://drive.google.com/file/d/1mvToxCsYtGxbKYIDVGxlbwMGFuLCIqW_/view?usp=drive_link"
+    },
+    {
+        "Full Name": "Aseem Srivastava",
+        "Position in Lab": "Postdoctoral Researcher",
+        "Research Summary": "Aseem is a postdoctoral researcher working jointly with Prof. Thamar Solorio and Prof. Monojit Choudhury. He received his PhD from IIIT Delhi. His research focuses on how people interact in digital environments and using large language models to address social challenges related to digital health and cultural dynamics.",
+        "Research Keywords": "NLP, Well-being, Social Safety",
+        "LinkedIn Profile": "https://www.linkedin.com/in/as3eem/",
+        "x.com Profile": "https://x.com/as3eem",
+        "GitHub Page": "https://github.com/as3eem ",
+        "Profile Photo": "https://drive.google.com/file/d/1pSPEbbb9rWSsKYliR20OfY8Qi7MqXWiy/view?usp=drive_link"
+    },
+    {
+        "Full Name": "Thang Le",
+        "Position in Lab": "PhD Student",
+        "Research Summary": "Thang Le is a PhD student at MBZUAI. His research interests include multilingual information extraction and cross‑lingual transfer.",
+        "Research Keywords": "Multilingual-NLP, Information Extraction",
+        "Profile Photo": "https://drive.google.com/file/d/1OfkiyJPURi83Gw5ZgPTOOpVKvYZfBEth/view?usp=drive_link"
+    },
+    {
+        "Full Name": "Chieu Quang Nguyen",
+        "Position in Lab": "Master's Student",
+        "Research Summary": "My research interests include Multimodal AI, Uncertainty Quantification and Dialogue System",
+        "Research Keywords": "Multimodal AI, Uncertainty Quantification ",
+        "LinkedIn Profile": "https://www.linkedin.com/in/chieunq/",
+        "Profile Photo": "https://drive.google.com/file/d/14F-MMuBX_qXF3MwLflPlcQpjolAzLEAq/view?usp=drive_link"
+    },
+    {
+        "Full Name": "Helene Bøsei Olsen",
+        "Position in Lab": "Visiting PhD Student ",
+        "Research Summary": "Helene Bøsei Olsen is a visiting PhD student at MBZUAI from the University of Oslo. She holds a master's degree in Language Technology from the University of Oslo, and works on document-level event extraction for socio-political research. Her research interests include aligning NLP task formulations with real-world applications, abstractive event extraction, and generative models for structured information extraction.",
+        "Research Keywords": "event extraction, armed conflicts, abstractive information extraction ",
+        "LinkedIn Profile": "https://www.linkedin.com/in/helene-bøsei-olsen-317877173/?originalSubdomain=no",
+        "Profile Photo": "https://drive.google.com/file/d/1mr-I1pBxQEVQFU8nkmD23mii4himPx-y/view?usp=drive_link"
+    },
+    {
+        "Full Name": "Emilio Villa-Cueva",
+        "Position in Lab": "PhD Student",
+        "Research Summary": " My research focuses on building and evaluating socially intelligent AI systems in multimodal settings, with a particular emphasis on how audiovisual informaition can be processed to understand social dynamics.  I’m also interested in multilingual NLP, language adaptation of large language models, and few-shot learning. Prior to my PhD, I earned a master’s degree in Computer Science and a bachelor’s degree in Engineering Physics. I was also a visiting researcher at the LIT Lab at the University of Michigan.",
+        "Research Keywords": "Multimodal Social Intelligence, Social Intelligence, Vision-Language Models, Multimodal Understanding, Theory of Mind, Multilingual NLP ",
+        "LinkedIn Profile": "https://linkedin.com/in/emilio-villa-cueva ",
+        "x.com Profile": "https://twitter.com/evllcv",
+        "GitHub Page": "https://github.com/villacu ",
+        "Profile Photo": "https://drive.google.com/file/d/1NtsHbGVjyfJYkx_91ENtgSDd4rMGD-OY/view?usp=drive_link",
+        "Paper Title": "CaMMT: Benchmarking Culturally Aware Multimodal Machine Translation",
+        "Author List": "Emilio Villa-Cueva, Sholpan Bolatzhanova, Diana Turmakhan, Kareem Elzeky, Henok Biadglign Ademtew, Alham Fikri Aji, Israel Abebe Azime, Jinheon Baek, Frederico Belcavello, Fermin Cristobal, Jan Christian Blaise Cruz, Mary Dabre, Raj Dabre, Toqeer Ehsan, Naome A Etori, Fauzan Farooqui, Jiahui Geng, Guido Ivetta, Thanmay Jayakumar, Soyeong Jeong, Zheng Wei Lim, Aishik Mandal, Sofia Martinelli, Mihail Minkov Mihaylov, Daniil Orel, Aniket Pramanick, Sukannya Purkayastha, Israfel Salazar, Haiyue Song, Tiago Timponi Torrent, Debela Desalegn Yadeta, Injy Hamed, Atnafu Lambebo Tonja, Thamar Solorio ",
+        "Abstract": "Translating cultural content poses challenges for machine translation systems due to the differences in conceptualizations between cultures, where language alone may fail to convey sufficient context to capture region-specific meanings. In this work, we investigate whether images can act as cultural context in multimodal translation. We introduce CaMMT, a human-curated benchmark of over 5,800 triples of images along with parallel captions in English and regional languages. Using this dataset, we evaluate five Vision Language Models (VLMs) in text-only and text+image settings. Through automatic and human evaluations, we find that visual context generally improves translation quality, especially in handling Culturally-Specific Items (CSIs), disambiguation, and correct gender marking. By releasing CaMMT, our objective is to support broader efforts to build and evaluate multimodal translation systems that are better aligned with cultural nuance and regional variations. ",
+        "Paper URL": "https://arxiv.org/abs/2505.24456",
+        "Publication Venue ": "EMNLP 2025 (Findings)",
+        "Code URL ": "https://huggingface.co/datasets/villacu/cammt",
+        "Figure from Paper": "https://drive.google.com/file/d/1hVUMNPw9IYq06cz1YeVZd4l_NgPsMogg/view?usp=drive_link"
+    },
+    {
+        "Full Name": "Sholpan Bolatzhanova",
+        "Position in Lab": "Master's Student",
+        "Research Summary": "I am interested in Epistemic Reasoning in LLMs in multi-agent collaboration tasks under noisy and partially observable environments ",
+        "Research Keywords": "LLMs, MAS",
+        "LinkedIn Profile": "https://www.linkedin.com/in/sholpan-bolatzhanova/",
+        "x.com Profile": "https://x.com/shbolatzhanova ",
+        "Profile Photo": "https://drive.google.com/file/d/1Q01cSIkVjqePqakI3mGUuI-XxJoTKUP2/view?usp=drive_link"
+    },
+    {
+        "Full Name": "Kaushal Kumar Maurya",
+        "Position in Lab": "Research Scientist",
+        "Research Summary": "My research focuses on the development of language-based computational models and tools for social good, with an emphasis on multilingual NLP, responsible NLP, and AI/LLMs for education. ",
+        "Research Keywords": "Multilingual NLP, Responsible NLP and AI for Education",
+        "LinkedIn Profile": "https://www.linkedin.com/in/kaushal-kumar-maurya-73016773/",
+        "x.com Profile": "https://x.com/kaushalMaurya94",
+        "GitHub Page": "https://kaushal0494.github.io/ ",
+        "Profile Photo": "https://drive.google.com/file/d/1XKSicKWw3ctXPuKsimB67ElK_IZKBmUo/view?usp=drive_link"
+    },
+    {
+        "Full Name": "Rodolfo Corona",
+        "Position in Lab": "Visiting PhD Student",
+        "Research Summary": "Rodolfo is a PhD student at UC Berkeley working at the intersection of NLP and computer vision, with a focus on embodied language learning. In addition to his technical work, Rodolfo works on AI policy for the Global South.",
+        "Research Keywords": "NLP, Computer Vision, Policy",
+        "LinkedIn Profile": "https://www.linkedin.com/in/rodolfo-corona-rodriguez-819492161/",
+        "x.com Profile": "https://x.com/_rodolfocorona_",
+        "GitHub Page": "https://rcorona.github.io/",
+        "Profile Photo": "https://drive.google.com/file/d/14DN26IJqi21QzCdge826aJ2MX0b4XU5r/view?usp=drive_link"
+    },
+    {
+        "Full Name": "Fadel Thior",
+        "Position in Lab": "PhD Student",
+        "Research Summary": "My research interests are on code‑switched text and ASR, with an emphasis on data‑efficient training, and robust evaluation. I aim to build inclusive speech technologies that work reliably for underrepresented communities.",
+        "Research Keywords": "ASR, Low Resource, Code Switching ",
+        "LinkedIn Profile": "https://www.linkedin.com/in/fadel-thior-25a33b178/",
+        "x.com Profile": "https://x.com/TheRealMoFadel",
+        "GitHub Page": "https://github.com/mofadel",
+        "Profile Photo": "https://drive.google.com/file/d/10nHN9HnxA7ku4HbQ3arjZfIYAkfBXSlF/view?usp=drive_link"
+    },
+    {
+        "Full Name": "Kareem Elzeky",
+        "Position in Lab": "Master's Student",
+        "Research Summary": "I study interpretability in multilingual models to better understand how they behave across languages. I am also interested in multimodality, personalization, and agentic systems, with the goal of building more transparent and adaptive AI systems.",
+        "Research Keywords": "Interpretability,Personalization,Multimodality ",
+        "LinkedIn Profile": "https://www.linkedin.com/in/kareemelzeky/",
+        "GitHub Page": "https://github.com/Karimnagib1",
+        "Profile Photo": "https://drive.google.com/file/d/1TNk4gXUXtkl8wkh1ehbapezkfNFk4hsg/view?usp=drive_link"
+    },
+    {
+        "Full Name": "Mena Attia",
+        "Position in Lab": "Master's Student",
+        "Research Summary": "Mena is a second-year Master’s student in Natural Language Processing at MBZUAI. She holds a Bachelor’s degree in Computer Science from Cornell University. Her research focuses on Arabic NLP and cultural alignment in large language models, with a focus on figurative language. She investigates how LLMs understand and pragmatically use Arabic idioms and proverbs, and explores the broader relationship between figurative language and cultural knowledge, aiming to advance culturally grounded AI systems.",
+        "Research Keywords": "figurative language, LLMs, cultural alignment, Arabic NLP",
+        "LinkedIn Profile": "https://www.linkedin.com/in/mena-attia/",
+        "GitHub Page": "https://github.com/menaattia",
+        "Profile Photo": "https://drive.google.com/file/d/1s4NkbteBRfF2ni8FGfWSMcQxxGRkMgWG/view?usp=drive_link"
+    },
+    {
+        "Full Name": "Diana Turmakhan",
+        "Position in Lab": "Master's Student",
+        "Research Summary": " NLP researcher focused on robust LLM/VLM agents, multimodal reasoning and grounding, and evaluation in real-world and low-resource settings, with experience in multilingual NLP, embodied systems, and empirical benchmarking.",
+        "Research Keywords": "Multimodal Reasoning and Grounding, Low-Resource and Multilingual NLP, Embodied Systems",
+        "LinkedIn Profile": " https://www.linkedin.com/in/diana-turmakhan/",
+        "GitHub Page": " https://github.com/DianaTurmakhan",
+        "Profile Photo": "https://drive.google.com/file/d/1fPLJVZyTaI70FwTWCXkowrg86mRtuDe2/view?usp=sharing"
+    }
+]
