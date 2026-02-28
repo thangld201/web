@@ -15,8 +15,9 @@ permalink: /publications/
     <div class="pub-filters">
       <button class="filter-btn active" data-filter="selected">Selected</button>
       <button class="filter-btn" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="2025">2025</button>
-      <button class="filter-btn" data-filter="2024">2024</button>
+      {% for year_group in publications_by_year %}
+      <button class="filter-btn" data-filter="{{ year_group.name }}">{{ year_group.name }}</button>
+      {% endfor %}
     </div>
 
     {% for year_group in publications_by_year %}
@@ -27,7 +28,7 @@ permalink: /publications/
         <article class="pub-card" data-year="{{ pub.year }}" data-selected="{{ pub.selected }}" style="background-image: url('{{ pub.image }}');">
         <!-- <article class="pub-card" data-year="{{ pub.year }}"> -->
           <div class="pub-card-content">
-            <div class="pub-type-badge {{ pub.type }}">{{ pub.badge }}</div>
+            <div class="pub-type-badge {{ pub.type }} venue-{{ pub.badge | downcase | replace: ' ', '-' | replace: '/', '-' | replace: '.', '' | replace: '&', 'and' }}">{{ pub.badge }}</div>
             <h3 class="pub-title">{{ pub.title }}</h3>
             <p class="pub-authors">{{ pub.authors }}</p>
             <!-- <p class="pub-venue">{{ pub.venue }}</p> -->

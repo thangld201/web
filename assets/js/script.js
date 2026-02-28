@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const initPublicationFilter = () => {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const publicationCards = document.querySelectorAll('.pub-card');
+    const yearHeadings = document.querySelectorAll('.year-heading');
     
     const applyFilter = (filterValue) => {
       publicationCards.forEach(card => {
@@ -56,6 +57,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         
         card.style.display = shouldShow ? 'block' : 'none';
+      });
+      
+      // Show/hide year headings based on visible papers
+      yearHeadings.forEach(heading => {
+        const yearSection = heading.closest('.year-section');
+        const yearCards = yearSection.querySelectorAll('.pub-card');
+        const hasVisibleCards = Array.from(yearCards).some(card => card.style.display !== 'none');
+        heading.style.display = hasVisibleCards ? 'block' : 'none';
       });
     };
     

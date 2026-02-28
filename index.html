@@ -46,64 +46,43 @@ permalink: /
   </p>
 </section>
 
-<!-- Research areas section with images and alternating layout -->
+<!-- Research areas section with 3-column card grid -->
 <section class="areas">
   <div class="container">
     <h2 class="section-title">Our Research Areas</h2>
     <p class="section-subtitle">Pushing the boundaries of NLP through innovative, socially-aware research</p>
-  </div>
+    
+    <div class="research-grid">
+      <!-- Theme 1 -->
+      <div class="research-card reveal">
+        <div class="card-icon">
+          <i class="fas fa-language"></i>
+        </div>
+        <h3>Code-Switching and Multilingual NLP</h3>
+        <p>Building inclusive NLP through code-switching and multilingual research. Our research covers multiple sub-areas including <a href="https://aclanthology.org/2023.findings-acl.185/" class="paper-link" target="_blank" rel="noopener noreferrer">code-switching</a>, <a href="https://arxiv.org/pdf/2509.14161" class="paper-link" target="_blank" rel="noopener noreferrer">multilingual understanding</a> and <a href="https://aclanthology.org/2024.findings-acl.147/" class="paper-link" target="_blank" rel="noopener noreferrer">cross-lingual transfer</a>, especially on <a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Vayani_All_Languages_Matter_Evaluating_LMMs_on_Culturally_Diverse_100_Languages_CVPR_2025_paper.pdf" class="paper-link" target="_blank" rel="noopener noreferrer">under-represented languages</a>. 
+          
+          <!-- Our work includes code-switching surveys, <a href="https://arxiv.org/pdf/2509.14161" class="paper-link">multilingual datasets</a>, and <a href="https://arxiv.org/pdf/2406.05967" class="paper-link">culturally-aware benchmarks</a> spanning African, Pakistani, Arabic, and Southeast Asian languages.</p> -->
+      </div>
 
-  <div class="research-area reveal">
-    <!-- <div class="area-image" style="background-image: url('{{ '/images/research-vqa.jpg' | relative_url }}');"></div> -->
-    <div class="area-content">
-      <div class="area-icon"><i class="fas fa-eye"></i></div>
-      <h3>Visual Question Answering</h3>
-      <p>Building evaluation benchmarks and systems for culturally diverse visual question‑answering tasks. We focus on creating inclusive datasets that represent diverse perspectives and cultural contexts.</p>
-      <a href="#" class="area-link">Learn More <i class="fas fa-arrow-right"></i></a>
-    </div>
+      <!-- Theme 2 -->
+      <div class="research-card reveal">
+        <div class="card-icon">
+          <i class="fas fa-layer-group"></i>
+        </div>
+        <h3>Multimodal Learning and Benchmarking</h3>
+        <p>Developing multimodal systems that integrate vision, language, and other modalities for richer content understanding. Our research spans <a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Vayani_All_Languages_Matter_Evaluating_LMMs_on_Culturally_Diverse_100_Languages_CVPR_2025_paper.pdf" class="paper-link" target="_blank" rel="noopener noreferrer">vision-language models</a>, <a href="https://aclanthology.org/2024.findings-acl.555.pdf" class="paper-link" target="_blank" rel="noopener noreferrer">video understanding</a>, <a href="https://arxiv.org/pdf/2406.05967" class="paper-link" target="_blank" rel="noopener noreferrer">visual question answering</a>, <a href="https://aclanthology.org/2025.findings-emnlp.1230/" class="paper-link" target="_blank" rel="noopener noreferrer">theory of mind</a>, and constructing <a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Vayani_All_Languages_Matter_Evaluating_LMMs_on_Culturally_Diverse_100_Languages_CVPR_2025_paper.pdf" class="paper-link" target="_blank" rel="noopener noreferrer">comprehensive evaluation benchmarks</a>.</p>
+      </div>
 
-    <div class="area-content">
-      <div class="area-icon"><i class="fas fa-eye"></i></div>
-      <h3>Visual Question Answering</h3>
-      <p>Building evaluation benchmarks and systems for culturally diverse visual question‑answering tasks. We focus on creating inclusive datasets that represent diverse perspectives and cultural contexts.</p>
-      <a href="#" class="area-link">Learn More <i class="fas fa-arrow-right"></i></a>
-    </div>
-
-  </div>
-
-  <div class="research-area reverse reveal">
-    <div class="area-content">
-      <div class="area-icon"><i class="fas fa-language"></i></div>
-      <h3>Multilingual &amp; Code‑Switched NLP</h3>
-      <p>Developing NLP technology to support tasks involving multilingual and code‑switched data. Our work enables seamless communication across languages and linguistic boundaries.</p>
-      <a href="#" class="area-link">Learn More <i class="fas fa-arrow-right"></i></a>
-    </div>
-
-    <div class="area-content">
-      <div class="area-icon"><i class="fas fa-language"></i></div>
-      <h3>Multilingual &amp; Code‑Switched NLP</h3>
-      <p>Developing NLP technology to support tasks involving multilingual and code‑switched data. Our work enables seamless communication across languages and linguistic boundaries.</p>
-      <a href="#" class="area-link">Learn More <i class="fas fa-arrow-right"></i></a>
-    </div>
-
-  </div>
-
-  <div class="research-area reveal">
-    <div class="area-content">
-      <div class="area-icon"><i class="fas fa-layer-group"></i></div>
-      <h3>Multimodal Models</h3>
-      <p>Designing models that fuse information from multiple modalities for richer content understanding. We combine vision, language, and other signals to create more comprehensive AI systems.</p>
-      <a href="#" class="area-link">Learn More <i class="fas fa-arrow-right"></i></a>
-    </div>
-
-    <div class="area-content">
-      <div class="area-icon"><i class="fas fa-bolt"></i></div>
-      <h3>Low‑Resource &amp; Socially‑Aware NLP</h3>
-      <p>Advancing NLP methods for low‑resource settings and incorporating social intelligence into AI systems. We develop efficient models that work effectively with limited data while being sensitive to social contexts.</p>
-      <a href="#" class="area-link">Learn More <i class="fas fa-arrow-right"></i></a>
+      <!-- Theme 3 -->
+      <div class="research-card reveal">
+        <div class="card-icon">
+          <i class="fas fa-brain"></i>
+        </div>
+        <h3>Affective Computing and Content Analysis</h3>
+        <p>Understanding human expression and moderating online content through NLP and multimodal analysis. Our applications include <a href="https://aclanthology.org/2025.semeval-1.133/" class="paper-link" target="_blank" rel="noopener noreferrer">emotion recognition</a>, <a href="https://aclanthology.org/2024.lrec-main.1080/" class="paper-link" target="_blank" rel="noopener noreferrer">sentiment analysis</a>, <a href="https://arxiv.org/pdf/2505.22581" class="paper-link" target="_blank" rel="noopener noreferrer">misinformation detection</a>, <a href="https://aclanthology.org/2024.lrec-main.874" class="paper-link" target="_blank" rel="noopener noreferrer">content safety assessment</a>, and <a href="https://aclanthology.org/2024.lrec-main.805/" class="paper-link" target="_blank" rel="noopener noreferrer">narrative theme interpretation</a>.</p>
+      </div>
     </div>
   </div>
-
 </section>
 
 <!-- News section -->
@@ -113,7 +92,9 @@ permalink: /
       <div>
         <h2 class="section-title">Latest News</h2>
 
-        <a href="https://twitter.com/aclanthology?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <a href="https://twitter.com/thamar_solorio?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+        <!-- <a class="twitter-timeline" href="https://twitter.com/thamar_solorio?ref_src=twsrc%5Etfw">Tweets by thamar_solorio</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
         
       </div>
       <a class="news-link" href="{{ '/news/' | relative_url }}">View all news <i class="fas fa-arrow-right"></i></a>
