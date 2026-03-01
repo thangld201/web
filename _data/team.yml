@@ -12,7 +12,7 @@ members:
 
   - name: "Abhirama Subramanyam Penamakuri"
     role: "Postdoctoral Researcher"
-    bio: "Atnafu received his PhD in Computer Science from Instituto Politécnico Nacional, Mexico. His research interests include NLP for low‑resourced languages, multilingual language models, speech and multimodal NLP, and NLP for African languages."
+    bio: "Abhirama is a PMRF Ph.D. scholar in the Vision, Language and Learning Group (VL2G) led by Dr. Anand Mishra at IIT Jodhpur. His research focuses on developing open-source retrieval augmented generation (RAG) enabled large multimodal models (LMMs), specifically for knowledge-intensive question-answering tasks over multimodal data. These tasks include variants of visual question answering (VQA) and audio question answering (AQA), which require external knowledge reasoning."
     photo: "profile_imgs/Abhirama.jpeg"
     email: "mailto:subramanyam4572@gmail.com"
     linkedin: "https://www.linkedin.com/in/abhiram4572/"
