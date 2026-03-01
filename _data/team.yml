@@ -9,6 +9,17 @@ members:
     website: "leader" # links to the leader profile page
     scholar: "https://scholar.google.com/citations?user=Gmjwy-IAAAAJ&hl=en"
   
+
+  - name: "Abhirama Subramanyam Penamakuri"
+    role: "Postdoctoral Researcher"
+    bio: "Atnafu received his PhD in Computer Science from Instituto Politécnico Nacional, Mexico. His research interests include NLP for low‑resourced languages, multilingual language models, speech and multimodal NLP, and NLP for African languages."
+    photo: "profile_imgs/Abhirama.jpeg"
+    email: "mailto:subramanyam4572@gmail.com"
+    linkedin: "https://www.linkedin.com/in/abhiram4572/"
+    website: "https://abhiram4572.github.io/"
+    scholar: "https://scholar.google.com/citations?user=2VROQvcAAAAJ&hl=en"
+    github: "https://github.com/Abhiram4572/"
+
   # Postdoctoral researchers
   - name: "Atnafu Lambebo Tonja"
     role: "Postdoctoral Researcher"
@@ -18,7 +29,6 @@ members:
     linkedin: "https://www.linkedin.com/in/atnafu-lambebo-t-6b21a5184/"
     website: "https://atnafuatx.github.io/"
     scholar: "https://scholar.google.com/citations?user=rubyApkAAAAJ&hl=en"
-    github: "https://github.com/as3eem"
 
   - name: "Aseem Srivastava"
     role: "Postdoctoral Researcher"
