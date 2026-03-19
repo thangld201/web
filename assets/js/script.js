@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const initPublicationFilter = () => {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const publicationCards = document.querySelectorAll('.pub-card');
-    const yearHeadings = document.querySelectorAll('.year-heading');
+    const yearSections = document.querySelectorAll('.year-section');
     
     const applyFilter = (filterValue) => {
       publicationCards.forEach(card => {
@@ -59,12 +59,11 @@ document.addEventListener('DOMContentLoaded', function () {
         card.style.display = shouldShow ? 'block' : 'none';
       });
       
-      // Show/hide year headings based on visible papers
-      yearHeadings.forEach(heading => {
-        const yearSection = heading.closest('.year-section');
+      // Hide entire year sections with no visible papers to avoid large empty gaps.
+      yearSections.forEach(yearSection => {
         const yearCards = yearSection.querySelectorAll('.pub-card');
         const hasVisibleCards = Array.from(yearCards).some(card => card.style.display !== 'none');
-        heading.style.display = hasVisibleCards ? 'block' : 'none';
+        yearSection.style.display = hasVisibleCards ? 'block' : 'none';
       });
     };
     
@@ -87,6 +86,260 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   };
 
+  // Toggle long publication author lists.
+  const initPublicationAuthorToggles = () => {
+    const authorToggles = document.querySelectorAll('.pub-authors-toggle');
+    if (!authorToggles.length) return;
+
+    const expandAuthors = toggle => {
+        const wrapper = toggle.closest('.pub-authors-collapsible');
+        if (!wrapper) return;
+
+        const preview = wrapper.querySelector('.pub-authors-preview');
+        const full = wrapper.querySelector('.pub-authors-full');
+        if (!preview || !full) return;
+
+        preview.hidden = true;
+        full.hidden = false;
+        toggle.setAttribute('aria-expanded', 'true');
+        toggle.hidden = true;
+    };
+
+    authorToggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        expandAuthors(toggle);
+      });
+      toggle.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          expandAuthors(toggle);
+        }
+      });
+    });
+  };
+
+  // Keep team cards uniform in default state while allowing independent hover expansion.
+  const initTeamCardSizing = () => {
+    const teamGrids = document.querySelectorAll('.team-grid-simple');
+    if (!teamGrids.length) return;
+
+    teamGrids.forEach(grid => {
+      const cards = Array.from(grid.querySelectorAll('.member-card'));
+      if (!cards.length) return;
+
+      cards.forEach(card => {
+        card.style.minHeight = '';
+      });
+
+      const rows = [];
+      const rowTolerance = 2;
+
+      cards.forEach(card => {
+        const rowTop = card.offsetTop;
+        const existingRow = rows.find(row => Math.abs(row.top - rowTop) <= rowTolerance);
+        if (existingRow) {
+          existingRow.cards.push(card);
+        } else {
+          rows.push({ top: rowTop, cards: [card] });
+        }
+      });
+
+      rows.forEach(row => {
+        const tallestInRow = Math.max(...row.cards.map(card => card.offsetHeight));
+        row.cards.forEach(card => {
+          card.style.minHeight = `${tallestInRow}px`;
+        });
+      });
+    });
+  };
+
+  // Auto-rotate research area cards (max 3 visible on desktop).
+  const initResearchSlider = () => {
+    const slider = document.querySelector('.research-slider');
+    if (!slider) return;
+
+    const track = slider.querySelector('.research-slider-track');
+    const dotsContainer = slider.querySelector('.research-slider-dots');
+    if (!track) return;
+
+    const cards = Array.from(track.querySelectorAll('.research-card'));
+    if (cards.length <= 1) return;
+
+    let currentIndex = 0;
+    let visibleCount = 3;
+    let maxIndex = 0;
+    let timer = null;
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartOffset = 0;
+    let currentDragOffset = 0;
+    let movedDuringDrag = false;
+    let suppressClickUntil = 0;
+
+    const getVisibleCount = () => {
+      if (window.innerWidth <= 768) return 1;
+      if (window.innerWidth <= 1024) return 2;
+      return 3;
+    };
+
+    const renderDots = () => {
+      if (!dotsContainer) return;
+      dotsContainer.innerHTML = '';
+      const dotCount = Math.max(maxIndex + 1, 1);
+
+      for (let i = 0; i < dotCount; i += 1) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = `research-slider-dot${i === currentIndex ? ' active' : ''}`;
+        dot.setAttribute('aria-label', `Go to research slide ${i + 1}`);
+        dot.addEventListener('click', () => {
+          currentIndex = i;
+          applyPosition();
+          resetTimer();
+        });
+        dotsContainer.appendChild(dot);
+      }
+    };
+
+    const getStepWidth = () => {
+      const gap = parseFloat(window.getComputedStyle(track).gap || '0') || 0;
+      const cardWidth = cards[0].getBoundingClientRect().width;
+      return cardWidth + gap;
+    };
+
+    const clampOffset = offset => {
+      const maxOffset = maxIndex * getStepWidth();
+      if (offset < 0) return 0;
+      if (offset > maxOffset) return maxOffset;
+      return offset;
+    };
+
+    const applyPosition = () => {
+      if (!cards.length) return;
+      const offset = currentIndex * getStepWidth();
+      track.style.transform = `translateX(-${offset}px)`;
+
+      const dots = dotsContainer ? Array.from(dotsContainer.querySelectorAll('.research-slider-dot')) : [];
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+    };
+
+    const startDrag = clientX => {
+      if (maxIndex <= 0) return;
+      isDragging = true;
+      movedDuringDrag = false;
+      dragStartX = clientX;
+      dragStartOffset = currentIndex * getStepWidth();
+      currentDragOffset = dragStartOffset;
+      track.style.transition = 'none';
+      slider.classList.add('dragging');
+      stopTimer();
+    };
+
+    const moveDrag = clientX => {
+      if (!isDragging) return;
+      const deltaX = clientX - dragStartX;
+      if (Math.abs(deltaX) > 4) {
+        movedDuringDrag = true;
+      }
+      currentDragOffset = clampOffset(dragStartOffset - deltaX);
+      track.style.transform = `translateX(-${currentDragOffset}px)`;
+    };
+
+    const endDrag = () => {
+      if (!isDragging) return;
+      isDragging = false;
+      slider.classList.remove('dragging');
+      track.style.transition = '';
+
+      const step = getStepWidth();
+      if (step > 0) {
+        const snappedIndex = Math.round(currentDragOffset / step);
+        currentIndex = Math.max(0, Math.min(snappedIndex, maxIndex));
+      }
+      applyPosition();
+
+      if (movedDuringDrag) {
+        suppressClickUntil = Date.now() + 250;
+      }
+      startTimer();
+    };
+
+    const recalculate = () => {
+      visibleCount = getVisibleCount();
+      maxIndex = Math.max(cards.length - visibleCount, 0);
+
+      cards.forEach(card => {
+        card.style.minHeight = '';
+      });
+
+      const tallestCard = Math.max(...cards.map(card => card.offsetHeight));
+      cards.forEach(card => {
+        card.style.minHeight = `${tallestCard}px`;
+      });
+
+      if (currentIndex > maxIndex) {
+        currentIndex = 0;
+      }
+      renderDots();
+      applyPosition();
+    };
+
+    const next = () => {
+      if (maxIndex <= 0) return;
+      currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
+      applyPosition();
+    };
+
+    const startTimer = () => {
+      if (timer || maxIndex <= 0) return;
+      timer = window.setInterval(next, 3200);
+    };
+
+    const stopTimer = () => {
+      if (!timer) return;
+      window.clearInterval(timer);
+      timer = null;
+    };
+
+    const resetTimer = () => {
+      stopTimer();
+      startTimer();
+    };
+
+    recalculate();
+    startTimer();
+    window.addEventListener('resize', recalculate);
+    window.addEventListener('load', recalculate);
+    slider.addEventListener('mouseenter', stopTimer);
+    slider.addEventListener('mouseleave', startTimer);
+
+    slider.addEventListener('pointerdown', event => {
+      if (event.pointerType === 'mouse' && event.button !== 0) return;
+      startDrag(event.clientX);
+    });
+
+    window.addEventListener('pointermove', event => {
+      moveDrag(event.clientX);
+    });
+
+    window.addEventListener('pointerup', () => {
+      endDrag();
+    });
+
+    window.addEventListener('pointercancel', () => {
+      endDrag();
+    });
+
+    track.addEventListener('click', event => {
+      if (Date.now() < suppressClickUntil) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    }, true);
+  };
+
   /*
    * The Jekyll version of this site builds the team, publications and news lists at compile time using
    * Liquid and data files.  Therefore we don't fetch JSON here.  Instead we simply initialise the
@@ -97,7 +350,16 @@ document.addEventListener('DOMContentLoaded', function () {
   const pubSection = document.querySelector('.publications-section');
   if (pubSection) {
     initPublicationFilter();
+    initPublicationAuthorToggles();
   }
+
+  const teamSection = document.querySelector('.team-section');
+  if (teamSection) {
+    initTeamCardSizing();
+    window.addEventListener('resize', initTeamCardSizing);
+  }
+
+  initResearchSlider();
 
   // Initial reveal on page load for any static elements
   initReveal();

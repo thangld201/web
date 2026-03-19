@@ -72,7 +72,7 @@ permalink: /team/
     </div>
     {% endif %}
 
-    {% assign research_staff = site.data.team.members | where_exp: "m", "m.role != 'Professor of Natural Language Processing'" | where_exp: "m", "m.role != 'PhD Student'" | where_exp: "m", "m.role != 'MSc Student'" |  where_exp: "m", "m.role != 'Research Assistant'" %}
+    {% assign research_staff = site.data.team.members | where_exp: "m", "m.role != 'Professor of Natural Language Processing'" | where_exp: "m", "m.role != 'PhD Student'" | where_exp: "m", "m.role != 'MSc Student'" |  where_exp: "m", "m.role != 'Research Assistant'" | where_exp: "m", "m.alumni != true" %}
     {% if research_staff and research_staff.size > 0 %}
     <div class="team-group reveal">
       <h2 class="group-title">Research Staff</h2>
@@ -138,7 +138,7 @@ permalink: /team/
     </div>
     {% endif %}
 
-    {% assign phd_students = site.data.team.members | where_exp: "m", "m.role == 'PhD Student'" %}
+    {% assign phd_students = site.data.team.members | where_exp: "m", "m.role == 'PhD Student'" | where_exp: "m", "m.alumni != true" %}
     {% if phd_students and phd_students.size > 0 %}
     <div class="team-group reveal">
       <h2 class="group-title">PhD Students</h2>
@@ -207,6 +207,7 @@ permalink: /team/
     {% assign msc_students = site.data.team.members | where_exp: "m", "m.role contains 'MSc'" %}
     {% assign msc_students_master = site.data.team.members | where_exp: "m", "m.role contains 'Master'" %}
     {% assign msc_students = msc_students | concat: msc_students_master | uniq %}
+    {% assign msc_students = msc_students | where_exp: "m", "m.alumni != true" %}
     {% if msc_students and msc_students.size > 0 %}
     <div class="team-group reveal">
       <h2 class="group-title">Master's Students</h2>
@@ -273,11 +274,13 @@ permalink: /team/
     {% endif %}
 
     {% assign research_assistants = site.data.team.members | where_exp: "m", "m.role contains 'Research Assistant'" %}
-    {% if research_assistants and research_assistants.size > 0 %}
+    {% assign alumni_members = site.data.team.members | where_exp: "m", "m.alumni == true" %}
+    {% assign alumni_members = alumni_members | concat: research_assistants | uniq %}
+    {% if alumni_members and alumni_members.size > 0 %}
     <div class="team-group reveal">
       <h2 class="group-title">Alumni</h2>
       <div class="team-grid-simple">
-        {% for member in research_assistants %}
+        {% for member in alumni_members %}
         <article class="member-card">
           <img class="member-photo" src="{{ '/images/' | append: member.photo | relative_url }}" alt="{{ member.name }}">
           <div class="member-meta">
@@ -290,7 +293,7 @@ permalink: /team/
             {% else %}
             <h3>{{ member.name }}</h3>
             {% endif %}
-            <!-- <p class="role">{{ member.role }}</p> -->
+            <p class="role">{{ member.role }}</p>
             {% if member.timeline %}
             <p class="member-timeline">{{ member.timeline }}</p>
             {% endif %}

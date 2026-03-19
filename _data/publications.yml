@@ -22,11 +22,11 @@ publications:
 
   - title: "A Survey of Code-switched Arabic NLP: Progress, Challenges, and Future Directions"
     authors: "Injy Hamed, Caroline Sabty, Slim Abdennadher, Ngoc Thang Vu, Thamar Solorio, Nizar Habash"
-    venue: "arXiv preprint"
+    venue: "COLING"
     year: 2025
-    type: "preprint"
-    badge: "preprint"
-    selected: false
+    type: "conference"
+    badge: "COLING"
+    selected: true
     links:
       paper: "https://aclanthology.org/2025.coling-main.307/"
 
@@ -42,11 +42,11 @@ publications:
 
   - title: "CS-FLEURS: A Massively Multilingual and Code-Switched Speech Dataset"
     authors: "Brian Yan, Injy Hamed, Shuichiro Shimizu, Vasista Lodagala, William Chen, Olga Iakovenko, Bashar Talafha, Amir Hussein, Alexander Polok, Kalvin Chang, Dominik Klement, Sara Althubaiti, Puyuan Peng, Matthew Wiesner, Thamar Solorio, Ahmed Ali, Sanjeev Khudanpur, Shinji Watanabe, Chih-Chen Chen, Zhen Wu, Karim Benharrak, Anuj Diwan, Samuele Cornell, Eunjung Yeo, Kwanghee Choi, Carlos Carvalho, Karen Rosero"
-    venue: "arXiv preprint"
+    venue: "INTERSPEECH"
     year: 2025
-    type: "preprint"
-    badge: "preprint"
-    selected: false
+    type: "conference"
+    badge: "INTERSPEECH"
+    selected: true
     links:
       paper: "https://arxiv.org/pdf/2509.14161"
 
@@ -55,7 +55,7 @@ publications:
     venue: "Findings of the Association for Computational Linguistics: EMNLP"
     year: 2025
     type: "conference"
-    badge: "EMNLP"
+    badge: "EMNLP Findings"
     selected: true
     links:
       paper: "https://aclanthology.org/2025.findings-emnlp.1220/"
@@ -65,7 +65,7 @@ publications:
     venue: "Findings of the Association for Computational Linguistics: EMNLP"
     year: 2025
     type: "conference"
-    badge: "EMNLP"
+    badge: "EMNLP Findings"
     selected: true
     links:
       paper: "https://aclanthology.org/2025.findings-emnlp.1230/"
@@ -82,16 +82,17 @@ publications:
 
   - title: "Tell me Habibi, is it Real or Fake?"
     authors: "Kartik Kuckreja, Parul Gupta, Injy Hamed, Thamar Solorio, Muhammad Haris Khan, Abhinav Dhall"
-    venue: "arXiv preprint"
-    year: 2025
-    type: "preprint"
-    badge: "preprint"
-    selected: false
+    venue: "ICLR"
+    year: 2026
+    type: "conference"
+    badge: "ICLR"
+    selected: true
     links:
-      paper: "https://arxiv.org/pdf/2505.22581"
+      paper: "https://openreview.net/pdf?id=EbrPXZTVJ9"
+      
 
   - title: "Cvqa: Culturally-diverse multilingual visual question answering benchmark"
-    authors: "David Romero, Chenyang Lyu, et al., Thamar Solorio, and Alham Fikri Aji"
+    authors: "David Orlando Romero Mogrovejo, Chenyang Lyu, Haryo Akbarianto Wibowo, Santiago Góngora, Aishik Mandal, Sukannya Purkayastha, Jesus-German Ortiz-Barajas, Emilio Villa Cueva, Jinheon Baek, Soyeong Jeong, Injy Hamed, Zheng Xin Yong, Zheng Wei Lim, Paula Mónica Silva, Jocelyn Dunstan, Mélanie Jouitteau, David LE MEUR, Joan Nwatu, Ganzorig Batnasan, Munkh-Erdene Otgonbold, Munkhjargal Gochoo, Guido Ivetta, Luciana Benotti, Laura Alonso Alemany, Hernán Maina, Jiahui Geng, Tiago Timponi Torrent, Frederico Belcavello, Marcelo Viridiano, Jan Christian Blaise Cruz, Dan John Velasco, Oana Ignat, Zara Burzo, Chenxi Whitehouse, Artem Abzaliev, Teresa Clifford, Gráinne Caulfield, Teresa Lynn, Christian Salamea-Palacios, Vladimir Araujo, Yova Kementchedjhieva, Mihail Minkov Mihaylov, Israel Abebe Azime, Henok Biadglign Ademtew, Bontu Fufa Balcha, Naome A Etori, David Ifeoluwa Adelani, Rada Mihalcea, Atnafu Lambebo Tonja, Maria Camila Buitrago Cabrera, Gisela Vallejo, Holy Lovenia, Ruochen Zhang, Marcos Estecha-Garitagoitia, Mario Rodríguez-Cantelar, Toqeer Ehsan, Rendi Chevi, Muhammad Farid Adilazuarda, Ryandito Diandaru, Samuel Cahyawijaya, Fajri Koto, Tatsuki Kuribayashi, Haiyue Song, Aditya Nanda Kishore Khandavally, Thanmay Jayakumar, Raj Dabre, Mohamed Fazli Mohamed Imam, Kumaranage Ravindu Yasas Nagasinghe, Alina Dragonetti, Luis Fernando D'Haro, Olivier NIYOMUGISHA, Jay Gala, Pranjal A Chitale, Fauzan Farooqui, Thamar Solorio, Alham Fikri Aji"
     venue: "Neural Information Processing Systems (NeurIPS)"
     year: 2024
     type: "conference"
@@ -105,27 +106,27 @@ publications:
     venue: "Findings of the Association for Computational Linguistics: ACL"
     year: 2024
     type: "conference"
-    badge: "ACL"
+    badge: "ACL Findings"
     selected: true
     links:
       paper: "https://aclanthology.org/2024.findings-acl.555.pdf"
 
   - title: "Adaptive Cross-lingual Text Classification through In-Context One-Shot Demonstrations"
     authors: "Emilio Cueva, Adrian Lopez Monroy, Fernando Sánchez-Vega, Thamar Solorio"
-    venue: "Findings of the Association for Computational Linguistics: ACL"
+    venue: "Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT)"
     year: 2024
     type: "conference"
-    badge: "ACL"
+    badge: "NAACL"
     selected: true
     links:
       paper: "https://aclanthology.org/2024.naacl-long.460/"
 
   - title: "SemRel2024: A Collection of Semantic Textual Relatedness Datasets for 13 Languages"
-    authors: "Nedjma Ousidhoum et al., Thamar Solorio"
+    authors: "Nedjma Ousidhoum, Shamsuddeen Muhammad, Mohamed Abdalla, Idris Abdulmumin, Ibrahim Ahmad, Sanchit Ahuja, Alham Aji, Vladimir Araujo, Abinew Ayele, Pavan Baswani, Meriem Beloucif, Chris Biemann, Sofia Bourhim, Christine Kock, Genet Dekebo, Oumaima Hourrane, Gopichand Kanumolu, Lokesh Madasu, Samuel Rutunda, Manish Shrivastava, Thamar Solorio, Nirmal Surange, Hailegnaw Tilaye, Krishnapriya Vishnubhotla, Genta Winata, Seid Yimam, Saif Mohammad"
     venue: "Findings of the Association for Computational Linguistics: ACL"
     year: 2024
     type: "conference"
-    badge: "ACL"
+    badge: "ACL Findings"
     selected: true
     links:
       paper: "https://aclanthology.org/2024.findings-acl.147/"
@@ -185,7 +186,7 @@ publications:
     venue: "Findings of the Association for Computational Linguistics: ACL"
     year: 2023
     type: "conference"
-    badge: "ACL"
+    badge: "ACL Findings"
     selected: true
     links:
       paper: "https://aclanthology.org/2023.findings-acl.185/"
@@ -205,7 +206,7 @@ publications:
     venue: "Findings of the Association for Computational Linguistics: EACL"
     year: 2023
     type: "conference"
-    badge: "EACL"
+    badge: "EACL Findings"
     selected: true
     links:
       paper: "https://aclanthology.org/2023.findings-eacl.192/"

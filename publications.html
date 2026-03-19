@@ -12,6 +12,8 @@ permalink: /publications/
 <section class="publications-section">
   <div class="container">
     {% assign publications_by_year = site.data.publications.publications | group_by: 'year' | sort: 'name' | reverse %}
+    {% assign all_lab_members = site.data.team.members %}
+    {% assign author_aliases = site.data.author_aliases.aliases %}
     <div class="pub-filters">
       <button class="filter-btn active" data-filter="selected">Selected</button>
       <button class="filter-btn" data-filter="all">All</button>
@@ -28,9 +30,47 @@ permalink: /publications/
         <article class="pub-card" data-year="{{ pub.year }}" data-selected="{{ pub.selected }}" style="background-image: url('{{ pub.image }}');">
         <!-- <article class="pub-card" data-year="{{ pub.year }}"> -->
           <div class="pub-card-content">
+            {% assign author_list = pub.authors | split: ', ' %}
+            {% assign author_count = author_list.size %}
+            {% capture short_authors_raw %}
+              {% for author in author_list limit: 6 %}
+                {% unless forloop.first %}, {% endunless %}{{ author }}
+              {% endfor %}
+            {% endcapture %}
+            {% assign highlighted_authors = pub.authors %}
+            {% assign highlighted_short_authors = short_authors_raw | strip %}
+            {% for alias in author_aliases %}
+              {% assign alias_member_is_active = false %}
+              {% for member in all_lab_members %}
+                {% if member.name == alias.member %}
+                  {% assign alias_member_is_active = true %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+              {% if alias_member_is_active %}
+                {% capture bold_alias_name %}<strong>{{ alias.alias }}</strong>{% endcapture %}
+                {% assign highlighted_authors = highlighted_authors | replace: alias.alias, bold_alias_name %}
+                {% assign highlighted_short_authors = highlighted_short_authors | replace: alias.alias, bold_alias_name %}
+              {% endif %}
+            {% endfor %}
+            {% for member in all_lab_members %}
+              {% if member.name and member.name != 'Placeholder' %}
+                {% capture bold_member_name %}<strong>{{ member.name }}</strong>{% endcapture %}
+                {% assign highlighted_authors = highlighted_authors | replace: member.name, bold_member_name %}
+                {% assign highlighted_short_authors = highlighted_short_authors | replace: member.name, bold_member_name %}
+              {% endif %}
+            {% endfor %}
             <div class="pub-type-badge {{ pub.type }} venue-{{ pub.badge | downcase | replace: ' ', '-' | replace: '/', '-' | replace: '.', '' | replace: '&', 'and' }}">{{ pub.badge }}</div>
             <h3 class="pub-title">{{ pub.title }}</h3>
-            <p class="pub-authors">{{ pub.authors }}</p>
+            {% if author_count >= 7 %}
+            <p class="pub-authors pub-authors-collapsible">
+              <span class="pub-authors-preview">{{ highlighted_short_authors }}, et al.</span>
+              <span class="pub-authors-full" hidden>{{ highlighted_authors }}</span>
+              <span class="pub-authors-toggle" role="button" tabindex="0" aria-expanded="false">Show all authors</span>
+            </p>
+            {% else %}
+            <p class="pub-authors">{{ highlighted_authors }}</p>
+            {% endif %}
             <!-- <p class="pub-venue">{{ pub.venue }}</p> -->
             <div class="pub-links">
               {% if pub.links.paper and pub.links.paper != "#" %}
