@@ -16,7 +16,7 @@ publications:
     year: 2026
     type: "conference"
     badge: "EACL"
-    selected: false
+    selected: true
     links:
       paper: "https://arxiv.org/pdf/2510.23828"
 
