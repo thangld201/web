@@ -9,6 +9,7 @@ publications:
     selected: false
     links:
       paper: "https://arxiv.org/pdf/2601.05699"
+      dataset: "https://huggingface.co/datasets/Atnafu/Afri-MCQA"
 
   - title: "Beyond Understanding: Evaluating the Pragmatic Gap in LLMs' Cultural Processing of Figurative Language"
     authors: "Mena Attia, Aashiq Muhamed, Mai Alkhamissi, Thamar Solorio, Mona Diab"
@@ -19,6 +20,8 @@ publications:
     selected: true
     links:
       paper: "https://arxiv.org/pdf/2510.23828"
+      code: "https://github.com/menaattia/llm-figurative-understanding"
+      dataset: "https://huggingface.co/datasets/menaattia/Kinayat"
 
   - title: "A Survey of Code-switched Arabic NLP: Progress, Challenges, and Future Directions"
     authors: "Injy Hamed, Caroline Sabty, Slim Abdennadher, Ngoc Thang Vu, Thamar Solorio, Nizar Habash"
@@ -39,6 +42,8 @@ publications:
     selected: true
     links:
       paper: "https://openaccess.thecvf.com/content/CVPR2025/papers/Vayani_All_Languages_Matter_Evaluating_LMMs_on_Culturally_Diverse_100_Languages_CVPR_2025_paper.pdf"
+      code: "https://github.com/mbzuai-oryx/ALM-Bench"
+      dataset: "https://huggingface.co/datasets/MBZUAI/ALM-Bench"
 
   - title: "CS-FLEURS: A Massively Multilingual and Code-Switched Speech Dataset"
     authors: "Brian Yan, Injy Hamed, Shuichiro Shimizu, Vasista Lodagala, William Chen, Olga Iakovenko, Bashar Talafha, Amir Hussein, Alexander Polok, Kalvin Chang, Dominik Klement, Sara Althubaiti, Puyuan Peng, Matthew Wiesner, Thamar Solorio, Ahmed Ali, Sanjeev Khudanpur, Shinji Watanabe, Chih-Chen Chen, Zhen Wu, Karim Benharrak, Anuj Diwan, Samuele Cornell, Eunjung Yeo, Kwanghee Choi, Carlos Carvalho, Karen Rosero"
@@ -49,6 +54,7 @@ publications:
     selected: true
     links:
       paper: "https://arxiv.org/pdf/2509.14161"
+      dataset: "https://huggingface.co/datasets/byan/cs-fleurs"
 
   - title: "CaMMT: Benchmarking Culturally Aware Multimodal Machine Translation"
     authors: "Emilio Villa-Cueva, Sholpan Bolatzhanova, Diana Turmakhan, Kareem Elzeky, Henok Biadglign Ademtew, Alham Fikri Aji, Vladimir Araujo, Israel Abebe Azime, Jinheon Baek, Frederico Belcavello, Fermin Cristobal, Jan Christian Blaise Cruz, Mary Dabre, Raj Dabre, Toqeer Ehsan, Naome A Etori, Fauzan Farooqui, Jiahui Geng, Guido Ivetta, Thanmay Jayakumar, Soyeong Jeong, Zheng Wei Lim, Aishik Mandal, Sofía Martinelli, Mihail Minkov Mihaylov, Daniil Orel, Aniket Pramanick, Sukannya Purkayastha, Israfel Salazar, Haiyue Song, Tiago Timponi Torrent, Debela Desalegn Yadeta, Injy Hamed, Atnafu Lambebo Tonja, Thamar Solorio"
@@ -59,6 +65,7 @@ publications:
     selected: true
     links:
       paper: "https://aclanthology.org/2025.findings-emnlp.1220/"
+      dataset: "https://huggingface.co/datasets/villacu/cammt"
 
   - title: "MoMentS: A Comprehensive Multimodal Benchmark for Theory of Mind"
     authors: "Emilio Villa-Cueva, S M Masrur Ahmed, Rendi Chevi, Jan Christian Blaise Cruz, Kareem Elzeky, Fermin Cristobal, Alham Fikri Aji, Skyler Wang, Rada Mihalcea, Thamar Solorio"
@@ -69,6 +76,7 @@ publications:
     selected: true
     links:
       paper: "https://aclanthology.org/2025.findings-emnlp.1230/"
+      dataset: "https://github.com/villacu/MoMentS"
 
   - title: "Emotion Train at SemEval-2025 Task 11: Comparing Generative and Discriminative Models in Emotion Recognition"
     authors: "Anastasiia Demidova, Injy Hamed, Teresa Lynn, Thamar Solorio"
@@ -79,6 +87,7 @@ publications:
     selected: false
     links:
       paper: "https://aclanthology.org/2025.semeval-1.133/"
+      code: "https://github.com/profii/semeval25_task11"
 
   - title: "Tell me Habibi, is it Real or Fake?"
     authors: "Kartik Kuckreja, Parul Gupta, Injy Hamed, Thamar Solorio, Muhammad Haris Khan, Abhinav Dhall"
@@ -89,6 +98,7 @@ publications:
     selected: true
     links:
       paper: "https://openreview.net/pdf?id=EbrPXZTVJ9"
+      dataset: "https://huggingface.co/datasets/kartik060702/ArEnAV-Full"
       
 
   - title: "Cvqa: Culturally-diverse multilingual visual question answering benchmark"
@@ -100,6 +110,7 @@ publications:
     selected: true
     links:
       paper: "https://arxiv.org/pdf/2406.05967"
+      dataset: "https://huggingface.co/datasets/afaji/cvqa"
 
   - title: "Question-Instructed Visual Descriptions for Zero-Shot Video Answering"
     authors: "David Mogrovejo, Thamar Solorio"
@@ -110,6 +121,7 @@ publications:
     selected: true
     links:
       paper: "https://aclanthology.org/2024.findings-acl.555.pdf"
+      code: "https://github.com/Daromog/Q-ViD"
 
   - title: "Adaptive Cross-lingual Text Classification through In-Context One-Shot Demonstrations"
     authors: "Emilio Cueva, Adrian Lopez Monroy, Fernando Sánchez-Vega, Thamar Solorio"
@@ -120,6 +132,7 @@ publications:
     selected: true
     links:
       paper: "https://aclanthology.org/2024.naacl-long.460/"
+      code: "https://github.com/villacu/ic_xlt"
 
   - title: "SemRel2024: A Collection of Semantic Textual Relatedness Datasets for 13 Languages"
     authors: "Nedjma Ousidhoum, Shamsuddeen Muhammad, Mohamed Abdalla, Idris Abdulmumin, Ibrahim Ahmad, Sanchit Ahuja, Alham Aji, Vladimir Araujo, Abinew Ayele, Pavan Baswani, Meriem Beloucif, Chris Biemann, Sofia Bourhim, Christine Kock, Genet Dekebo, Oumaima Hourrane, Gopichand Kanumolu, Lokesh Madasu, Samuel Rutunda, Manish Shrivastava, Thamar Solorio, Nirmal Surange, Hailegnaw Tilaye, Krishnapriya Vishnubhotla, Genta Winata, Seid Yimam, Saif Mohammad"
@@ -130,6 +143,8 @@ publications:
     selected: true
     links:
       paper: "https://aclanthology.org/2024.findings-acl.147/"
+      code: "https://github.com/semantic-textual-relatedness/Semantic_Relatedness_SemEval2024#citing-this-work"
+      dataset: "https://github.com/semantic-textual-relatedness/Semantic_Relatedness_SemEval2024#citing-this-work"
 
   - title: "Labeling Comic Mischief Content in Online Videos with a Multimodal Hierarchical-Cross-Attention Model"
     authors: "Elaheh Baharlouei, Mahsa Shafaei, Yigeng Zhang, Hugo Jair Escalante, Thamar Solorio"
@@ -140,6 +155,7 @@ publications:
     selected: false
     links:
       paper: "https://aclanthology.org/2024.lrec-main.874/"
+      code: "https://github.com/RiTUAL-MBZUAI/Comic-Mischief-Prediction"
 
   - title: "OATS: A Challenge Dataset for Opinion Aspect Target Sentiment Joint Detection"
     authors: "Siva Uday Sampreeth Chebolu, Franck Dernoncourt, Nedim Lipka, Thamar Solorio"
@@ -150,6 +166,7 @@ publications:
     selected: false
     links:
       paper: "https://aclanthology.org/2024.lrec-main.1080/"
+      code: "https://github.com/RiTUAL-MBZUAI/OATS-ABSA"
 
   - title: "Positive and Risky Message Assessment for Music Products"
     authors: "Yigeng Zhang, Mahsa Shafaei, Fabio Gonzalez, Thamar Solorio"
@@ -160,6 +177,7 @@ publications:
     selected: false
     links:
       paper: "https://aclanthology.org/2024.lrec-main.1129/"
+      code: "https://github.com/RiTUAL-MBZUAI/music-message-assessment"
 
   - title: "Interpreting Themes from Educational Stories"
     authors: "Yigeng Zhang, Fabio Gonzalez, Thamar Solorio"
@@ -170,6 +188,7 @@ publications:
     selected: false
     links:
       paper: "https://aclanthology.org/2024.lrec-main.805/"
+      code: "https://github.com/RiTUAL-MBZUAI/EduStory"
 
   - title: "Enhancing NER Performance in Low-Resource Pakistani Languages using Cross-Lingual Data Augmentation"
     authors: "Toqeer Ehsan, Thamar Solorio"
@@ -190,6 +209,7 @@ publications:
     selected: true
     links:
       paper: "https://aclanthology.org/2023.findings-acl.185/"
+      code: "https://github.com/gentaiscool/code-switching-papers"
 
   - title: "Prompting multilingual large language models to generate code-mixed texts: The case of south East Asian languages"
     authors: "Zheng-Xin Yong, Ruochen Zhang, Jessica Forde, Skyler Wang, Arjun Subramonian, Holy Lovenia, Samuel Cahyawijaya, Genta Indra Winata, Lintang Sutawika, Jan Christian Blaise Cruz, Yin Lin Tan, Long Phan, Rowena Garcia, Thamar Solorio, Alham Fikri Aji"

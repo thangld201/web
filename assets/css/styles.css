@@ -1036,6 +1036,64 @@ a {
   opacity: 1;
 }
 
+/* Dataset cards on resources page */
+.dataset-card {
+  border-color: rgba(29, 78, 216, 0.24);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+}
+
+.dataset-card::before {
+  opacity: 1;
+  width: 6px;
+  background: linear-gradient(180deg, #2563eb, #06b6d4);
+}
+
+.dataset-card::after {
+  background:
+    linear-gradient(rgba(245, 250, 255, 0.92), rgba(245, 250, 255, 0.92)),
+    repeating-linear-gradient(
+      90deg,
+      rgba(37, 99, 235, 0.06) 0,
+      rgba(37, 99, 235, 0.06) 1px,
+      transparent 1px,
+      transparent 18px
+    );
+}
+
+.dataset-card:hover {
+  border-color: rgba(37, 99, 235, 0.42);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.16);
+}
+
+/* Software cards on resources page */
+.software-card {
+  border-color: rgba(234, 88, 12, 0.24);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+}
+
+.software-card::before {
+  opacity: 1;
+  width: 6px;
+  background: linear-gradient(180deg, #ea580c, #fb923c);
+}
+
+.software-card::after {
+  background:
+    linear-gradient(rgba(255, 248, 242, 0.92), rgba(255, 248, 242, 0.92)),
+    repeating-linear-gradient(
+      135deg,
+      rgba(234, 88, 12, 0.055) 0,
+      rgba(234, 88, 12, 0.055) 2px,
+      transparent 2px,
+      transparent 16px
+    );
+}
+
+.software-card:hover {
+  border-color: rgba(234, 88, 12, 0.42);
+  box-shadow: 0 12px 28px rgba(234, 88, 12, 0.16);
+}
+
 /* Publication type badge */
 .pub-type-badge {
   display: inline-block;
@@ -1159,6 +1217,7 @@ a {
 .pub-links {
   display: flex;
   gap: 0.8rem;
+  flex-wrap: wrap;
   margin-top: 1rem;
 }
 
@@ -1172,6 +1231,7 @@ a {
   border-radius: 6px;
   font-size: 0.85rem;
   font-weight: 600;
+  line-height: 1.2;
   transition: all 0.3s ease;
 }
 

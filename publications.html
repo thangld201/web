@@ -73,11 +73,20 @@ permalink: /publications/
             {% endif %}
             <!-- <p class="pub-venue">{{ pub.venue }}</p> -->
             <div class="pub-links">
-              {% if pub.links.paper and pub.links.paper != "#" %}
+              {% if pub.links.paper and pub.links.paper != "#" and pub.links.paper != "" %}
               <a href="{{ pub.links.paper }}" class="pub-link-btn paper-btn" target="_blank">Paper</a>
               {% endif %}
-              {% if pub.links.code and pub.links.code != "#" %}
+              {% if pub.links.code and pub.links.code != "#" and pub.links.code != "" %}
               <a href="{{ pub.links.code }}" class="pub-link-btn code-btn" target="_blank">Code</a>
+              {% endif %}
+              {% if pub.links.dataset and pub.links.dataset != "#" and pub.links.dataset != "" %}
+              <a href="{{ pub.links.dataset }}" class="pub-link-btn dataset-btn" target="_blank">Dataset</a>
+              {% endif %}
+              {% if pub.links.video and pub.links.video != "#" and pub.links.video != "" %}
+              <a href="{{ pub.links.video }}" class="pub-link-btn video-btn" target="_blank">Video</a>
+              {% endif %}
+              {% if pub.links.demo and pub.links.demo != "#" and pub.links.demo != "" %}
+              <a href="{{ pub.links.demo }}" class="pub-link-btn demo-btn" target="_blank">Demo</a>
               {% endif %}
             </div>
           </div>

@@ -10,22 +10,23 @@ permalink: /resources/
 
 <section class="join-simple container">
   <div class="publications-list join-position-list">
-    {% assign datasets = site.data.resources.publications | where_exp: "item", "item.type == 'dataset'" %}
-    {% for resource in datasets %}
-    <article class="pub-card" style="background-image: url('{{ resource.image }}');">
+    {% assign publications = site.data.publications.publications | sort: 'year' | reverse %}
+    {% for resource in publications %}
+    {% if resource.links and resource.links.dataset and resource.links.dataset != "#" and resource.links.dataset != "" %}
+    <article class="pub-card dataset-card" style="background-image: url('{{ resource.image }}');">
       <div class="pub-card-content">
         <h3 class="pub-title">{{ resource.title }}</h3>
-        <p class="pub-authors">{{ resource.description }}</p>
         <div class="pub-links" style="margin-top: 1rem;">
-          {% if resource.links.report and resource.links.report != "#" %}
-          <a href="{{ resource.links.report }}" class="pub-link-btn" target="_blank">Report</a>
+          {% if resource.links.paper and resource.links.paper != "#" and resource.links.paper != "" %}
+          <a href="{{ resource.links.paper }}" class="pub-link-btn" target="_blank">Paper</a>
           {% endif %}
-          {% if resource.links.source and resource.links.source != "#" %}
-          <a href="{{ resource.links.source }}" class="pub-link-btn" target="_blank">Sources</a>
+          {% if resource.links.dataset and resource.links.dataset != "#" and resource.links.dataset != "" %}
+          <a href="{{ resource.links.dataset }}" class="pub-link-btn" target="_blank">Dataset</a>
           {% endif %}
         </div>
       </div>
     </article>
+    {% endif %}
     {% endfor %}
   </div>
 </section>
@@ -38,7 +39,7 @@ permalink: /resources/
   <div class="publications-list join-position-list">
     {% assign softwares = site.data.resources.publications | where_exp: "item", "item.type == 'software'" %}
     {% for resource in softwares %}
-    <article class="pub-card" style="background-image: url('{{ resource.image }}');">
+    <article class="pub-card software-card" style="background-image: url('{{ resource.image }}');">
       <div class="pub-card-content">
         <h3 class="pub-title">{{ resource.title }}</h3>
         <p class="pub-authors">{{ resource.description }}</p>
@@ -48,7 +49,8 @@ permalink: /resources/
           {% endif %}
           {% if resource.links.source and resource.links.source != "#" %}
           <a href="{{ resource.links.source }}" class="pub-link-btn" target="_blank">Sources</a>
-        {% endif %}
+          {% endif %}
+        </div>
       </div>
     </article>
     {% endfor %}
