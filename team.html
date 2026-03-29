@@ -13,7 +13,7 @@ permalink: /team/
     {% assign leader = site.data.team.members | where_exp: "m", "m.role contains 'Professor'" | first %}
     {% if leader %}
     <div class="team-group reveal">
-      <h2 class="group-title">Group Lead</h2>
+      <h2 class="group-title">Principal Investigator</h2>
       <div class="team-lead">
         <img class="lead-photo" src="{{ '/images/' | append: leader.photo | relative_url }}" alt="{{ leader.name }}">
         <div class="lead-info">

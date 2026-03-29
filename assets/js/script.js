@@ -1,39 +1,65 @@
 // Simple script to handle mobile navigation toggle
 document.addEventListener('DOMContentLoaded', function () {
+  // Use rAF-throttled callbacks for resize/scroll events to reduce layout thrashing.
+  const rafThrottle = callback => {
+    let scheduled = false;
+    return (...args) => {
+      if (scheduled) return;
+      scheduled = true;
+      window.requestAnimationFrame(() => {
+        scheduled = false;
+        callback(...args);
+      });
+    };
+  };
+
   const navToggle = document.getElementById('navToggle');
   const menu = document.getElementById('menu');
+  const mobileBreakpoint = 768;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   // Mobile navigation toggle
   if (navToggle && menu) {
+    const closeMenu = () => {
+      menu.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    };
+
+    const isMobileViewport = () => window.innerWidth <= mobileBreakpoint;
+
+    navToggle.setAttribute('aria-expanded', 'false');
+
     navToggle.addEventListener('click', function () {
-      menu.classList.toggle('open');
+      const nextState = !menu.classList.contains('open');
+      menu.classList.toggle('open', nextState);
+      navToggle.setAttribute('aria-expanded', String(nextState));
     });
+
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (isMobileViewport()) {
+          closeMenu();
+        }
+      });
+    });
+
+    document.addEventListener('click', event => {
+      if (!isMobileViewport()) return;
+      if (!menu.classList.contains('open')) return;
+      if (menu.contains(event.target) || navToggle.contains(event.target)) return;
+      closeMenu();
+    });
+
+    window.addEventListener('resize', rafThrottle(() => {
+      if (!isMobileViewport()) {
+        closeMenu();
+      }
+    }));
   }
 
-  // IntersectionObserver for reveal animations
-  let observer;
+  // Make reveal elements visible immediately instead of scroll-triggered animation.
   const initReveal = () => {
     const revealElements = document.querySelectorAll('.reveal');
-    if ('IntersectionObserver' in window) {
-      if (!observer) {
-        observer = new IntersectionObserver(
-          entries => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          {
-            threshold: 0.2,
-          }
-        );
-      }
-      revealElements.forEach(el => observer.observe(el));
-    } else {
-      // Fallback: make all elements visible immediately
-      revealElements.forEach(el => el.classList.add('active'));
-    }
+    revealElements.forEach(el => el.classList.add('active'));
   };
 
   // Function to initialise publication filtering
@@ -122,6 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const initTeamCardSizing = () => {
     const teamGrids = document.querySelectorAll('.team-grid-simple');
     if (!teamGrids.length) return;
+    const isMobileTeamViewport = () => window.innerWidth <= 900;
 
     teamGrids.forEach(grid => {
       const cards = Array.from(grid.querySelectorAll('.member-card'));
@@ -130,6 +157,11 @@ document.addEventListener('DOMContentLoaded', function () {
       cards.forEach(card => {
         card.style.minHeight = '';
       });
+
+      // On mobile we keep natural card height so bio toggles can expand/collapse cleanly.
+      if (isMobileTeamViewport()) {
+        return;
+      }
 
       const rows = [];
       const rowTolerance = 2;
@@ -151,6 +183,56 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       });
     });
+  };
+
+  const initTeamBioToggles = () => {
+    const teamCards = document.querySelectorAll('.member-card');
+    if (!teamCards.length) return;
+
+    const isMobileTeamViewport = () => window.innerWidth <= 900;
+
+    const updateButtonState = (button, isOpen) => {
+      button.setAttribute('aria-expanded', String(isOpen));
+      button.textContent = isOpen ? 'Hide bio' : 'Show bio';
+    };
+
+    const applyToggleMode = () => {
+      const mobileMode = isMobileTeamViewport();
+
+      teamCards.forEach(card => {
+        const bio = card.querySelector('.member-bio');
+        const meta = card.querySelector('.member-meta');
+        const heading = meta ? meta.querySelector('h3') : null;
+        if (!bio || !meta || !heading) return;
+
+        let toggleBtn = meta.querySelector('.member-bio-toggle');
+        if (!toggleBtn) {
+          toggleBtn = document.createElement('button');
+          toggleBtn.type = 'button';
+          toggleBtn.className = 'member-bio-toggle';
+          toggleBtn.addEventListener('click', () => {
+            const nextState = !card.classList.contains('member-bio-open');
+            card.classList.toggle('member-bio-open', nextState);
+            updateButtonState(toggleBtn, nextState);
+            initTeamCardSizing();
+          });
+          heading.insertAdjacentElement('afterend', toggleBtn);
+        }
+
+        if (mobileMode) {
+          card.classList.remove('member-bio-open');
+          updateButtonState(toggleBtn, false);
+        } else {
+          card.classList.remove('member-bio-open');
+          toggleBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      initTeamCardSizing();
+    };
+
+    applyToggleMode();
+    window.addEventListener('resize', rafThrottle(applyToggleMode));
   };
 
   // Auto-rotate research area cards (max 3 visible on desktop).
@@ -293,7 +375,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     const startTimer = () => {
-      if (timer || maxIndex <= 0) return;
+      if (prefersReducedMotion || timer || maxIndex <= 0) return;
       timer = window.setInterval(next, 3200);
     };
 
@@ -304,14 +386,17 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     const resetTimer = () => {
+      if (prefersReducedMotion) return;
       stopTimer();
       startTimer();
     };
 
+    const recalculateThrottled = rafThrottle(recalculate);
+
     recalculate();
     startTimer();
-    window.addEventListener('resize', recalculate);
-    window.addEventListener('load', recalculate);
+    window.addEventListener('resize', recalculateThrottled);
+    window.addEventListener('load', recalculateThrottled);
     slider.addEventListener('mouseenter', stopTimer);
     slider.addEventListener('mouseleave', startTimer);
 
@@ -355,8 +440,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const teamSection = document.querySelector('.team-section');
   if (teamSection) {
+    initTeamBioToggles();
     initTeamCardSizing();
-    window.addEventListener('resize', initTeamCardSizing);
+    window.addEventListener('resize', rafThrottle(initTeamCardSizing));
   }
 
   initResearchSlider();
@@ -381,7 +467,7 @@ document.addEventListener('DOMContentLoaded', function () {
       slideWidth = carousel.clientWidth;
       track.style.transform = `translateX(${-current * slideWidth}px)`;
     };
-    window.addEventListener('resize', updateSizes);
+    window.addEventListener('resize', rafThrottle(updateSizes));
 
     const moveTo = index => {
       if (index < 0) index = slides.length - 1;
@@ -400,24 +486,35 @@ document.addEventListener('DOMContentLoaded', function () {
     dots.forEach(d => d.addEventListener('click', e => { moveTo(Number(e.currentTarget.dataset.index)); resetTimer(); }));
 
     // Auto-play
-    const startTimer = () => { if (!timer) timer = setInterval(next, 4500); };
+    const startTimer = () => {
+      if (prefersReducedMotion || timer) return;
+      timer = setInterval(next, 4500);
+    };
     const stopTimer = () => { if (timer) { clearInterval(timer); timer = null; } };
-    const resetTimer = () => { stopTimer(); startTimer(); };
+    const resetTimer = () => {
+      if (prefersReducedMotion) return;
+      stopTimer();
+      startTimer();
+    };
     carousel.addEventListener('mouseenter', stopTimer);
     carousel.addEventListener('mouseleave', startTimer);
 
     // Touch support
     let startX = 0;
-    carousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; stopTimer(); });
+    carousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; stopTimer(); }, { passive: true });
     carousel.addEventListener('touchend', e => {
       const endX = e.changedTouches[0].clientX;
       if (endX - startX > 40) prev();
       else if (startX - endX > 40) next();
       resetTimer();
-    });
+    }, { passive: true });
 
     // Initialise and start autoplay
-    setTimeout(() => { updateSizes(); moveTo(0); startTimer(); }, 50);
+    window.requestAnimationFrame(() => {
+      updateSizes();
+      moveTo(0);
+      startTimer();
+    });
   };
   initCarousel();
 
@@ -432,9 +529,9 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     };
     toggleToTop();
-    window.addEventListener('scroll', toggleToTop);
+    window.addEventListener('scroll', rafThrottle(toggleToTop), { passive: true });
     toTopBtn.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
     });
   }
 });
