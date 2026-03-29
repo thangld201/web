@@ -488,7 +488,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Auto-play
     const startTimer = () => {
       if (prefersReducedMotion || timer) return;
-      timer = setInterval(next, 4500);
+      timer = setInterval(next, 6000);
     };
     const stopTimer = () => { if (timer) { clearInterval(timer); timer = null; } };
     const resetTimer = () => {
