@@ -214,7 +214,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const nextState = !card.classList.contains('member-bio-open');
             card.classList.toggle('member-bio-open', nextState);
             updateButtonState(toggleBtn, nextState);
-            initTeamCardSizing();
           });
           heading.insertAdjacentElement('afterend', toggleBtn);
         }
@@ -228,7 +227,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
 
-      initTeamCardSizing();
+      if (!mobileMode) {
+        initTeamCardSizing();
+      }
     };
 
     applyToggleMode();

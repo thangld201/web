@@ -949,6 +949,8 @@ img {
     max-height: 0;
     opacity: 0;
     margin-bottom: 0;
+    transition: max-height 0.2s ease, opacity 0.2s ease, margin-bottom 0.2s ease;
+    will-change: max-height, opacity;
   }
   .member-card:hover .member-bio {
     max-height: 0;
