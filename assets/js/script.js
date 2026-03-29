@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!bio || !meta || !heading) return;
 
         let toggleBtn = meta.querySelector('.member-bio-toggle');
-        if (!toggleBtn) {
+        if (mobileMode && !toggleBtn) {
           toggleBtn = document.createElement('button');
           toggleBtn.type = 'button';
           toggleBtn.className = 'member-bio-toggle';
@@ -216,6 +216,10 @@ document.addEventListener('DOMContentLoaded', function () {
             updateButtonState(toggleBtn, nextState);
           });
           heading.insertAdjacentElement('afterend', toggleBtn);
+        }
+
+        if (!toggleBtn) {
+          return;
         }
 
         if (mobileMode) {
