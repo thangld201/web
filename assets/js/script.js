@@ -62,6 +62,40 @@ document.addEventListener('DOMContentLoaded', function () {
     revealElements.forEach(el => el.classList.add('active'));
   };
 
+  // Load Twitter widgets script only when the follow button is likely to be seen.
+  const initTwitterWidgets = () => {
+    const followButton = document.querySelector('.twitter-follow-button');
+    if (!followButton || window.twttr) return;
+
+    let loaded = false;
+    const loadTwitterScript = () => {
+      if (loaded || window.twttr) return;
+      loaded = true;
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://platform.twitter.com/widgets.js';
+      script.charset = 'utf-8';
+      document.body.appendChild(script);
+    };
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        if (entries.some(entry => entry.isIntersecting)) {
+          observer.disconnect();
+          loadTwitterScript();
+        }
+      }, { rootMargin: '220px 0px' });
+      observer.observe(followButton);
+      return;
+    }
+
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(loadTwitterScript, { timeout: 2000 });
+    } else {
+      window.setTimeout(loadTwitterScript, 1200);
+    }
+  };
+
   // Function to initialise publication filtering
   const initPublicationFilter = () => {
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -263,12 +297,16 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentDragOffset = 0;
     let movedDuringDrag = false;
     let suppressClickUntil = 0;
+    let sliderVisible = true;
+    let visibilityObserver = null;
 
     const getVisibleCount = () => {
       if (window.innerWidth <= 768) return 1;
       if (window.innerWidth <= 1024) return 2;
       return 3;
     };
+
+    const shouldEqualizeCardHeights = () => window.innerWidth > 1024;
 
     const renderDots = () => {
       if (!dotsContainer) return;
@@ -371,10 +409,12 @@ document.addEventListener('DOMContentLoaded', function () {
         card.style.minHeight = '';
       });
 
-      const tallestCard = Math.max(...cards.map(card => card.offsetHeight));
-      cards.forEach(card => {
-        card.style.minHeight = `${tallestCard}px`;
-      });
+      if (shouldEqualizeCardHeights()) {
+        const tallestCard = Math.max(...cards.map(card => card.offsetHeight));
+        cards.forEach(card => {
+          card.style.minHeight = `${tallestCard}px`;
+        });
+      }
 
       if (currentIndex > maxIndex) {
         currentIndex = 0;
@@ -390,7 +430,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     const startTimer = () => {
-      if (prefersReducedMotion || timer || maxIndex <= 0) return;
+      if (prefersReducedMotion || timer || maxIndex <= 0 || document.hidden || !sliderVisible) return;
       timer = window.setInterval(next, 3200);
     };
 
@@ -408,28 +448,52 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const recalculateThrottled = rafThrottle(recalculate);
 
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stopTimer();
+      } else {
+        startTimer();
+      }
+    };
+
+    const handleDragMove = event => {
+      moveDrag(event.clientX);
+    };
+
+    const handleDragEnd = () => {
+      window.removeEventListener('pointermove', handleDragMove);
+      window.removeEventListener('pointerup', handleDragEnd);
+      window.removeEventListener('pointercancel', handleDragEnd);
+      endDrag();
+    };
+
     recalculate();
     startTimer();
     window.addEventListener('resize', recalculateThrottled);
     window.addEventListener('load', recalculateThrottled);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
     slider.addEventListener('mouseenter', stopTimer);
     slider.addEventListener('mouseleave', startTimer);
+
+    if ('IntersectionObserver' in window) {
+      visibilityObserver = new IntersectionObserver(entries => {
+        const entry = entries[0];
+        sliderVisible = Boolean(entry && entry.isIntersecting);
+        if (!sliderVisible) {
+          stopTimer();
+        } else {
+          startTimer();
+        }
+      }, { threshold: 0.2 });
+      visibilityObserver.observe(slider);
+    }
 
     slider.addEventListener('pointerdown', event => {
       if (event.pointerType === 'mouse' && event.button !== 0) return;
       startDrag(event.clientX);
-    });
-
-    window.addEventListener('pointermove', event => {
-      moveDrag(event.clientX);
-    });
-
-    window.addEventListener('pointerup', () => {
-      endDrag();
-    });
-
-    window.addEventListener('pointercancel', () => {
-      endDrag();
+      window.addEventListener('pointermove', handleDragMove);
+      window.addEventListener('pointerup', handleDragEnd);
+      window.addEventListener('pointercancel', handleDragEnd);
     });
 
     track.addEventListener('click', event => {
@@ -464,6 +528,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Initial reveal on page load for any static elements
   initReveal();
+  initTwitterWidgets();
 
   /* Carousel: auto-play, controls, and dots */
   const initCarousel = () => {
@@ -474,9 +539,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const prevBtn = carousel.querySelector('.carousel-btn.prev');
     const nextBtn = carousel.querySelector('.carousel-btn.next');
     const dots = Array.from(carousel.querySelectorAll('.dot'));
+    if (!track || slides.length <= 1) return;
     let current = 0;
     let slideWidth = carousel.clientWidth;
     let timer = null;
+    let carouselVisible = true;
+    let visibilityObserver = null;
 
     const updateSizes = () => {
       slideWidth = carousel.clientWidth;
@@ -502,7 +570,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Auto-play
     const startTimer = () => {
-      if (prefersReducedMotion || timer) return;
+      if (prefersReducedMotion || timer || document.hidden || !carouselVisible) return;
       timer = setInterval(next, 6000);
     };
     const stopTimer = () => { if (timer) { clearInterval(timer); timer = null; } };
@@ -511,8 +579,31 @@ document.addEventListener('DOMContentLoaded', function () {
       stopTimer();
       startTimer();
     };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stopTimer();
+      } else {
+        startTimer();
+      }
+    };
+
     carousel.addEventListener('mouseenter', stopTimer);
     carousel.addEventListener('mouseleave', startTimer);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    if ('IntersectionObserver' in window) {
+      visibilityObserver = new IntersectionObserver(entries => {
+        const entry = entries[0];
+        carouselVisible = Boolean(entry && entry.isIntersecting);
+        if (!carouselVisible) {
+          stopTimer();
+        } else {
+          startTimer();
+        }
+      }, { threshold: 0.2 });
+      visibilityObserver.observe(carousel);
+    }
 
     // Touch support
     let startX = 0;
