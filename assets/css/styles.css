@@ -156,6 +156,14 @@ img {
 .hero-carousel {
   position: relative;
   height: 60vh;
+  width: min(94%, 1320px);
+  margin: 0.9rem auto 0;
+  border-radius: 14px;
+  overflow: visible;
+}
+.carousel-viewport {
+  height: 100%;
+  border-radius: inherit;
   overflow: hidden;
 }
 .carousel-track {
@@ -206,25 +214,31 @@ img {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255,255,255,0.95);
-  border: none;
-  width: 40px;
-  height: 40px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(10, 25, 47, 0.18);
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  box-shadow: none;
+  color: rgba(10, 25, 47, 0.75);
+  opacity: 0.92;
   cursor: pointer;
-  font-size: 1.25rem;
+  font-size: 1.05rem;
+  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
 }
 .carousel-btn:hover {
-  background: rgba(255,255,255,1);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--primary-color);
+  border-color: rgba(10, 25, 47, 0.3);
+  opacity: 1;
 }
-.carousel-btn.prev { left: 1rem; }
-.carousel-btn.next { right: 1rem; }
+.carousel-btn.prev { left: -56px; }
+.carousel-btn.next { right: -56px; }
 .carousel-dots {
   position: absolute;
   bottom: 1.5rem;
@@ -247,7 +261,35 @@ img {
 .dot:hover { background: rgba(255,255,255,0.8); }
 
 @media (max-width: 768px) {
-  .hero-carousel { height: 50vh; }
+  .hero-carousel {
+    height: 42vh;
+    min-height: 220px;
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    overflow: hidden;
+  }
+  .carousel-viewport {
+    border-radius: 0;
+  }
+  .carousel-btn {
+    display: none;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: none;
+  }
+  .carousel-btn.prev { left: 0.35rem; }
+  .carousel-btn.next { right: 0.35rem; }
+  .carousel-dots {
+    bottom: 0.65rem;
+    gap: 0.4rem;
+  }
+  .dot {
+    width: 9px;
+    height: 9px;
+  }
   .hero-content h1 { font-size: 2rem; }
   .hero-content p { font-size: 1rem; }
 }
@@ -836,7 +878,7 @@ img {
   transition: max-height 0.3s ease, opacity 0.3s ease;
 }
 .member-card:hover .member-bio {
-  max-height: 220px;
+  max-height: 880px;
   opacity: 1;
 }
 
@@ -958,12 +1000,12 @@ img {
     margin-bottom: 0;
   }
   .member-card.member-bio-open .member-bio {
-    max-height: 260px;
+    max-height: 1040px;
     opacity: 1;
     margin-bottom: 0.75rem;
   }
   .member-card.member-bio-open:hover .member-bio {
-    max-height: 260px;
+    max-height: 1040px;
     opacity: 1;
     margin-bottom: 0.75rem;
   }
@@ -1748,7 +1790,7 @@ img {
 
 /* Homepage news section */
 .home-news {
-  padding: 4rem 0 5rem;
+  padding: 3.2rem 0 3.8rem;
   background: linear-gradient(to bottom, #f8f9fb 0%, #ffffff 100%);
 }
 .news-header {
@@ -1891,6 +1933,35 @@ img {
   text-decoration: underline;
 }
 
+.home-news .news-header {
+  margin-bottom: 1.35rem;
+}
+.home-news .news-link {
+  font-size: 1rem;
+}
+.home-news .news-list {
+  gap: 0.85rem;
+}
+.home-news .news-card {
+  grid-template-columns: 78px 1fr;
+  gap: 0.8rem;
+  padding: 0.78rem 0.84rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.08);
+}
+.home-news .news-date-badge {
+  height: 44px;
+  border-radius: 10px;
+  font-size: 0.79rem;
+}
+.home-news .news-body {
+  gap: 0.22rem;
+}
+.home-news .news-title {
+  font-size: 1.02rem;
+  line-height: 1.3;
+}
+
 @media (max-width: 768px) {
   .news-header {
     flex-direction: column;
@@ -1902,6 +1973,36 @@ img {
   .news-date-block {
     height: 70px;
     width: 110px;
+  }
+  .home-news .news-header {
+    gap: 0.6rem;
+    margin-bottom: 0.95rem;
+  }
+  .home-news .news-link {
+    font-size: 0.86rem;
+  }
+  .home-news .news-list {
+    gap: 0.65rem;
+  }
+  .home-news .news-card {
+    grid-template-columns: 66px 1fr;
+    gap: 0.55rem;
+    padding: 0.7rem 0.76rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  .home-news .news-date-badge {
+    height: 38px;
+    border-radius: 8px;
+    font-size: 0.64rem;
+    letter-spacing: 0.03em;
+  }
+  .home-news .news-body {
+    gap: 0.18rem;
+  }
+  .home-news .news-title {
+    font-size: 0.87rem;
+    line-height: 1.32;
   }
 }
 
@@ -2048,16 +2149,18 @@ img {
     line-height: 1;
   }
   .hero-carousel {
-    height: 44vh;
-    min-height: 260px;
+    height: 42vh;
+    min-height: 220px;
   }
   .carousel-btn {
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
     font-size: 1rem;
   }
+  .carousel-btn.prev { left: 0.35rem; }
+  .carousel-btn.next { right: 0.35rem; }
   .carousel-dots {
-    bottom: 0.8rem;
+    bottom: 0.65rem;
   }
   .hero-content h1,
   .hero h1 {
@@ -2087,6 +2190,9 @@ img {
   .news-card {
     padding: 1.25rem;
   }
+  .home-news .news-card {
+    padding: 0.9rem 0.95rem;
+  }
   .to-top {
     right: 1rem;
     bottom: 1rem;
@@ -2094,6 +2200,53 @@ img {
 }
 
 @media (max-width: 480px) {
+  .hero-carousel {
+    height: 38vh;
+    min-height: 200px;
+  }
+  .carousel-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+  .carousel-btn.prev { left: 0.25rem; }
+  .carousel-btn.next { right: 0.25rem; }
+  .carousel-dots {
+    bottom: 0.5rem;
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+  .home-news {
+    padding-top: 1.9rem;
+    padding-bottom: 2rem;
+  }
+  .home-news .news-header {
+    gap: 0.45rem;
+    margin-bottom: 0.7rem;
+  }
+  .home-news .news-link {
+    font-size: 0.8rem;
+  }
+  .home-news .news-list {
+    gap: 0.5rem;
+  }
+  .home-news .news-card {
+    grid-template-columns: 60px 1fr;
+    gap: 0.48rem;
+    padding: 0.62rem 0.66rem;
+    border-radius: 9px;
+  }
+  .home-news .news-date-badge {
+    height: 34px;
+    border-radius: 7px;
+    font-size: 0.6rem;
+  }
+  .home-news .news-title {
+    font-size: 0.82rem;
+    line-height: 1.3;
+  }
   .container {
     padding: 0 0.85rem;
   }

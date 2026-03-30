@@ -259,6 +259,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let isDragging = false;
     let dragStartX = 0;
     let dragStartOffset = 0;
+    let dragStartIndex = 0;
     let currentDragOffset = 0;
     let movedDuringDrag = false;
     let suppressClickUntil = 0;
@@ -317,6 +318,7 @@ document.addEventListener('DOMContentLoaded', function () {
       isDragging = true;
       movedDuringDrag = false;
       dragStartX = clientX;
+      dragStartIndex = currentIndex;
       dragStartOffset = currentIndex * getStepWidth();
       currentDragOffset = dragStartOffset;
       track.style.transition = 'none';
@@ -342,8 +344,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const step = getStepWidth();
       if (step > 0) {
-        const snappedIndex = Math.round(currentDragOffset / step);
-        currentIndex = Math.max(0, Math.min(snappedIndex, maxIndex));
+        const dragDistance = currentDragOffset - dragStartOffset;
+        const swipeThreshold = Math.max(24, step * 0.16);
+
+        if (dragDistance >= swipeThreshold) {
+          currentIndex = Math.min(dragStartIndex + 1, maxIndex);
+        } else if (dragDistance <= -swipeThreshold) {
+          currentIndex = Math.max(dragStartIndex - 1, 0);
+        } else {
+          currentIndex = dragStartIndex;
+        }
       }
       applyPosition();
 
