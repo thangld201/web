@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: thangld201/web
+  name: git-gateway
   branch: main
   # To use CMS on GitHub Pages, provide an OAuth service URL:
   # base_url: https://YOUR-OAUTH-SERVICE.example.com
@@ -18,7 +17,7 @@ editor:
   preview: false
 
 media_folder: images/uploads
-public_folder: /web/images/uploads
+public_folder: uploads
 
 collections:
   - name: pi
@@ -36,7 +35,7 @@ collections:
             label: Photo
             widget: image
             media_folder: images/uploads/leader
-            public_folder: /web/images/uploads/leader
+            public_folder: uploads/leader
             choose_url: false
           - { name: email, label: Email Address, widget: string, hint: "Use plain email, e.g. name@example.com (no mailto:)" }
           - { name: twitter, label: X/Twitter URL, widget: string, required: false }
@@ -86,7 +85,7 @@ collections:
                 label: Photo
                 widget: image
                 media_folder: images/uploads/team
-                public_folder: /web/images/uploads/team
+                public_folder: uploads/team
                 choose_url: false
               - { name: email, label: Email Link, widget: string, hint: "Use mailto:name@example.com" }
               - { name: linkedin, label: LinkedIn URL, widget: string, required: false, default: "#" }
