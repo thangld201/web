@@ -2,7 +2,7 @@ backend:
   name: github
   repo: thangld201/web
   branch: main
-  base_url: https://web-oauth.vercel.app
+  base_url: https://oauth-web-ten.vercel.app
   auth_endpoint: api/auth
   # To use CMS on GitHub Pages, provide an OAuth service URL:
   # base_url: https://YOUR-OAUTH-SERVICE.example.com
