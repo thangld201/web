@@ -63,6 +63,52 @@ body.with-live-preview .nc-collectionPage-mainCard {
   max-width: 100% !important;
 }
 
+#live-preview-divider {
+  position: fixed;
+  top: 0;
+  left: calc(var(--editor-width) - 6px);
+  width: 12px;
+  height: 100vh;
+  z-index: 140;
+  cursor: col-resize;
+  background: transparent;
+}
+
+#live-preview-divider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: var(--admin-border);
+}
+
+#live-preview-divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 56px;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--admin-border);
+  border-radius: 999px;
+  background:
+    linear-gradient(var(--admin-border), var(--admin-border)) center 16px / 2px 20px no-repeat,
+    linear-gradient(var(--admin-border), var(--admin-border)) center / 2px 20px no-repeat,
+    linear-gradient(var(--admin-border), var(--admin-border)) center calc(100% - 16px) / 2px 20px no-repeat,
+    rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+}
+
+body.is-resizing-preview,
+body.is-resizing-preview * {
+  cursor: col-resize !important;
+  user-select: none !important;
+}
+
 #live-site-preview {
   position: fixed;
   top: 0;
@@ -77,6 +123,10 @@ body.with-live-preview .nc-collectionPage-mainCard {
 }
 
 @media (max-width: 1200px) {
+  #live-preview-divider {
+    display: none !important;
+  }
+
   #live-site-preview {
     display: none !important;
   }

@@ -8,19 +8,55 @@
     <link rel="stylesheet" href="custom.css">
   </head>
   <body>
+    <div
+      id="live-preview-divider"
+      role="separator"
+      aria-orientation="vertical"
+      aria-label="Resize editor and preview panels"
+      tabindex="0"
+    ></div>
     <iframe id="live-site-preview" title="Live website preview" loading="lazy"></iframe>
 
     <script src="https://unpkg.com/decap-cms@3.6.2/dist/decap-cms.js"></script>
     <script>
       (function enableLiveWebsitePreview() {
+        const divider = document.getElementById("live-preview-divider");
         const iframe = document.getElementById("live-site-preview");
-        if (!iframe) {
+        if (!iframe || !divider) {
           return;
         }
 
         const parts = window.location.pathname.split("/").filter(Boolean);
         const repo = parts[0] || "";
         const basePath = repo === "admin" ? "" : "/" + repo;
+        const widthStorageKey = "adminEditorWidth";
+        const minEditorRatio = 0.35;
+        const maxEditorRatio = 0.8;
+        let isDragging = false;
+
+        function clampEditorRatio(ratio) {
+          return Math.min(maxEditorRatio, Math.max(minEditorRatio, ratio));
+        }
+
+        function applyEditorRatio(ratio, persist) {
+          const safeRatio = clampEditorRatio(ratio);
+          const widthValue = (safeRatio * 100).toFixed(2).replace(/\.00$/, "") + "vw";
+          document.documentElement.style.setProperty("--editor-width", widthValue);
+          divider.setAttribute("aria-valuenow", String(Math.round(safeRatio * 100)));
+          if (persist) {
+            window.localStorage.setItem(widthStorageKey, widthValue);
+          }
+        }
+
+        function applyEditorWidthFromPointer(clientX, persist) {
+          const ratio = clientX / window.innerWidth;
+          applyEditorRatio(ratio, persist);
+        }
+
+        const savedWidth = window.localStorage.getItem(widthStorageKey);
+        if (savedWidth) {
+          document.documentElement.style.setProperty("--editor-width", savedWidth);
+        }
 
         function pathForHash() {
           const hash = window.location.hash || "";
@@ -64,6 +100,52 @@
         setPreview(pathForHash());
         document.body.classList.add("with-live-preview");
         syncPreviewMode();
+
+        divider.addEventListener("pointerdown", function(event) {
+          if (window.innerWidth <= 1200) {
+            return;
+          }
+          isDragging = true;
+          divider.setPointerCapture(event.pointerId);
+          document.body.classList.add("is-resizing-preview");
+        });
+
+        divider.addEventListener("pointermove", function(event) {
+          if (!isDragging) {
+            return;
+          }
+          applyEditorWidthFromPointer(event.clientX, false);
+        });
+
+        divider.addEventListener("pointerup", function(event) {
+          if (!isDragging) {
+            return;
+          }
+          isDragging = false;
+          divider.releasePointerCapture(event.pointerId);
+          document.body.classList.remove("is-resizing-preview");
+          applyEditorWidthFromPointer(event.clientX, true);
+        });
+
+        divider.addEventListener("pointercancel", function() {
+          isDragging = false;
+          document.body.classList.remove("is-resizing-preview");
+        });
+
+        divider.addEventListener("keydown", function(event) {
+          if (window.innerWidth <= 1200) {
+            return;
+          }
+          const currentWidth = getComputedStyle(document.documentElement).getPropertyValue("--editor-width").trim() || "68vw";
+          const currentRatio = parseFloat(currentWidth) / 100;
+          if (event.key === "ArrowLeft") {
+            event.preventDefault();
+            applyEditorRatio(currentRatio - 0.02, true);
+          } else if (event.key === "ArrowRight") {
+            event.preventDefault();
+            applyEditorRatio(currentRatio + 0.02, true);
+          }
+        });
 
         window.addEventListener("hashchange", function() {
           if (normalizeHashRoute()) {

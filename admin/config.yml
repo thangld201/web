@@ -13,7 +13,7 @@ display_url: https://ritual-mbzuai.github.io/web
 logo_url: /web/images/logo.png
 
 publish_mode: editorial_workflow
-local_backend: true
+local_backend: false
 locale: en
 show_preview_links: false
 editor:
