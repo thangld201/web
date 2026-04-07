@@ -28,6 +28,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Auto-configure Decap CMS for current repository
+        run: |
+          ruby -ryaml -e '
+            path = "admin/config.yml"
+            cfg = YAML.safe_load(File.read(path), aliases: true)
+            repo = ENV.fetch("GITHUB_REPOSITORY")
+            owner, name = repo.split("/", 2)
+            site = "https://#{owner}.github.io/#{name}"
+            cfg["backend"] ||= {}
+            cfg["backend"]["repo"] = repo
+            cfg["site_url"] = site
+            cfg["display_url"] = site
+            cfg["logo_url"] = "/#{name}/images/logo.png"
+            cfg["public_folder"] = "/#{name}/images/uploads"
+            File.write(path, cfg.to_yaml(line_width: -1))
+          '
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll

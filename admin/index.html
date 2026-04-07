@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0f766e">
+    <title>RiTUAL PI and Content Admin</title>
+    <link rel="stylesheet" href="custom.css">
+  </head>
+  <body>
+    <iframe id="live-site-preview" title="Live website preview" loading="lazy"></iframe>
+
+    <script src="https://unpkg.com/decap-cms@3.6.2/dist/decap-cms.js"></script>
+    <script>
+      (function enableLiveWebsitePreview() {
+        const iframe = document.getElementById("live-site-preview");
+        if (!iframe) {
+          return;
+        }
+
+        const parts = window.location.pathname.split("/").filter(Boolean);
+        const repo = parts[0] || "";
+        const basePath = repo === "admin" ? "" : "/" + repo;
+
+        function pathForHash() {
+          const hash = window.location.hash || "";
+          if (hash.includes("/collections/news")) return "/news/";
+          if (hash.includes("/collections/publications")) return "/publications/";
+          if (hash.includes("/collections/team")) return "/team/";
+          if (hash.includes("/collections/pi")) return "/leader/";
+          if (hash.includes("/collections/join")) return "/join/";
+          if (hash.includes("/collections/contact")) return "/contact/";
+          return "/team/";
+        }
+
+        function normalizeHashRoute() {
+          const hash = window.location.hash || "";
+          if (hash === "#/media" || hash.startsWith("#/media/")) {
+            window.location.hash = "#/collections/team";
+            return true;
+          }
+          return false;
+        }
+
+        function setPreview(path) {
+          const full = window.location.origin + basePath + path;
+          if (iframe.dataset.currentSrc !== full) {
+            iframe.src = full;
+            iframe.dataset.currentSrc = full;
+          }
+        }
+
+        function syncPreviewMode() {
+          const hash = window.location.hash || "";
+          const isEditingEntry = hash.includes("/entries/");
+          document.body.classList.remove("mode-entry", "mode-collection");
+          document.body.classList.add(isEditingEntry ? "mode-entry" : "mode-collection");
+        }
+
+        if (normalizeHashRoute()) {
+          return;
+        }
+
+        setPreview(pathForHash());
+        document.body.classList.add("with-live-preview");
+        syncPreviewMode();
+
+        window.addEventListener("hashchange", function() {
+          if (normalizeHashRoute()) {
+            return;
+          }
+          setPreview(pathForHash());
+          syncPreviewMode();
+        });
+        window.addEventListener("resize", syncPreviewMode);
+      })();
+    </script>
+  </body>
+</html>

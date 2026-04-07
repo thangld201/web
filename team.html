@@ -15,7 +15,8 @@ permalink: /team/
     <div class="team-group reveal">
       <h2 class="group-title">Principal Investigator</h2>
       <div class="team-lead">
-        <img class="lead-photo" src="{{ '/images/' | append: leader.photo | relative_url }}" alt="{{ leader.name }}" decoding="async" fetchpriority="high">
+        {% assign leader_photo = leader.photo | replace_first: '/web', '' %}
+        <img class="lead-photo" src="{{ leader_photo | relative_url }}" alt="{{ leader.name }}" decoding="async" fetchpriority="high">
         <div class="lead-info">
           {% if leader.website and leader.website != '#' %}
           {% if leader.website contains 'http' %}
@@ -79,7 +80,8 @@ permalink: /team/
       <div class="team-grid-simple">
         {% for member in research_staff %}
         <article class="member-card">
-          <img class="member-photo" src="{{ '/images/' | append: member.photo | relative_url }}" alt="{{ member.name }}" loading="lazy" decoding="async" fetchpriority="low">
+          {% assign member_photo = member.photo | replace_first: '/web', '' %}
+          <img class="member-photo" src="{{ member_photo | relative_url }}" alt="{{ member.name }}" loading="lazy" decoding="async" fetchpriority="low">
           <div class="member-meta">
             {% if member.website and member.website != '#' %}
             {% if member.website contains 'http' %}
@@ -145,7 +147,8 @@ permalink: /team/
       <div class="team-grid-simple">
         {% for member in phd_students %}
         <article class="member-card">
-          <img class="member-photo" src="{{ '/images/' | append: member.photo | relative_url }}" alt="{{ member.name }}" loading="lazy" decoding="async" fetchpriority="low">
+          {% assign member_photo = member.photo | replace_first: '/web', '' %}
+          <img class="member-photo" src="{{ member_photo | relative_url }}" alt="{{ member.name }}" loading="lazy" decoding="async" fetchpriority="low">
           <div class="member-meta">
             {% if member.website and member.website != '#' %}
             {% if member.website contains 'http' %}
@@ -214,7 +217,8 @@ permalink: /team/
       <div class="team-grid-simple">
         {% for member in msc_students %}
         <article class="member-card">
-          <img class="member-photo" src="{{ '/images/' | append: member.photo | relative_url }}" alt="{{ member.name }}" loading="lazy" decoding="async" fetchpriority="low">
+          {% assign member_photo = member.photo | replace_first: '/web', '' %}
+          <img class="member-photo" src="{{ member_photo | relative_url }}" alt="{{ member.name }}" loading="lazy" decoding="async" fetchpriority="low">
           <div class="member-meta">
             {% if member.website and member.website != '#' %}
             {% if member.website contains 'http' %}
@@ -282,7 +286,8 @@ permalink: /team/
       <div class="team-grid-simple">
         {% for member in alumni_members %}
         <article class="member-card">
-          <img class="member-photo" src="{{ '/images/' | append: member.photo | relative_url }}" alt="{{ member.name }}" loading="lazy" decoding="async" fetchpriority="low">
+          {% assign member_photo = member.photo | replace_first: '/web', '' %}
+          <img class="member-photo" src="{{ member_photo | relative_url }}" alt="{{ member.name }}" loading="lazy" decoding="async" fetchpriority="low">
           <div class="member-meta">
             {% if member.website and member.website != '#' %}
             {% if member.website contains 'http' %}

@@ -8,7 +8,8 @@ permalink: /leader/
 
 <!-- Leader profile hero section populated from leader.yml data -->
 <section class="leader-hero">
-  <div class="profile-img" style="background-image: url('{{ '/images/' | append: leader.photo | relative_url }}');"></div>
+  {% assign leader_photo = leader.photo | replace_first: '/web', '' %}
+  <div class="profile-img" style="background-image: url('{{ leader_photo | relative_url }}');"></div>
   <h1>{{ leader.name }}</h1>
   <h2>{{ leader.title }}</h2>
   <p>{{ leader.tagline }}</p>

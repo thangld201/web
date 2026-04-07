@@ -4,33 +4,28 @@ title: Contact
 permalink: /contact/
 ---
 
+{% assign contact = site.data.contact %}
+
 <section class="page-header container">
   <hr class="contact-divider">
 
   <div class="contact-grid" aria-label="Contact details">
+    {% for card in contact.cards %}
     <article class="contact-card">
-      <div class="contact-icon" aria-hidden="true"><i class="fas fa-clock"></i></div>
-      <h3>Office hours</h3>
-      <p>9:00 a.m - 6:00 p.m<br>UTC+4</p>
-    </article>
-
-    <article class="contact-card">
-      <div class="contact-icon" aria-hidden="true"><i class="fas fa-location-dot"></i></div>
-      <h3>Location</h3>
+      <div class="contact-icon" aria-hidden="true"><i class="fas fa-{{ card.icon }}"></i></div>
+      <h3>{{ card.title }}</h3>
       <p>
-        Building 1B<br>Mohamed bin Zayed University of Artificial Intelligence<br>Masdar City, Abu Dhabi, UAE
-        <!-- <br><a class="contact-map-link" href="https://maps.google.com/?q=Mohamed+bin+Zayed+University+of+Artificial+Intelligence" target="_blank" rel="noopener noreferrer">View on map</a> -->
+        {% if card.link %}
+        <a class="contact-email" href="{{ card.link }}">{{ card.body }}</a>
+        {% else %}
+        {{ card.body | newline_to_br }}
+        {% endif %}
       </p>
     </article>
-
-    <article class="contact-card">
-      <div class="contact-icon" aria-hidden="true"><i class="fas fa-envelope"></i></div>
-      <h3>Email</h3>
-      <p><a class="contact-email" href="mailto:thamar.solorio@mbzuai.ac.ae">thamar.solorio@mbzuai.ac.ae</a></p>
-    </article>
+    {% endfor %}
   </div>
 
   <div class="contact-map" aria-label="Campus map">
-    <iframe class="contact-map-frame" title="MBZUAI location map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2837.908841367465!2d54.6184724!3d24.4326227!2m3!1f0!2f0!3f0!2m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e48af75e21805%3A0x649441d6f389bc86!2sMohamed%20bin%20Zayed%20University%20of%20Artificial%20Intelligence!5e1!3m2!1sen!2sae!4v1771695504791!5m2!1sen!2sae" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe class="contact-map-frame" title="MBZUAI location map" src="{{ contact.map.embed_url }}" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 </section>

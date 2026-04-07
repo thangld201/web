@@ -1330,6 +1330,11 @@ img {
   box-shadow: 0 12px 28px rgba(234, 88, 12, 0.16);
 }
 
+/* Ensure resource cards match publication card width */
+.join-position-list .pub-card {
+  width: 100%;
+}
+
 /* Publication type badge */
 .pub-type-badge {
   display: inline-block;

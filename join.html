@@ -4,60 +4,35 @@ title: Joining the Group
 permalink: /join/
 ---
 
+{% assign join = site.data.join %}
+
 <section class="page-header container">
-  <h1>Join Our Research Lab</h1>
-  
-    <p>Our lab is expanding, and we are looking for curious minds to join us as Postdocs, PhDs, and Master's students. If you are passionate about cutting-edge NLP and multimodal research, we invite you to consider the opportunities available with us.</p>
-    
-
-  
-
+  <h1>{{ join.hero.title }}</h1>
+  <p>{{ join.hero.intro }}</p>
 </section>
 
 
 <section class="page-header container">
-  <h1>Open Positions</h1>
-  
+  <h1>{{ join.positions_section_title }}</h1>
 </section>
 
 
 <section class="join-simple container">
   <div class="publications-list join-position-list">
-
+    {% for position in join.positions %}
     <article class="pub-card">
       <div class="pub-card-content">
-      <h3 class="pub-title">Postdoctoral Researchers</h3>
-      <p class="pub-authors">Research-focused roles with independence and mentorship.</p>
+      <h3 class="pub-title">{{ position.title }}</h3>
+      <p class="pub-authors">{{ position.description }}</p>
       </div>
     </article>
-
-    <article class="pub-card">
-      <div class="pub-card-content">
-      <h3 class="pub-title">PhD Students</h3>
-      <p class="pub-authors">Long-term research projects with close faculty supervision.</p>
-      </div>
-    </article>
-  
-  <!-- 
-    <article class="pub-card">
-      <div class="pub-card-content">
-      <h3 class="pub-title">Master's Students</h3>
-      <p class="pub-authors">Long-term research projects aligned with group priorities.</p>
-      </div>
-    </article> -->
-
+    {% endfor %}
   </div>
 </section>
 
 
 <section class="page-header container">
-  <h1>How to Connect</h1>
-      <p>If you are interested in joining our team, please submit your application including a CV and any relevant materials to <a class="join-email-link" href="mailto:thamar.solorio@mbzuai.ac.ae">thamar.solorio@mbzuai.ac.ae</a>. Be sure to specify the position you are applying for in the subject line.</p>
-
-      
-
-    
-
-    
-
+  <h1>{{ join.connect.title }}</h1>
+  {% capture join_email_link %}<a class="join-email-link" href="mailto:{{ join.connect.email }}">{{ join.connect.email }}</a>{% endcapture %}
+  <p>{{ join.connect.body | replace: join.connect.email, join_email_link }}</p>
 </section>

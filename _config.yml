@@ -4,8 +4,8 @@ description: >-
   page, team, publications, news and a dedicated leader profile. Content is
   stored in Markdown or YAML files so that updates can be made without
   editing HTML.
-baseurl: "/web" # the subpath where the site will be deployed (e.g. /web for https://yourname.github.io/web)
-url: "https://ritual-mbzuai.github.io" # the base hostname & protocol for your site
+baseurl: "/web" # project site path; change only if repo name changes
+url: "" # keep empty so forks/org mirrors do not require manual hostname edits
 markdown: kramdown
 
 # Disable the default GitHub Pages theme. Without this setting, GitHub Pages

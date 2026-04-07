@@ -1,0 +1,209 @@
+backend:
+  name: github
+  repo: thangld201/web
+  branch: main
+  # To use CMS on GitHub Pages, provide an OAuth service URL:
+  # base_url: https://YOUR-OAUTH-SERVICE.example.com
+  # auth_endpoint: auth
+
+site_url: https://ritual-mbzuai.github.io/web
+display_url: https://ritual-mbzuai.github.io/web
+logo_url: /web/images/logo.png
+
+publish_mode: editorial_workflow
+local_backend: true
+locale: en
+show_preview_links: false
+editor:
+  preview: false
+
+media_folder: images/uploads
+public_folder: /web/images/uploads
+
+collections:
+  - name: pi
+    label: PI Profile
+    files:
+      - label: PI Data
+        name: pi_data
+        file: _data/leader.yml
+        format: yaml
+        fields:
+          - { name: name, label: Name, widget: string }
+          - { name: title, label: Title, widget: string }
+          - { name: tagline, label: Tagline, widget: text, required: false }
+          - name: photo
+            label: Photo
+            widget: image
+            media_folder: images/uploads/leader
+            public_folder: /web/images/uploads/leader
+            choose_url: false
+          - { name: email, label: Email Address, widget: string, hint: "Use plain email, e.g. name@example.com (no mailto:)" }
+          - { name: twitter, label: X/Twitter URL, widget: string, required: false }
+          - { name: scholar, label: Google Scholar URL, widget: string, required: false }
+          - name: bio
+            label: Bio Paragraphs
+            label_singular: Paragraph
+            widget: list
+            field: { name: paragraph, label: Paragraph, widget: text }
+          - name: interests
+            label: Research Interests
+            label_singular: Interest
+            widget: list
+            field: { name: interest, label: Interest, widget: string }
+          - name: education
+            label: Education Entries
+            label_singular: Education Entry
+            widget: list
+            field: { name: education_item, label: Education Item, widget: string }
+          - name: awards
+            label: Awards and Honors
+            label_singular: Award
+            widget: list
+            field: { name: award, label: Award, widget: string }
+          - { name: publications_note, label: Publications Note, widget: text, required: false }
+
+  - name: team
+    label: Team Members
+    files:
+      - label: Team Data
+        name: team_data
+        file: _data/team.yml
+        format: yaml
+        fields:
+          - name: members
+            label: Members
+            label_singular: Member
+            widget: list
+            summary: "{{fields.name}} - {{fields.role}}"
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: role, label: Role, widget: string, hint: "Examples: PhD Student, Research Engineer, Visiting PhD Student" }
+              - { name: alumni, label: Alumni, widget: boolean, default: false, required: false }
+              - { name: timeline, label: Timeline (optional), widget: string, required: false, hint: "Shown in Alumni cards, e.g. 2023-2025" }
+              - { name: bio, label: Bio, widget: text, required: false }
+              - name: photo
+                label: Photo
+                widget: image
+                media_folder: images/uploads/team
+                public_folder: /web/images/uploads/team
+                choose_url: false
+              - { name: email, label: Email Link, widget: string, hint: "Use mailto:name@example.com" }
+              - { name: linkedin, label: LinkedIn URL, widget: string, required: false, default: "#" }
+              - { name: website, label: Website URL, widget: string, required: false, default: "#" }
+              - { name: scholar, label: Scholar URL, widget: string, required: false, default: "#" }
+              - { name: twitter, label: X/Twitter URL, widget: string, required: false, default: "#" }
+              - { name: github, label: GitHub URL, widget: string, required: false, default: "#" }
+              - { name: keywords, label: Keywords (comma-separated), widget: string, required: false }
+
+  - name: news
+    label: News
+    files:
+      - label: News Data
+        name: news_data
+        file: _data/news.yml
+        format: yaml
+        fields:
+          - name: news
+            label: News Items
+            label_singular: News Item
+            widget: list
+            summary: "{{fields.date}} - {{fields.title}}"
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: date, label: Date, widget: datetime, format: "YYYY-MM-DD", time_format: false, picker_utc: false }
+              - { name: content, label: Content (HTML allowed), widget: text }
+
+  - name: join
+    label: Join
+    files:
+      - label: Join Page
+        name: join_page
+        file: _data/join.yml
+        format: yaml
+        fields:
+          - name: hero
+            label: Hero
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: intro, label: Intro, widget: text }
+          - { name: positions_section_title, label: Positions Section Title, widget: string }
+          - name: positions
+            label: Open Positions
+            label_singular: Position
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+          - name: connect
+            label: Contact CTA
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: body, label: Body, widget: text, hint: "Include the email address in the text where you want the link to appear." }
+              - { name: email, label: Email, widget: string }
+
+  - name: contact
+    label: Contact
+    files:
+      - label: Contact Page
+        name: contact_page
+        file: _data/contact.yml
+        format: yaml
+        fields:
+          - name: cards
+            label: Contact Cards
+            label_singular: Card
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - name: icon
+                label: Icon
+                widget: select
+                options: ["clock", "location-dot", "envelope"]
+              - { name: title, label: Title, widget: string }
+              - { name: body, label: Body, widget: text, hint: "Use line breaks for multi-line text." }
+              - { name: link, label: Link URL, widget: string, required: false, hint: "Optional. For email use mailto:someone@example.com" }
+          - name: map
+            label: Map
+            widget: object
+            fields:
+              - { name: embed_url, label: Google Maps Embed URL, widget: string }
+
+  - name: publications
+    label: Publications
+    files:
+      - label: Publications Data
+        name: publications_data
+        file: _data/publications.yml
+        format: yaml
+        fields:
+          - name: publications
+            label: Publications
+            label_singular: Publication
+            widget: list
+            summary: "{{fields.year}} - {{fields.title}}"
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: authors, label: Authors, widget: text, hint: "Comma-separated list" }
+              - { name: venue, label: Venue, widget: string }
+              - { name: year, label: Year, widget: number, value_type: int, min: 2000, max: 2100 }
+              - name: type
+                label: Type
+                widget: select
+                options: ["conference", "journal", "workshop", "preprint"]
+              - { name: badge, label: Badge, widget: string, hint: "Short label displayed on card, e.g. ACL, CVPR" }
+              - { name: selected, label: Featured in Selected tab, widget: boolean, default: false }
+              - name: links
+                label: Links
+                widget: object
+                collapsed: true
+                required: false
+                fields:
+                  - { name: paper, label: Paper URL, widget: string, required: false }
+                  - { name: code, label: Code URL, widget: string, required: false }
+                  - { name: dataset, label: Dataset URL, widget: string, required: false }
+                  - { name: video, label: Video URL, widget: string, required: false }
+                  - { name: demo, label: Demo URL, widget: string, required: false }

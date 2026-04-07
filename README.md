@@ -55,3 +55,48 @@ https://ritual-mbzuai.github.io/web/
   animations, publication filtering and the back‑to‑top button.  Since content is rendered by Jekyll, the
   data‑loading functions have been removed.  If you add interactivity that requires dynamic data, you can
   expand this script or include additional scripts as needed.
+
+## No-code editing (CMS)
+
+This repository now includes an admin interface for non-technical editors:
+
+- Admin URL: `/admin/` (for this site: `https://ritual-mbzuai.github.io/web/admin/`)
+- Config file: `admin/config.yml`
+- It edits:
+  - `_data/leader.yml` (PI profile)
+  - `_data/team.yml`
+- `_data/news.yml`
+- `_data/publications.yml`
+
+All edits are Git-based and use `publish_mode: editorial_workflow`, so changes are proposed as reviewable updates instead of silent direct rewrites.
+The deploy workflow auto-updates CMS target URLs/repo for the current GitHub repository, so the same code works in both fork and org deployments without manual URL edits.
+
+## One-time setup for GitHub Pages authentication
+
+Because this site is static and has no database, CMS authentication is done through GitHub OAuth.
+
+1. Create or use a Decap-compatible OAuth provider endpoint (self-hosted or managed).
+2. In `admin/config.yml`, set:
+   - `backend.base_url` to your OAuth service URL
+   - `backend.auth_endpoint` (usually `auth`)
+3. Commit and deploy.
+4. Open `/admin/` and sign in with GitHub.
+
+Notes:
+- `local_backend: true` is enabled for local development convenience.
+- `backend.repo`, `site_url`, and `display_url` are auto-derived during GitHub Actions deployment.
+- If you rename the repository from `web` to something else, update `_config.yml` `baseurl`.
+
+## Validation and safety checks
+
+Automated validation runs on every PR and push:
+
+- Workflow: `.github/workflows/content-validation.yml`
+- Validator: `scripts/validate_content.rb`
+
+The validator checks:
+- Required fields in team/news/publications data
+- Date format (`YYYY-MM-DD`) in news
+- Publication type values
+- URL formatting in links
+- Team photo file existence under `images/`
