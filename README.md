@@ -6,6 +6,21 @@ It is intended for team members who want to make content updates without using t
 
 In most cases, you do not need to run the site locally. You can edit the content files directly in the GitHub website interface, commit the changes, and the website will update after deployment.
 
+## Table of Contents
+
+1. [Overview](#overview)
+2. [Recommended Workflow For Most Editors](#recommended-workflow-for-most-editors)
+3. [Website Structure](#website-structure)
+4. [Important Notes Before Editing](#important-notes-before-editing)
+5. [Which File Controls Each Page](#which-file-controls-each-page)
+6. [How To Edit Each Page](#how-to-edit-each-page)
+7. [Adding Images](#adding-images)
+8. [Recommended Editing Method](#recommended-editing-method)
+9. [Optional: Preview The Site Locally](#optional-preview-the-site-locally)
+10. [Quick Reference](#quick-reference)
+11. [Troubleshooting](#troubleshooting)
+12. [Final Note](#final-note)
+
 ## Overview
 
 Most pages on the website are generated from files inside the `/_data/` folder.
