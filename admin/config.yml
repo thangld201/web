@@ -2,14 +2,15 @@ backend:
   name: github
   repo: thangld201/web
   branch: main
+  site_domain: thangld201.github.io
   base_url: https://oauth-web-ten.vercel.app
   auth_endpoint: api/auth
   # To use CMS on GitHub Pages, provide an OAuth service URL:
   # base_url: https://YOUR-OAUTH-SERVICE.example.com
   # auth_endpoint: auth
 
-site_url: https://ritual-mbzuai.github.io/web
-display_url: https://ritual-mbzuai.github.io/web
+site_url: https://thangld201.github.io/web
+display_url: https://thangld201.github.io/web
 logo_url: /web/images/logo.png
 
 publish_mode: editorial_workflow

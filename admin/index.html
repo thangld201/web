@@ -16,9 +16,133 @@
       tabindex="0"
     ></div>
     <iframe id="live-site-preview" title="Live website preview" loading="lazy"></iframe>
+    <div id="auth-debug-panel" hidden aria-live="polite"></div>
 
     <script src="https://unpkg.com/decap-cms@3.6.2/dist/decap-cms.js"></script>
     <script>
+      (function enableAuthDebugPanel() {
+        const params = new URLSearchParams(window.location.search);
+        const isLocalhost = /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname);
+        if (params.get("debug-auth") !== "1" && !isLocalhost) {
+          return;
+        }
+
+        const panel = document.getElementById("auth-debug-panel");
+        if (!panel) {
+          return;
+        }
+
+        const lines = [];
+
+        function safeSerialize(value) {
+          if (typeof value === "string") {
+            return value;
+          }
+          try {
+            return JSON.stringify(value);
+          } catch (error) {
+            return String(value);
+          }
+        }
+
+        function render() {
+          panel.hidden = false;
+          panel.style.position = "fixed";
+          panel.style.right = "16px";
+          panel.style.bottom = "16px";
+          panel.style.zIndex = "99999";
+          panel.style.width = "min(520px, calc(100vw - 32px))";
+          panel.style.maxHeight = "50vh";
+          panel.style.overflow = "auto";
+          panel.style.padding = "12px 14px";
+          panel.style.borderRadius = "12px";
+          panel.style.background = "rgba(15, 23, 42, 0.96)";
+          panel.style.color = "#e2e8f0";
+          panel.style.font = "12px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace";
+          panel.style.boxShadow = "0 16px 40px rgba(15, 23, 42, 0.35)";
+          panel.style.whiteSpace = "pre-wrap";
+          panel.textContent = lines.join("\n");
+        }
+
+        function log(label, value) {
+          const timestamp = new Date().toISOString().slice(11, 19);
+          lines.push("[" + timestamp + "] " + label + (value == null ? "" : ": " + safeSerialize(value)));
+          if (lines.length > 120) {
+            lines.splice(0, lines.length - 120);
+          }
+          render();
+        }
+
+        log("debug", "enabled");
+        log("location.href", window.location.href);
+        log("location.origin", window.location.origin);
+        log("location.pathname", window.location.pathname);
+        log("location.hash", window.location.hash || "(empty)");
+        log("document.referrer", document.referrer || "(empty)");
+
+        const storageKeys = [];
+        for (let index = 0; index < window.localStorage.length; index += 1) {
+          const key = window.localStorage.key(index);
+          if (key && /(decap|cms|netlify|auth|github)/i.test(key)) {
+            storageKeys.push(key + "=" + window.localStorage.getItem(key));
+          }
+        }
+        log("localStorage", storageKeys.length ? storageKeys : "(no matching keys)");
+
+        window.addEventListener("message", function(event) {
+          log("postMessage origin", event.origin);
+          log("postMessage data", event.data);
+          window.setTimeout(function() {
+            const updatedStorageKeys = [];
+            for (let index = 0; index < window.localStorage.length; index += 1) {
+              const key = window.localStorage.key(index);
+              if (!key) {
+                continue;
+              }
+              updatedStorageKeys.push(key + "=" + window.localStorage.getItem(key));
+            }
+            log("localStorage after message", updatedStorageKeys);
+          }, 250);
+        });
+
+        window.addEventListener("error", function(event) {
+          log("window.error", {
+            message: event.message,
+            source: event.filename,
+            line: event.lineno,
+            column: event.colno
+          });
+        });
+
+        window.addEventListener("unhandledrejection", function(event) {
+          log("unhandledrejection", event.reason);
+        });
+
+        const originalFetch = window.fetch;
+        if (typeof originalFetch === "function") {
+          window.fetch = function(input, init) {
+            const url = typeof input === "string" ? input : input && input.url;
+            return originalFetch.call(this, input, init).then(function(response) {
+              if (!response.ok || /api\.github\.com|oauth-web-ten\.vercel\.app/i.test(String(url))) {
+                log("fetch", {
+                  url: url,
+                  status: response.status,
+                  ok: response.ok,
+                  type: response.type
+                });
+              }
+              return response;
+            }).catch(function(error) {
+              log("fetch.error", {
+                url: url,
+                message: error && error.message ? error.message : String(error)
+              });
+              throw error;
+            });
+          };
+        }
+      })();
+
       (function enableLiveWebsitePreview() {
         const divider = document.getElementById("live-preview-divider");
         const iframe = document.getElementById("live-site-preview");

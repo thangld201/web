@@ -38,6 +38,7 @@ jobs:
             site = "https://#{owner}.github.io/#{name}"
             cfg["backend"] ||= {}
             cfg["backend"]["repo"] = repo
+            cfg["backend"]["site_domain"] = "#{owner}.github.io"
             cfg["site_url"] = site
             cfg["display_url"] = site
             cfg["logo_url"] = "/#{name}/images/logo.png"
