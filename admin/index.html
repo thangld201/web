@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="custom.css">
   </head>
   <body>
+    <div id="local-only-notice" hidden></div>
     <div
       id="live-preview-divider"
       role="separator"
@@ -18,8 +19,44 @@
     <iframe id="live-site-preview" title="Live website preview" loading="lazy"></iframe>
     <div id="auth-debug-panel" hidden aria-live="polite"></div>
 
-    <script src="https://unpkg.com/decap-cms@3.6.2/dist/decap-cms.js"></script>
     <script>
+      (function enforceLocalOnlyAdmin() {
+        const isLocalhost = /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname);
+        if (isLocalhost) {
+          const script = document.createElement("script");
+          script.src = "https://unpkg.com/decap-cms@3.6.2/dist/decap-cms.js";
+          document.head.appendChild(script);
+          return;
+        }
+
+        const notice = document.getElementById("local-only-notice");
+        if (!notice) {
+          return;
+        }
+
+        document.body.className = "local-only-admin";
+        notice.hidden = false;
+        notice.style.minHeight = "100vh";
+        notice.style.display = "grid";
+        notice.style.placeItems = "center";
+        notice.style.padding = "32px";
+        notice.style.background = "linear-gradient(135deg, #f8fafc, #dbeafe)";
+        notice.innerHTML =
+          '<div style="max-width: 640px; padding: 32px; border-radius: 24px; background: rgba(255,255,255,0.94); box-shadow: 0 24px 60px rgba(15,23,42,0.14); color: #0f172a; font: 16px/1.6 system-ui, sans-serif;">' +
+          '<h1 style="margin: 0 0 12px; font-size: 32px; line-height: 1.1;">Admin Is Local Only</h1>' +
+          '<p style="margin: 0 0 12px;">This Decap CMS is intentionally disabled on deployed environments.</p>' +
+          '<p style="margin: 0 0 12px;">Run it locally with <code>npx decap-server</code> and your site server, then open the local <code>/admin/</code> URL.</p>' +
+          '<p style="margin: 0;">Current host: <code>' + window.location.host + '</code></p>' +
+          "</div>";
+
+        const divider = document.getElementById("live-preview-divider");
+        const iframe = document.getElementById("live-site-preview");
+        const debugPanel = document.getElementById("auth-debug-panel");
+        if (divider) divider.remove();
+        if (iframe) iframe.remove();
+        if (debugPanel) debugPanel.remove();
+      })();
+
       (function enableAuthDebugPanel() {
         const params = new URLSearchParams(window.location.search);
         const isLocalhost = /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname);
