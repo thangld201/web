@@ -13,13 +13,20 @@ In most cases, you do not need to run the site locally. You can edit the content
 3. [Website Structure](#website-structure)
 4. [Important Notes Before Editing](#important-notes-before-editing)
 5. [Which File Controls Each Page](#which-file-controls-each-page)
-6. [How To Edit Each Page](#how-to-edit-each-page)
-7. [Adding Images](#adding-images)
-8. [Recommended Editing Method](#recommended-editing-method)
-9. [Optional: Preview The Site Locally](#optional-preview-the-site-locally)
-10. [Quick Reference](#quick-reference)
-11. [Troubleshooting](#troubleshooting)
-12. [Final Note](#final-note)
+6. [Editable Pages And What Can Be Updated](#editable-pages-and-what-can-be-updated)
+7. [Home Page](#home-page)
+8. [Leader Page](#leader-page)
+9. [Team Page](#team-page)
+10. [News Page](#news-page)
+11. [Publications Page](#publications-page)
+12. [Join Page](#join-page)
+13. [Contact Page](#contact-page)
+14. [Adding Images](#adding-images)
+15. [Recommended Editing Method](#recommended-editing-method)
+16. [Optional: Preview The Site Locally](#optional-preview-the-site-locally)
+17. [Quick Reference](#quick-reference)
+18. [Troubleshooting](#troubleshooting)
+19. [Final Note](#final-note)
 
 ## Overview
 
@@ -195,6 +202,127 @@ Page URL:
 ```
 
 Main content file:
+
+```text
+/_data/contact.yml
+```
+
+## Editable Pages And What Can Be Updated
+
+### Home Page
+
+You can update:
+
+- welcome text
+- research area titles and descriptions
+- research links
+- homepage hero images
+
+Main file:
+
+```text
+/index.html
+```
+
+### Leader Page
+
+You can update:
+
+- leader name
+- title
+- tagline
+- photo
+- email
+- social links
+- bio
+- research interests
+- education
+- awards
+
+Main file:
+
+```text
+/_data/leader.yml
+```
+
+### Team Page
+
+You can update:
+
+- team member names
+- roles
+- photos
+- bios
+- email and profile links
+- keywords
+- alumni status
+
+Main file:
+
+```text
+/_data/team.yml
+```
+
+### News Page
+
+You can update:
+
+- news titles
+- dates
+- descriptions
+- links inside the news text
+
+Main file:
+
+```text
+/_data/news.yml
+```
+
+### Publications Page
+
+You can update:
+
+- paper titles
+- authors
+- venue
+- year
+- type
+- badge
+- selected status
+- paper, code, dataset, video, and demo links
+
+Main file:
+
+```text
+/_data/publications.yml
+```
+
+### Join Page
+
+You can update:
+
+- page title
+- intro text
+- open positions
+- join instructions
+- contact email
+
+Main file:
+
+```text
+/_data/join.yml
+```
+
+### Contact Page
+
+You can update:
+
+- office hours
+- address
+- contact email
+- map embed link
+
+Main file:
 
 ```text
 /_data/contact.yml
