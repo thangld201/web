@@ -4,6 +4,8 @@ This document explains how to update the website manually by editing files in th
 
 It is intended for team members who want to make content updates without using the CMS.
 
+In most cases, you do not need to run the site locally. You can edit the content files directly in the GitHub website interface, commit the changes, and the website will update after deployment.
+
 ## Overview
 
 Most pages on the website are generated from files inside the `/_data/` folder.
@@ -12,9 +14,23 @@ The general workflow is:
 
 1. Open the file that controls the page content.
 2. Edit the text, links, or image path.
-3. Save the file.
-4. Preview the site locally.
-5. Commit and push the changes.
+3. Commit the change.
+4. Wait for the website to redeploy.
+
+Local preview is optional. It can be useful if you want to check changes before pushing them, but it is not required for normal content edits.
+
+## Recommended Workflow For Most Editors
+
+For most content updates, the easiest method is to use the GitHub website directly:
+
+1. Open the repository on GitHub.
+2. Navigate to the file you want to edit.
+3. Click the pencil icon to edit the file.
+4. Update the content.
+5. Commit the change.
+6. Wait for GitHub Pages to redeploy the site.
+
+After deployment completes, the live site will reflect the new content.
 
 ## Website Structure
 
@@ -650,7 +666,11 @@ To reduce mistakes:
 
 This is the safest approach for YAML files.
 
-## Preview The Site Locally
+## Optional: Preview The Site Locally
+
+Running the site locally is optional.
+
+Use this only if you want to preview changes before pushing them.
 
 From the project folder, run:
 
@@ -703,6 +723,6 @@ If needed, revert the last change and try again.
 
 ## Final Note
 
-For most content updates, the only files you need are the files in `/_data/`.
+For most content updates, the only files you need are the files in `/_data/`, and you can edit them directly in the GitHub web interface.
 
 When making routine edits, it is usually best to start there first.
