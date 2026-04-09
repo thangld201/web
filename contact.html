@@ -1,0 +1,31 @@
+---
+layout: default
+title: Contact
+permalink: /contact/
+---
+
+{% assign contact = site.data.contact %}
+
+<section class="page-header container">
+  <hr class="contact-divider">
+
+  <div class="contact-grid" aria-label="Contact details">
+    {% for card in contact.cards %}
+    <article class="contact-card">
+      <div class="contact-icon" aria-hidden="true"><i class="fas fa-{{ card.icon }}"></i></div>
+      <h3>{{ card.title }}</h3>
+      <p>
+        {% if card.link %}
+        <a class="contact-email" href="{{ card.link }}">{{ card.body }}</a>
+        {% else %}
+        {{ card.body | newline_to_br }}
+        {% endif %}
+      </p>
+    </article>
+    {% endfor %}
+  </div>
+
+  <div class="contact-map" aria-label="Campus map">
+    <iframe class="contact-map-frame" title="MBZUAI location map" src="{{ contact.map.embed_url }}" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>

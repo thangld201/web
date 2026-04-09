@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0f766e">
+    <title>RiTUAL PI and Content Admin</title>
+    <link rel="stylesheet" href="custom.css">
+  </head>
+  <body>
+    <div id="local-only-notice" hidden></div>
+    <div
+      id="live-preview-divider"
+      role="separator"
+      aria-orientation="vertical"
+      aria-label="Resize editor and preview panels"
+      tabindex="0"
+    ></div>
+    <iframe id="live-site-preview" title="Live website preview" loading="lazy"></iframe>
+    <div id="auth-debug-panel" hidden aria-live="polite"></div>
+
+    <script>
+      (function enforceLocalOnlyAdmin() {
+        const isLocalhost = /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname);
+        if (isLocalhost) {
+          const script = document.createElement("script");
+          script.src = "https://unpkg.com/decap-cms@3.6.2/dist/decap-cms.js";
+          document.head.appendChild(script);
+          return;
+        }
+
+        const notice = document.getElementById("local-only-notice");
+        if (!notice) {
+          return;
+        }
+
+        document.body.className = "local-only-admin";
+        notice.hidden = false;
+        notice.style.minHeight = "100vh";
+        notice.style.display = "grid";
+        notice.style.placeItems = "center";
+        notice.style.padding = "32px";
+        notice.style.background = "linear-gradient(135deg, #f8fafc, #dbeafe)";
+        notice.innerHTML =
+          '<div style="max-width: 640px; padding: 32px; border-radius: 24px; background: rgba(255,255,255,0.94); box-shadow: 0 24px 60px rgba(15,23,42,0.14); color: #0f172a; font: 16px/1.6 system-ui, sans-serif;">' +
+          '<h1 style="margin: 0 0 12px; font-size: 32px; line-height: 1.1;">Admin Is Local Only</h1>' +
+          '<p style="margin: 0 0 12px;">This Decap CMS is intentionally disabled on deployed environments.</p>' +
+          '<p style="margin: 0 0 12px;">Run it locally with <code>npx decap-server</code> and your site server, then open the local <code>/admin/</code> URL.</p>' +
+          '<p style="margin: 0;">Current host: <code>' + window.location.host + '</code></p>' +
+          "</div>";
+
+        const divider = document.getElementById("live-preview-divider");
+        const iframe = document.getElementById("live-site-preview");
+        const debugPanel = document.getElementById("auth-debug-panel");
+        if (divider) divider.remove();
+        if (iframe) iframe.remove();
+        if (debugPanel) debugPanel.remove();
+      })();
+
+      (function enableAuthDebugPanel() {
+        const params = new URLSearchParams(window.location.search);
+        const isLocalhost = /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname);
+        if (params.get("debug-auth") !== "1" && !isLocalhost) {
+          return;
+        }
+
+        const panel = document.getElementById("auth-debug-panel");
+        if (!panel) {
+          return;
+        }
+
+        const lines = [];
+
+        function safeSerialize(value) {
+          if (typeof value === "string") {
+            return value;
+          }
+          try {
+            return JSON.stringify(value);
+          } catch (error) {
+            return String(value);
+          }
+        }
+
+        function render() {
+          panel.hidden = false;
+          panel.style.position = "fixed";
+          panel.style.right = "16px";
+          panel.style.bottom = "16px";
+          panel.style.zIndex = "99999";
+          panel.style.width = "min(520px, calc(100vw - 32px))";
+          panel.style.maxHeight = "50vh";
+          panel.style.overflow = "auto";
+          panel.style.padding = "12px 14px";
+          panel.style.borderRadius = "12px";
+          panel.style.background = "rgba(15, 23, 42, 0.96)";
+          panel.style.color = "#e2e8f0";
+          panel.style.font = "12px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace";
+          panel.style.boxShadow = "0 16px 40px rgba(15, 23, 42, 0.35)";
+          panel.style.whiteSpace = "pre-wrap";
+          panel.textContent = lines.join("\n");
+        }
+
+        function log(label, value) {
+          const timestamp = new Date().toISOString().slice(11, 19);
+          lines.push("[" + timestamp + "] " + label + (value == null ? "" : ": " + safeSerialize(value)));
+          if (lines.length > 120) {
+            lines.splice(0, lines.length - 120);
+          }
+          render();
+        }
+
+        log("debug", "enabled");
+        log("location.href", window.location.href);
+        log("location.origin", window.location.origin);
+        log("location.pathname", window.location.pathname);
+        log("location.hash", window.location.hash || "(empty)");
+        log("document.referrer", document.referrer || "(empty)");
+
+        const storageKeys = [];
+        for (let index = 0; index < window.localStorage.length; index += 1) {
+          const key = window.localStorage.key(index);
+          if (key && /(decap|cms|netlify|auth|github)/i.test(key)) {
+            storageKeys.push(key + "=" + window.localStorage.getItem(key));
+          }
+        }
+        log("localStorage", storageKeys.length ? storageKeys : "(no matching keys)");
+
+        window.addEventListener("message", function(event) {
+          log("postMessage origin", event.origin);
+          log("postMessage data", event.data);
+          window.setTimeout(function() {
+            const updatedStorageKeys = [];
+            for (let index = 0; index < window.localStorage.length; index += 1) {
+              const key = window.localStorage.key(index);
+              if (!key) {
+                continue;
+              }
+              updatedStorageKeys.push(key + "=" + window.localStorage.getItem(key));
+            }
+            log("localStorage after message", updatedStorageKeys);
+          }, 250);
+        });
+
+        window.addEventListener("error", function(event) {
+          log("window.error", {
+            message: event.message,
+            source: event.filename,
+            line: event.lineno,
+            column: event.colno
+          });
+        });
+
+        window.addEventListener("unhandledrejection", function(event) {
+          log("unhandledrejection", event.reason);
+        });
+
+        const originalFetch = window.fetch;
+        if (typeof originalFetch === "function") {
+          window.fetch = function(input, init) {
+            const url = typeof input === "string" ? input : input && input.url;
+            return originalFetch.call(this, input, init).then(function(response) {
+              if (!response.ok || /api\.github\.com|oauth-web-ten\.vercel\.app/i.test(String(url))) {
+                log("fetch", {
+                  url: url,
+                  status: response.status,
+                  ok: response.ok,
+                  type: response.type
+                });
+              }
+              return response;
+            }).catch(function(error) {
+              log("fetch.error", {
+                url: url,
+                message: error && error.message ? error.message : String(error)
+              });
+              throw error;
+            });
+          };
+        }
+      })();
+
+      (function enableLiveWebsitePreview() {
+        const divider = document.getElementById("live-preview-divider");
+        const iframe = document.getElementById("live-site-preview");
+        if (!iframe || !divider) {
+          return;
+        }
+
+        const parts = window.location.pathname.split("/").filter(Boolean);
+        const repo = parts[0] || "";
+        const basePath = repo === "admin" ? "" : "/" + repo;
+        const widthStorageKey = "adminEditorWidth";
+        const minEditorRatio = 0.35;
+        const maxEditorRatio = 0.8;
+        let isDragging = false;
+
+        function clampEditorRatio(ratio) {
+          return Math.min(maxEditorRatio, Math.max(minEditorRatio, ratio));
+        }
+
+        function applyEditorRatio(ratio, persist) {
+          const safeRatio = clampEditorRatio(ratio);
+          const widthValue = (safeRatio * 100).toFixed(2).replace(/\.00$/, "") + "vw";
+          document.documentElement.style.setProperty("--editor-width", widthValue);
+          divider.setAttribute("aria-valuenow", String(Math.round(safeRatio * 100)));
+          if (persist) {
+            window.localStorage.setItem(widthStorageKey, widthValue);
+          }
+        }
+
+        function applyEditorWidthFromPointer(clientX, persist) {
+          const ratio = clientX / window.innerWidth;
+          applyEditorRatio(ratio, persist);
+        }
+
+        const savedWidth = window.localStorage.getItem(widthStorageKey);
+        if (savedWidth) {
+          document.documentElement.style.setProperty("--editor-width", savedWidth);
+        }
+
+        function pathForHash() {
+          const hash = window.location.hash || "";
+          if (hash.includes("/collections/news")) return "/news/";
+          if (hash.includes("/collections/publications")) return "/publications/";
+          if (hash.includes("/collections/team")) return "/team/";
+          if (hash.includes("/collections/pi")) return "/leader/";
+          if (hash.includes("/collections/join")) return "/join/";
+          if (hash.includes("/collections/contact")) return "/contact/";
+          return "/team/";
+        }
+
+        function normalizeHashRoute() {
+          const hash = window.location.hash || "";
+          if (hash === "#/media" || hash.startsWith("#/media/")) {
+            window.location.hash = "#/collections/team";
+            return true;
+          }
+          return false;
+        }
+
+        function setPreview(path) {
+          const full = window.location.origin + basePath + path;
+          if (iframe.dataset.currentSrc !== full) {
+            iframe.src = full;
+            iframe.dataset.currentSrc = full;
+          }
+        }
+
+        function syncPreviewMode() {
+          const hash = window.location.hash || "";
+          const isEditingEntry = hash.includes("/entries/");
+          document.body.classList.remove("mode-entry", "mode-collection");
+          document.body.classList.add(isEditingEntry ? "mode-entry" : "mode-collection");
+        }
+
+        if (normalizeHashRoute()) {
+          return;
+        }
+
+        setPreview(pathForHash());
+        document.body.classList.add("with-live-preview");
+        syncPreviewMode();
+
+        divider.addEventListener("pointerdown", function(event) {
+          if (window.innerWidth <= 1200) {
+            return;
+          }
+          isDragging = true;
+          divider.setPointerCapture(event.pointerId);
+          document.body.classList.add("is-resizing-preview");
+        });
+
+        divider.addEventListener("pointermove", function(event) {
+          if (!isDragging) {
+            return;
+          }
+          applyEditorWidthFromPointer(event.clientX, false);
+        });
+
+        divider.addEventListener("pointerup", function(event) {
+          if (!isDragging) {
+            return;
+          }
+          isDragging = false;
+          divider.releasePointerCapture(event.pointerId);
+          document.body.classList.remove("is-resizing-preview");
+          applyEditorWidthFromPointer(event.clientX, true);
+        });
+
+        divider.addEventListener("pointercancel", function() {
+          isDragging = false;
+          document.body.classList.remove("is-resizing-preview");
+        });
+
+        divider.addEventListener("keydown", function(event) {
+          if (window.innerWidth <= 1200) {
+            return;
+          }
+          const currentWidth = getComputedStyle(document.documentElement).getPropertyValue("--editor-width").trim() || "68vw";
+          const currentRatio = parseFloat(currentWidth) / 100;
+          if (event.key === "ArrowLeft") {
+            event.preventDefault();
+            applyEditorRatio(currentRatio - 0.02, true);
+          } else if (event.key === "ArrowRight") {
+            event.preventDefault();
+            applyEditorRatio(currentRatio + 0.02, true);
+          }
+        });
+
+        window.addEventListener("hashchange", function() {
+          if (normalizeHashRoute()) {
+            return;
+          }
+          setPreview(pathForHash());
+          syncPreviewMode();
+        });
+        window.addEventListener("resize", syncPreviewMode);
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+---
+layout: default
+title: Joining the Group
+permalink: /join/
+---
+
+{% assign join = site.data.join %}
+
+<section class="page-header container">
+  <h1>{{ join.hero.title }}</h1>
+  <p>{{ join.hero.intro }}</p>
+</section>
+
+
+<section class="page-header container">
+  <h1>{{ join.positions_section_title }}</h1>
+</section>
+
+
+<section class="join-simple container">
+  <div class="publications-list join-position-list">
+    {% for position in join.positions %}
+    <article class="pub-card">
+      <div class="pub-card-content">
+      <h3 class="pub-title">{{ position.title }}</h3>
+      <p class="pub-authors">{{ position.description }}</p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+
+<section class="page-header container">
+  <h1>{{ join.connect.title }}</h1>
+  {% capture join_email_link %}<a class="join-email-link" href="mailto:{{ join.connect.email }}">{{ join.connect.email }}</a>{% endcapture %}
+  <p>{{ join.connect.body | replace: join.connect.email, join_email_link }}</p>
+</section>

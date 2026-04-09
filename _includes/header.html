@@ -1,17 +1,19 @@
 <header class="site-header">
   <div class="container header-inner">
-    <div class="logo">
+    <a class="logo" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} homepage">
       <!-- Use relative_url so that the logo loads correctly under GitHub Pages subpaths -->
-      <img src="{{ '/images/ritual_logo_hd.png' | relative_url }}" alt="{{ site.title }} Logo" class="logo-img">
-      <span class="logo-text">{{ site.title }}</span>
-    </div>
+      <img src="{{ '/images/ritual_logo_hd.png' | relative_url }}" alt="{{ site.title }} Logo" class="logo-img" decoding="async" fetchpriority="high">
+      <span class="logo-text">RiTUAL Group at MBZUAI</span>
+    </a>
     <nav class="nav">
       <ul id="menu">
         <!-- Highlight the current page by comparing the current URL -->
         <li><a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="active"{% endif %}>Home</a></li>
         <li><a href="{{ '/team/' | relative_url }}"{% if page.url == '/team/' %} class="active"{% endif %}>Team</a></li>
         <li><a href="{{ '/publications/' | relative_url }}"{% if page.url == '/publications/' %} class="active"{% endif %}>Publications</a></li>
-        <li><a href="{{ '/news/' | relative_url }}"{% if page.url == '/news/' %} class="active"{% endif %}>News</a></li>
+        <li><a href="{{ '/resources/' | relative_url }}"{% if page.url == '/resources/' %} class="active"{% endif %}>Resources</a></li>
+        <li><a href="{{ '/join/' | relative_url }}"{% if page.url == '/join/' %} class="active"{% endif %}>Join Us</a></li>
+        <li><a href="{{ '/contact/' | relative_url }}"{% if page.url == '/contact/' %} class="active"{% endif %}>Contact</a></li>
       </ul>
       <!-- Mobile menu toggle button -->
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">&#9776;</button>

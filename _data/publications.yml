@@ -1,9 +1,232 @@
 publications:
-  - title: "Question‑Instructed Visual Descriptions for Zero‑Shot Video Answering"
-    authors: "David Mogrovejo, Thamar Solorio"
-    source: "Findings of the Association for Computational Linguistics ACL 2024 (Publication Date: 2024/8)"
+
+  - title: "Afri-MCQA: Multimodal Cultural Question Answering for African Languages"
+    authors: "Atnafu Lambebo Tonja, Srija Anand, Emilio Villa-Cueva, Israel Abebe Azime, Jesujoba Oluwadara Alabi, Muhidin A Mohamed, Debela Desalegn Yadeta, Negasi Haile Abadi, Abigail Oppong, Nnaemeka Casmir Obiefuna, Idris Abdulmumin, Naome A Etori, Eric Peter Wairagala, Kanda Patrick Tshinu, Imanigirimbabazi Emmanuel, Gabofetswe Malema, Alham Fikri Aji, David Ifeoluwa Adelani, Thamar Solorio"
+    venue: "arXiv preprint"
+    year: 2026
+    type: "preprint"
+    badge: "preprint"
+    selected: false
+    links:
+      paper: "https://arxiv.org/pdf/2601.05699"
+      dataset: "https://huggingface.co/datasets/Atnafu/Afri-MCQA"
+
+  - title: "Beyond Understanding: Evaluating the Pragmatic Gap in LLMs' Cultural Processing of Figurative Language"
+    authors: "Mena Attia, Aashiq Muhamed, Mai Alkhamissi, Thamar Solorio, Mona Diab"
+    venue: "European Chapter of the Association for Computational Linguistics (EACL)"
+    year: 2026
     type: "conference"
-  - title: "HyperLoader: Integrating Hypernetwork‑Based LoRA and Adapter Layers into Multi‑Task Transformers for Sequence Labelling"
-    authors: "Jesus‑German Ortiz‑Barajas, Helena Gomez‑Adorno, Thamar Solorio"
-    source: "arXiv preprint arXiv:2407.01411 (Publication Date: 2024/7/1)"
-    type: "journal"
+    badge: "EACL"
+    selected: true
+    links:
+      paper: "https://arxiv.org/pdf/2510.23828"
+      code: "https://github.com/menaattia/llm-figurative-understanding"
+      dataset: "https://huggingface.co/datasets/menaattia/Kinayat"
+
+  - title: "A Survey of Code-switched Arabic NLP: Progress, Challenges, and Future Directions"
+    authors: "Injy Hamed, Caroline Sabty, Slim Abdennadher, Ngoc Thang Vu, Thamar Solorio, Nizar Habash"
+    venue: "COLING"
+    year: 2025
+    type: "conference"
+    badge: "COLING"
+    selected: true
+    links:
+      paper: "https://aclanthology.org/2025.coling-main.307/"
+
+  - title: "All languages matter: Evaluating lmms on culturally diverse 100 languages"
+    authors: "Ashmal Vayani, Dinura Dissanayake, Hasindri Watawana, Noor Ahsan, Nevasini Sasikumar, Omkar Thawakar, Henok Biadglign Ademtew, Yahya Hmaiti, Amandeep Kumar, Kartik Kukreja, Mykola Maslych, Wafa Al Ghallabi, Mihail Minkov Mihaylov, Chao Qin, Abdelrahman M Shaker, Mike Zhang, Mahardika Krisna Ihsani, Amiel Gian Esplana, Monil Gokani, Shachar Mirkin, Harsh Singh, Ashay Srivastava, Endre Hamerlik, Fathinah Asma Izzati, Fadillah Adamsyah Maani, Sebastian Cavada, Jenny Chim, Rohit Gupta, Sanjay Manjunath, Kamila Zhumakhanova, Feno Heriniaina Rabevohitra, Azril Hafizi Amirudin, Muhammad Ridzuan, Daniya Najiha Abdul Kareem, Ketan Pravin More, Kunyang Li, Pramesh Shakya, Muhammad Saad, Amirpouya Ghasemaghaei, Amirbek Djanibekov, Dilshod Azizov, Branislava Jankovic, Naman Bhatia, Alvaro Cabrera, Johan Obando-Ceron, Olympiah Otieno, Febian Farestam, Muztoba Rabbani, Sanoojan Ballah, Santosh Sanjeev, Abduragim Shtanchaev, Maheen Fatima, Thao Nguyen, Amrin Kareem, Toluwani Aremu, Nathan Augusto Zacarias Xavier, Amit Bhatkal, Hawau Olamide Toyin, Aman Chadha, Hisham Cholakkal, Rao Muhammad Anwer, Michael Felsberg, Jorma Laaksonen, Thamar Solorio, Monojit Choudhury, Ivan Laptev, Mubarak Shah, Salman Khan, Fahad Shahbaz Khan"
+    venue: "Conference on Computer Vision and Pattern Recognition (CVPR)"
+    year: 2025
+    type: "conference"
+    badge: "CVPR"
+    selected: true
+    links:
+      paper: "https://openaccess.thecvf.com/content/CVPR2025/papers/Vayani_All_Languages_Matter_Evaluating_LMMs_on_Culturally_Diverse_100_Languages_CVPR_2025_paper.pdf"
+      code: "https://github.com/mbzuai-oryx/ALM-Bench"
+      dataset: "https://huggingface.co/datasets/MBZUAI/ALM-Bench"
+
+  - title: "CS-FLEURS: A Massively Multilingual and Code-Switched Speech Dataset"
+    authors: "Brian Yan, Injy Hamed, Shuichiro Shimizu, Vasista Lodagala, William Chen, Olga Iakovenko, Bashar Talafha, Amir Hussein, Alexander Polok, Kalvin Chang, Dominik Klement, Sara Althubaiti, Puyuan Peng, Matthew Wiesner, Thamar Solorio, Ahmed Ali, Sanjeev Khudanpur, Shinji Watanabe, Chih-Chen Chen, Zhen Wu, Karim Benharrak, Anuj Diwan, Samuele Cornell, Eunjung Yeo, Kwanghee Choi, Carlos Carvalho, Karen Rosero"
+    venue: "INTERSPEECH"
+    year: 2025
+    type: "conference"
+    badge: "INTERSPEECH"
+    selected: true
+    links:
+      paper: "https://arxiv.org/pdf/2509.14161"
+      dataset: "https://huggingface.co/datasets/byan/cs-fleurs"
+
+  - title: "CaMMT: Benchmarking Culturally Aware Multimodal Machine Translation"
+    authors: "Emilio Villa-Cueva, Sholpan Bolatzhanova, Diana Turmakhan, Kareem Elzeky, Henok Biadglign Ademtew, Alham Fikri Aji, Vladimir Araujo, Israel Abebe Azime, Jinheon Baek, Frederico Belcavello, Fermin Cristobal, Jan Christian Blaise Cruz, Mary Dabre, Raj Dabre, Toqeer Ehsan, Naome A Etori, Fauzan Farooqui, Jiahui Geng, Guido Ivetta, Thanmay Jayakumar, Soyeong Jeong, Zheng Wei Lim, Aishik Mandal, Sofía Martinelli, Mihail Minkov Mihaylov, Daniil Orel, Aniket Pramanick, Sukannya Purkayastha, Israfel Salazar, Haiyue Song, Tiago Timponi Torrent, Debela Desalegn Yadeta, Injy Hamed, Atnafu Lambebo Tonja, Thamar Solorio"
+    venue: "Findings of the Association for Computational Linguistics: EMNLP"
+    year: 2025
+    type: "conference"
+    badge: "EMNLP Findings"
+    selected: true
+    links:
+      paper: "https://aclanthology.org/2025.findings-emnlp.1220/"
+      dataset: "https://huggingface.co/datasets/villacu/cammt"
+
+  - title: "MoMentS: A Comprehensive Multimodal Benchmark for Theory of Mind"
+    authors: "Emilio Villa-Cueva, S M Masrur Ahmed, Rendi Chevi, Jan Christian Blaise Cruz, Kareem Elzeky, Fermin Cristobal, Alham Fikri Aji, Skyler Wang, Rada Mihalcea, Thamar Solorio"
+    venue: "Findings of the Association for Computational Linguistics: EMNLP"
+    year: 2025
+    type: "conference"
+    badge: "EMNLP Findings"
+    selected: true
+    links:
+      paper: "https://aclanthology.org/2025.findings-emnlp.1230/"
+      dataset: "https://github.com/villacu/MoMentS"
+
+  - title: "Emotion Train at SemEval-2025 Task 11: Comparing Generative and Discriminative Models in Emotion Recognition"
+    authors: "Anastasiia Demidova, Injy Hamed, Teresa Lynn, Thamar Solorio"
+    venue: "International Workshop on Semantic Evaluation (SemEval)"
+    year: 2025
+    type: "workshop"
+    badge: "SemEval"
+    selected: false
+    links:
+      paper: "https://aclanthology.org/2025.semeval-1.133/"
+      code: "https://github.com/profii/semeval25_task11"
+
+  - title: "Tell me Habibi, is it Real or Fake?"
+    authors: "Kartik Kuckreja, Parul Gupta, Injy Hamed, Thamar Solorio, Muhammad Haris Khan, Abhinav Dhall"
+    venue: "ICLR"
+    year: 2026
+    type: "conference"
+    badge: "ICLR"
+    selected: true
+    links:
+      paper: "https://openreview.net/pdf?id=EbrPXZTVJ9"
+      dataset: "https://huggingface.co/datasets/kartik060702/ArEnAV-Full"
+      
+
+  - title: "Cvqa: Culturally-diverse multilingual visual question answering benchmark"
+    authors: "David Orlando Romero Mogrovejo, Chenyang Lyu, Haryo Akbarianto Wibowo, Santiago Góngora, Aishik Mandal, Sukannya Purkayastha, Jesus-German Ortiz-Barajas, Emilio Villa Cueva, Jinheon Baek, Soyeong Jeong, Injy Hamed, Zheng Xin Yong, Zheng Wei Lim, Paula Mónica Silva, Jocelyn Dunstan, Mélanie Jouitteau, David LE MEUR, Joan Nwatu, Ganzorig Batnasan, Munkh-Erdene Otgonbold, Munkhjargal Gochoo, Guido Ivetta, Luciana Benotti, Laura Alonso Alemany, Hernán Maina, Jiahui Geng, Tiago Timponi Torrent, Frederico Belcavello, Marcelo Viridiano, Jan Christian Blaise Cruz, Dan John Velasco, Oana Ignat, Zara Burzo, Chenxi Whitehouse, Artem Abzaliev, Teresa Clifford, Gráinne Caulfield, Teresa Lynn, Christian Salamea-Palacios, Vladimir Araujo, Yova Kementchedjhieva, Mihail Minkov Mihaylov, Israel Abebe Azime, Henok Biadglign Ademtew, Bontu Fufa Balcha, Naome A Etori, David Ifeoluwa Adelani, Rada Mihalcea, Atnafu Lambebo Tonja, Maria Camila Buitrago Cabrera, Gisela Vallejo, Holy Lovenia, Ruochen Zhang, Marcos Estecha-Garitagoitia, Mario Rodríguez-Cantelar, Toqeer Ehsan, Rendi Chevi, Muhammad Farid Adilazuarda, Ryandito Diandaru, Samuel Cahyawijaya, Fajri Koto, Tatsuki Kuribayashi, Haiyue Song, Aditya Nanda Kishore Khandavally, Thanmay Jayakumar, Raj Dabre, Mohamed Fazli Mohamed Imam, Kumaranage Ravindu Yasas Nagasinghe, Alina Dragonetti, Luis Fernando D'Haro, Olivier NIYOMUGISHA, Jay Gala, Pranjal A Chitale, Fauzan Farooqui, Thamar Solorio, Alham Fikri Aji"
+    venue: "Neural Information Processing Systems (NeurIPS)"
+    year: 2024
+    type: "conference"
+    badge: "NeurIPS"
+    selected: true
+    links:
+      paper: "https://arxiv.org/pdf/2406.05967"
+      dataset: "https://huggingface.co/datasets/afaji/cvqa"
+
+  - title: "Question-Instructed Visual Descriptions for Zero-Shot Video Answering"
+    authors: "David Mogrovejo, Thamar Solorio"
+    venue: "Findings of the Association for Computational Linguistics: ACL"
+    year: 2024
+    type: "conference"
+    badge: "ACL Findings"
+    selected: true
+    links:
+      paper: "https://aclanthology.org/2024.findings-acl.555.pdf"
+      code: "https://github.com/Daromog/Q-ViD"
+
+  - title: "Adaptive Cross-lingual Text Classification through In-Context One-Shot Demonstrations"
+    authors: "Emilio Cueva, Adrian Lopez Monroy, Fernando Sánchez-Vega, Thamar Solorio"
+    venue: "Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL-HLT)"
+    year: 2024
+    type: "conference"
+    badge: "NAACL"
+    selected: true
+    links:
+      paper: "https://aclanthology.org/2024.naacl-long.460/"
+      code: "https://github.com/villacu/ic_xlt"
+
+  - title: "SemRel2024: A Collection of Semantic Textual Relatedness Datasets for 13 Languages"
+    authors: "Nedjma Ousidhoum, Shamsuddeen Muhammad, Mohamed Abdalla, Idris Abdulmumin, Ibrahim Ahmad, Sanchit Ahuja, Alham Aji, Vladimir Araujo, Abinew Ayele, Pavan Baswani, Meriem Beloucif, Chris Biemann, Sofia Bourhim, Christine Kock, Genet Dekebo, Oumaima Hourrane, Gopichand Kanumolu, Lokesh Madasu, Samuel Rutunda, Manish Shrivastava, Thamar Solorio, Nirmal Surange, Hailegnaw Tilaye, Krishnapriya Vishnubhotla, Genta Winata, Seid Yimam, Saif Mohammad"
+    venue: "Findings of the Association for Computational Linguistics: ACL"
+    year: 2024
+    type: "conference"
+    badge: "ACL Findings"
+    selected: true
+    links:
+      paper: "https://aclanthology.org/2024.findings-acl.147/"
+      code: "https://github.com/semantic-textual-relatedness/Semantic_Relatedness_SemEval2024#citing-this-work"
+      dataset: "https://github.com/semantic-textual-relatedness/Semantic_Relatedness_SemEval2024#citing-this-work"
+
+  - title: "Labeling Comic Mischief Content in Online Videos with a Multimodal Hierarchical-Cross-Attention Model"
+    authors: "Elaheh Baharlouei, Mahsa Shafaei, Yigeng Zhang, Hugo Jair Escalante, Thamar Solorio"
+    venue: "International Conference on Language Resources and Evaluation and International Conference on Computational Linguistics (LREC-COLING)"
+    year: 2024
+    type: "conference"
+    badge: "LREC-COLING"
+    selected: false
+    links:
+      paper: "https://aclanthology.org/2024.lrec-main.874/"
+      code: "https://github.com/RiTUAL-MBZUAI/Comic-Mischief-Prediction"
+
+  - title: "OATS: A Challenge Dataset for Opinion Aspect Target Sentiment Joint Detection"
+    authors: "Siva Uday Sampreeth Chebolu, Franck Dernoncourt, Nedim Lipka, Thamar Solorio"
+    venue: "International Conference on Language Resources and Evaluation and International Conference on Computational Linguistics (LREC-COLING)"
+    year: 2024
+    type: "conference"
+    badge: "LREC-COLING"
+    selected: false
+    links:
+      paper: "https://aclanthology.org/2024.lrec-main.1080/"
+      code: "https://github.com/RiTUAL-MBZUAI/OATS-ABSA"
+
+  - title: "Positive and Risky Message Assessment for Music Products"
+    authors: "Yigeng Zhang, Mahsa Shafaei, Fabio Gonzalez, Thamar Solorio"
+    venue: "International Conference on Language Resources and Evaluation and International Conference on Computational Linguistics (LREC-COLING)"
+    year: 2024
+    type: "conference"
+    badge: "LREC-COLING"
+    selected: false
+    links:
+      paper: "https://aclanthology.org/2024.lrec-main.1129/"
+      code: "https://github.com/RiTUAL-MBZUAI/music-message-assessment"
+
+  - title: "Interpreting Themes from Educational Stories"
+    authors: "Yigeng Zhang, Fabio Gonzalez, Thamar Solorio"
+    venue: "International Conference on Language Resources and Evaluation and International Conference on Computational Linguistics (LREC-COLING)"
+    year: 2024
+    type: "conference"
+    badge: "LREC-COLING"
+    selected: false
+    links:
+      paper: "https://aclanthology.org/2024.lrec-main.805/"
+      code: "https://github.com/RiTUAL-MBZUAI/EduStory"
+
+  - title: "Enhancing NER Performance in Low-Resource Pakistani Languages using Cross-Lingual Data Augmentation"
+    authors: "Toqeer Ehsan, Thamar Solorio"
+    venue: "Workshop on Noisy User-generated Text (W-NUT)"
+    year: 2024
+    type: "workshop"
+    badge: "W-NUT"
+    selected: false
+    links:
+      paper: "https://aclanthology.org/2025.wnut-1.13/"
+
+  - title: "The Decades Progress on Code-Switching Research in NLP: A Systematic Survey on Trends and Challenges"
+    authors: "Genta Winata, Alham Fikri Aji, Zheng Xin Yong, Thamar Solorio"
+    venue: "Findings of the Association for Computational Linguistics: ACL"
+    year: 2023
+    type: "conference"
+    badge: "ACL Findings"
+    selected: true
+    links:
+      paper: "https://aclanthology.org/2023.findings-acl.185/"
+      code: "https://github.com/gentaiscool/code-switching-papers"
+
+  - title: "Prompting multilingual large language models to generate code-mixed texts: The case of south East Asian languages"
+    authors: "Zheng-Xin Yong, Ruochen Zhang, Jessica Forde, Skyler Wang, Arjun Subramonian, Holy Lovenia, Samuel Cahyawijaya, Genta Indra Winata, Lintang Sutawika, Jan Christian Blaise Cruz, Yin Lin Tan, Long Phan, Rowena Garcia, Thamar Solorio, Alham Fikri Aji"
+    venue: "6th Workshop on Computational Approaches to Linguistic Code-Switching"
+    year: 2023
+    type: "workshop"
+    badge: "CALCS"
+    selected: false
+    links:
+      paper: "https://aclanthology.org/2023.calcs-1.5.pdf"
+
+  - title: "Distillation of Encoder-Decoder Transformers for Sequence Labelling"
+    authors: "Marco Farina, Duccio Pappadopulo, Anant Gupta, Leslie Huang, Ozan Irsoy, Thamar Solorio"
+    venue: "Findings of the Association for Computational Linguistics: EACL"
+    year: 2023
+    type: "conference"
+    badge: "EACL Findings"
+    selected: true
+    links:
+      paper: "https://aclanthology.org/2023.findings-eacl.192/"

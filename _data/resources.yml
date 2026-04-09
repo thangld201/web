@@ -1,0 +1,17 @@
+publications:     
+
+  - title: "Placeholder dataset"
+    description: "description"
+    type: "dataset"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuk0lKGzJxf07KoM7-YDN0UD71cDfRfToS2A&s"
+    links: 
+      report: "https://aclanthology.org/2020.acl-main.485"
+      source: "https://huggingface.co"
+
+  - title: "Placeholder software"
+    description: "description"
+    type: "software"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuk0lKGzJxf07KoM7-YDN0UD71cDfRfToS2A&s"
+    links: 
+      report: "https://aclanthology.org/2020.acl-main.485"
+      source: "https://huggingface.co"

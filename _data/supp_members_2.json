@@ -1,0 +1,217 @@
+[
+    {
+        "Paper": "A Survey of Code-switched Arabic NLP: Progress, Challenges, and Future Directions",
+        "Conference": "COLING 2025",
+        "Authors": "Injy Hamed, Caroline Sabty, Slim Abdennadher, Ngoc Thang Vu, Thamar Solorio, Nizar Habash",
+        "Link": "https://aclanthology.org/2025.coling-main.307/",
+        "Code": "NA",
+        "Dataset": "NA"
+    },
+    {
+        "Paper": "The Decades Progress on Code-Switching Research in NLP: A Systematic Survey on Trends and Challenges",
+        "Conference": "Findings of ACL (2023)",
+        "Authors": "Genta Winata, Alham Fikri Aji, Zheng Xin Yong, Thamar Solorio",
+        "Link": "https://aclanthology.org/2023.findings-acl.185/",
+        "Code": "https://github.com/gentaiscool/code-switching-papers",
+        "Dataset": "NA"
+    },
+    {
+        "Paper": "Adaptive Cross-lingual Text Classification through In-Context One-Shot Demonstrations",
+        "Conference": "Findings of ACL (2024)",
+        "Authors": "Emilio Cueva, Adrian Lopez Monroy, Fernando Sánchez-Vega, Thamar Solorio",
+        "Link": "https://aclanthology.org/2024.naacl-long.460/",
+        "Code": "https://github.com/villacu/ic_xlt",
+        "Dataset": "NA"
+    },
+    {
+        "Paper": "Enhancing NER Performance in Low-Resource Pakistani Languages using Cross-Lingual Data Augmentation",
+        "Conference": "W-NUT (2024)",
+        "Authors": "Toqeer Ehsan, Thamar Solorio",
+        "Link": "https://aclanthology.org/2025.wnut-1.13/",
+        "Code": "NA"
+    },
+    {
+        "Paper": "Beyond Understanding: Evaluating the Pragmatic Gap in LLMs' Cultural Processing of Figurative Language",
+        "Conference": "EACL 2026",
+        "Authors": "Mena Attia, Aashiq Muhamed, Mai Alkhamissi, Thamar Solorio, Mona Diab",
+        "Link": "https://arxiv.org/pdf/2510.23828",
+        "Code": "https://github.com/menaattia/llm-figurative-understanding",
+        "Dataset": "https://huggingface.co/datasets/menaattia/Kinayat"
+    },
+    {
+        "Paper": "All languages matter: Evaluating lmms on culturally diverse 100 languages",
+        "Conference": "CVPR 2025",
+        "Authors": "Ashmal Vayani, Dinura Dissanayake, Hasindri Watawana, Noor Ahsan, Nevasini Sasikumar, Omkar Thawakar, Henok Biadglign Ademtew, Yahya Hmaiti, Amandeep Kumar, Kartik Kukreja, Mykola Maslych, Wafa Al Ghallabi, Mihail Minkov Mihaylov, Chao Qin, Abdelrahman M Shaker, Mike Zhang, Mahardika Krisna Ihsani, Amiel Gian Esplana, Monil Gokani, Shachar Mirkin, Harsh Singh, Ashay Srivastava, Endre Hamerlik, Fathinah Asma Izzati, Fadillah Adamsyah Maani, Sebastian Cavada, Jenny Chim, Rohit Gupta, Sanjay Manjunath, Kamila Zhumakhanova, Feno Heriniaina Rabevohitra, Azril Hafizi Amirudin, Muhammad Ridzuan, Daniya Najiha Abdul Kareem, Ketan Pravin More, Kunyang Li, Pramesh Shakya, Muhammad Saad, Amirpouya Ghasemaghaei, Amirbek Djanibekov, Dilshod Azizov, Branislava Jankovic, Naman Bhatia, Alvaro Cabrera, Johan Obando-Ceron, Olympiah Otieno, Febian Farestam, Muztoba Rabbani, Sanoojan Ballah, Santosh Sanjeev, Abduragim Shtanchaev, Maheen Fatima, Thao Nguyen, Amrin Kareem, Toluwani Aremu, Nathan Augusto Zacarias Xavier, Amit Bhatkal, Hawau Olamide Toyin, Aman Chadha, Hisham Cholakkal, Rao Muhammad Anwer, Michael Felsberg, Jorma Laaksonen, Thamar Solorio, Monojit Choudhury, Ivan Laptev, Mubarak Shah, Salman Khan, Fahad Shahbaz Khan",
+        "Link": "https://openaccess.thecvf.com/content/CVPR2025/papers/Vayani_All_Languages_Matter_Evaluating_LMMs_on_Culturally_Diverse_100_Languages_CVPR_2025_paper.pdf",
+        "Code": "https://github.com/mbzuai-oryx/ALM-Bench",
+        "Dataset": "https://huggingface.co/datasets/MBZUAI/ALM-Bench"
+    },
+    {
+        "Paper": "Prompting multilingual large language models to generate code-mixed texts: The case of south East Asian languages",
+        "Conference": "6th workshop on computational approaches to linguistic code-switching",
+        "Authors": "Zheng-Xin Yong, Ruochen Zhang, Jessica Forde, Skyler Wang, Arjun Subramonian, Holy Lovenia, Samuel Cahyawijaya, Genta Indra Winata, Lintang Sutawika, Jan Christian Blaise Cruz, Yin Lin Tan, Long Phan, Rowena Garcia, Thamar Solorio, Alham Fikri Aji",
+        "Link": "https://aclanthology.org/2023.calcs-1.5.pdf",
+        "Code": "NA",
+        "Dataset": "NA"
+    },
+    {
+        "Paper": "CS-FLEURS: A Massively Multilingual and Code-Switched Speech Dataset",
+        "Conference": "arXiv (2025)",
+        "Authors": "Brian Yan, Injy Hamed, Shuichiro Shimizu, Vasista Lodagala, William Chen, Olga Iakovenko, Bashar Talafha, Amir Hussein, Alexander Polok, Kalvin Chang, Dominik Klement, Sara Althubaiti, Puyuan Peng, Matthew Wiesner, Thamar Solorio, Ahmed Ali, Sanjeev Khudanpur, Shinji Watanabe, Chih-Chen Chen, Zhen Wu, Karim Benharrak, Anuj Diwan, Samuele Cornell, Eunjung Yeo, Kwanghee Choi, Carlos Carvalho, Karen Rosero",
+        "Link": "https://arxiv.org/pdf/2509.14161?",
+        "Code": "NA",
+        "Dataset": "https://huggingface.co/datasets/byan/cs-fleurs"
+    },
+    {
+        "Paper": "CaMMT: Benchmarking Culturally Aware Multimodal Machine Translation",
+        "Conference": "Findings of EMNLP (2025)",
+        "Authors": "Emilio Villa-Cueva, Sholpan Bolatzhanova, Diana Turmakhan, Kareem Elzeky, Henok Biadglign Ademtew, Alham Fikri Aji, Vladimir Araujo, Israel Abebe Azime, Jinheon Baek, Frederico Belcavello, Fermin Cristobal, Jan Christian Blaise Cruz, Mary Dabre, Raj Dabre, Toqeer Ehsan, Naome A Etori, Fauzan Farooqui, Jiahui Geng, Guido Ivetta, Thanmay Jayakumar, Soyeong Jeong, Zheng Wei Lim, Aishik Mandal, Sofía Martinelli, Mihail Minkov Mihaylov, Daniil Orel, Aniket Pramanick, Sukannya Purkayastha, Israfel Salazar, Haiyue Song, Tiago Timponi Torrent, Debela Desalegn Yadeta, Injy Hamed, Atnafu Lambebo Tonja, Thamar Solorio",
+        "Link": "https://aclanthology.org/2025.findings-emnlp.1220/",
+        "Code": "NA",
+        "Dataset": "https://huggingface.co/datasets/villacu/cammt"
+    },
+    {
+        "Paper": "MoMentS: A Comprehensive Multimodal Benchmark for Theory of Mind",
+        "Conference": "Findings of EMNLP (2025)",
+        "Authors": "Emilio Villa-Cueva, S M Masrur Ahmed, Rendi Chevi, Jan Christian Blaise Cruz, Kareem Elzeky, Fermin Cristobal, Alham Fikri Aji, Skyler Wang, Rada Mihalcea, Thamar Solorio  ",
+        "Link": "https://aclanthology.org/2025.findings-emnlp.1230/",
+        "Code": "https://github.com/villacu/MoMentS",
+        "Dataset": "NA"
+    },
+    {
+        "Paper": "Question-Instructed Visual Descriptions for Zero-Shot Video Answering",
+        "Conference": "Findings of ACL (2024)",
+        "Authors": "David Mogrovejo, Thamar Solorio",
+        "Link": "https://aclanthology.org/2024.findings-acl.555.pdf",
+        "Code": "https://github.com/Daromog/Q-ViD",
+        "Dataset": "NA"
+    },
+    {
+        "Paper": "Labeling Comic Mischief Content in Online Videos with a Multimodal Hierarchical-Cross-Attention Model",
+        "Conference": "LREC-COLING (2024)",
+        "Authors": "Elaheh Baharlouei, Mahsa Shafaei, Yigeng Zhang, Hugo Jair Escalante, Thamar Solorio",
+        "Link": "https://aclanthology.org/2024.lrec-main.874/",
+        "Code": "https://github.com/RiTUAL-MBZUAI/Comic-Mischief-Prediction",
+        "Dataset": "NA"
+    },
+    {
+        "Paper": "Cvqa: Culturally-diverse multilingual visual question answering benchmark",
+        "Conference": "NIPS 2024",
+        "Authors": "David Romero, Chenyang Lyu,...., Thamar Solorio, and Alham Fikri Aj",
+        "Link": "https://arxiv.org/pdf/2406.05967",
+        "Code": "NA",
+        "Dataset": "https://huggingface.co/datasets/afaji/cvqa"
+    },
+    {
+        "Paper": "Tell me Habibi, is it Real or Fake?",
+        "Conference": "arXiv (2025)",
+        "Authors": "Kartik Kuckreja, Parul Gupta, Injy Hamed, Thamar Solorio, Muhammad Haris Khan, Abhinav Dhall",
+        "Link": "https://arxiv.org/pdf/2505.22581",
+        "Code": "NA",
+        "Dataset": "NA"
+    },
+    {
+        "Paper": "Afri-MCQA: Multimodal Cultural Question Answering for African Languages",
+        "Conference": "arXiv (2026)",
+        "Authors": "Atnafu Lambebo Tonja, Srija Anand, Emilio Villa-Cueva, Israel Abebe Azime, Jesujoba Oluwadara Alabi, Muhidin A Mohamed, Debela Desalegn Yadeta, Negasi Haile Abadi, Abigail Oppong, Nnaemeka Casmir Obiefuna, Idris Abdulmumin, Naome A Etori, Eric Peter Wairagala, Kanda Patrick Tshinu, Imanigirimbabazi Emmanuel, Gabofetswe Malema, Alham Fikri Aji, David Ifeoluwa Adelani, Thamar Solorio",
+        "Link": "https://arxiv.org/pdf/2601.05699",
+        "Code": "NA",
+        "Dataset": "https://huggingface.co/datasets/Atnafu/Afri-MCQA"
+    },
+    {
+        "Paper": "Emotion Train at SemEval-2025 Task 11: Comparing Generative and Discriminative Models in Emotion Recognition",
+        "Conference": "SemEval (2025)",
+        "Authors": "Anastasiia Demidova, Injy Hamed, Teresa Lynn, Thamar Solorio",
+        "Link": "https://aclanthology.org/2025.semeval-1.133/",
+        "Code": "https://github.com/profii/semeval25_task11",
+        "Dataset": "NA"
+    },
+    {
+        "Paper": "OATS: A Challenge Dataset for Opinion Aspect Target Sentiment Joint Detection",
+        "Conference": "LREC-COLING (2024)",
+        "Authors": "Siva Uday Sampreeth Chebolu, Franck Dernoncourt, Nedim     Lipka, Thamar Solorio",
+        "Link": "https://aclanthology.org/2024.lrec-main.1080/",
+        "Code": "https://github.com/RiTUAL-MBZUAI/OATS-ABSA",
+        "Dataset": "NA"
+    },
+    {
+        "Paper": "Positive and Risky Message Assessment for Music Products",
+        "Conference": "LREC-COLING (2024)",
+        "Authors": "Yigeng Zhang, Mahsa Shafaei, Fabio Gonzalez, Thamar     Solorio",
+        "Link": "https://aclanthology.org/2024.lrec-main.1129/",
+        "Code": "https://github.com/RiTUAL-MBZUAI/music-message-assessment",
+        "Dataset": "NA"
+    },
+    {
+        "Paper": "Distillation of Encoder-Decoder Transformers for Sequence Labelling",
+        "Conference": "Findings of EACL (2023)",
+        "Authors": "Marco Farina, Duccio Pappadopulo, Anant Gupta, Leslie Huang, Ozan Irsoy, Thamar Solorio",
+        "Link": "https://aclanthology.org/2023.findings-eacl.192/",
+        "Code": "NA",
+        "Dataset": "NA"
+    },
+    {
+        "Paper": "SemRel2024: A Collection of Semantic Textual Relatedness Datasets for 13 Languages",
+        "Conference": "Findings of ACL (2024)",
+        "Authors": "Nedjma Ousidhoum et al., Thamar Solorio",
+        "Link": "https://aclanthology.org/2024.findings-acl.147/",
+        "Code": "https://github.com/semantic-textual-relatedness/Semantic_Relatedness_SemEval2024#citing-this-work",
+        "Dataset": "https://github.com/semantic-textual-relatedness/Semantic_Relatedness_SemEval2024#citing-this-work"
+    },
+    {
+        "Paper": "Interpreting Themes from Educational Stories",
+        "Conference": "LREC-COLING (2024)",
+        "Authors": "Yigeng Zhang, Fabio Gonzalez, Thamar Solorio",
+        "Link": "https://aclanthology.org/2024.lrec-main.805/",
+        "Code": "https://github.com/RiTUAL-MBZUAI/EduStory",
+        "Dataset": "NA"
+    },
+    {
+        "Paper": "CS-FLEURS: A Massively Multilingual and Code-Switched Speech Dataset",
+        "Conference": "arXiv (2025)",
+        "Authors": "Brian Yan, Injy Hamed, Shuichiro Shimizu, Vasista Lodagala, William Chen, Olga Iakovenko, Bashar Talafha, Amir Hussein, Alexander Polok, Kalvin Chang, Dominik Klement, Sara Althubaiti, Puyuan Peng, Matthew Wiesner, Thamar Solorio, Ahmed Ali, Sanjeev Khudanpur, Shinji Watanabe, Chih-Chen Chen, Zhen Wu, Karim Benharrak, Anuj Diwan, Samuele Cornell, Eunjung Yeo, Kwanghee Choi, Carlos Carvalho, Karen Rosero",
+        "Link": "https://arxiv.org/pdf/2509.14161?",
+        "Code": "NA",
+        "Dataset": "https://huggingface.co/datasets/byan/cs-fleurs"
+    },
+    {
+        "Paper": "CaMMT: Benchmarking Culturally Aware Multimodal Machine Translation",
+        "Conference": "Findings of EMNLP (2025)",
+        "Authors": "Emilio Villa-Cueva, Sholpan Bolatzhanova, Diana Turmakhan, Kareem Elzeky, Henok Biadglign Ademtew, Alham Fikri Aji, Vladimir Araujo, Israel Abebe Azime, Jinheon Baek, Frederico Belcavello, Fermin Cristobal, Jan Christian Blaise Cruz, Mary Dabre, Raj Dabre, Toqeer Ehsan, Naome A Etori, Fauzan Farooqui, Jiahui Geng, Guido Ivetta, Thanmay Jayakumar, Soyeong Jeong, Zheng Wei Lim, Aishik Mandal, Sofía Martinelli, Mihail Minkov Mihaylov, Daniil Orel, Aniket Pramanick, Sukannya Purkayastha, Israfel Salazar, Haiyue Song, Tiago Timponi Torrent, Debela Desalegn Yadeta, Injy Hamed, Atnafu Lambebo Tonja, Thamar Solorio",
+        "Link": "https://aclanthology.org/2025.findings-emnlp.1220/",
+        "Code": "NA",
+        "Dataset": "https://huggingface.co/datasets/villacu/cammt"
+    },
+    {
+        "Paper": "MoMentS: A Comprehensive Multimodal Benchmark for Theory of Mind",
+        "Conference": "Findings of EMNLP (2025)",
+        "Authors": "Emilio Villa-Cueva, S M Masrur Ahmed, Rendi Chevi, Jan Christian Blaise Cruz, Kareem Elzeky, Fermin Cristobal, Alham Fikri Aji, Skyler Wang, Rada Mihalcea, Thamar Solorio  ",
+        "Link": "https://aclanthology.org/2025.findings-emnlp.1230/",
+        "Code": "https://github.com/villacu/MoMentS",
+        "Dataset": "NA"
+    },
+    {
+        "Paper": "Cvqa: Culturally-diverse multilingual visual question answering benchmark",
+        "Conference": "NIPS 2024",
+        "Authors": "David Romero, Chenyang Lyu,...., Thamar Solorio, and Alham Fikri Aj",
+        "Link": "https://arxiv.org/pdf/2406.05967",
+        "Code": "NA",
+        "Dataset": "https://huggingface.co/datasets/afaji/cvqa"
+    },
+    {
+        "Paper": "Afri-MCQA: Multimodal Cultural Question Answering for African Languages",
+        "Conference": "arXiv (2026)",
+        "Authors": "Atnafu Lambebo Tonja, Srija Anand, Emilio Villa-Cueva, Israel Abebe Azime, Jesujoba Oluwadara Alabi, Muhidin A Mohamed, Debela Desalegn Yadeta, Negasi Haile Abadi, Abigail Oppong, Nnaemeka Casmir Obiefuna, Idris Abdulmumin, Naome A Etori, Eric Peter Wairagala, Kanda Patrick Tshinu, Imanigirimbabazi Emmanuel, Gabofetswe Malema, Alham Fikri Aji, David Ifeoluwa Adelani, Thamar Solorio",
+        "Link": "https://arxiv.org/pdf/2601.05699",
+        "Code": "NA",
+        "Dataset": "https://huggingface.co/datasets/Atnafu/Afri-MCQA"
+    },
+    {
+        "Paper": "OATS: A Challenge Dataset for Opinion Aspect Target Sentiment Joint Detection",
+        "Conference": "LREC-COLING (2024)",
+        "Authors": "Siva Uday Sampreeth Chebolu, Franck Dernoncourt, Nedim     Lipka, Thamar Solorio",
+        "Link": "https://aclanthology.org/2024.lrec-main.1080/",
+        "Code": "https://github.com/RiTUAL-MBZUAI/OATS-ABSA",
+        "Dataset": "NA"
+    }
+]

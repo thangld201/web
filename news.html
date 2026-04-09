@@ -8,14 +8,24 @@ permalink: /news/
   <h1>News</h1>
   <p>Stay up‑to‑date with our latest announcements and achievements.</p>
 </section>
-<section class="news container">
-  <div class="news-grid">
-    {% for item in site.data.news.news %}
-    <article class="news-item reveal">
-      <h3>{{ item.title }}</h3>
-      <span class="date">{{ item.date | date: "%B %-d, %Y" }}</span>
-      <p>{{ item.content }}</p>
-    </article>
+<section class="news-page">
+  <div class="container">
+    {% assign news_by_year = site.data.news.news | group_by_exp: "n", "n.date | date: '%Y'" | sort: 'name' | reverse %}
+    {% for year_group in news_by_year %}
+    <div class="news-year-group reveal">
+      <h2 class="year-heading">{{ year_group.name }}</h2>
+      <div class="news-list">
+        {% for item in year_group.items %}
+        <article class="news-card">
+          <div class="news-date-badge">{{ item.date | date: "%b %d" }}</div>
+          <div class="news-body">
+            <h3 class="news-title">{{ item.title }}</h3>
+            <div class="news-content">{{ item.content }}</div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
     {% endfor %}
   </div>
 </section>

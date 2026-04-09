@@ -20,9 +20,12 @@ Thumbs.db
 *.swo
 *~
 
+
 # Gemfiles
-Gemfile
 Gemfile.lock
 
 # Backup files (in case you create more)
 *.backup
+
+_data/Lab_papers.tsv
+_data/Lab_papers.tsv:Zone.Identifier
