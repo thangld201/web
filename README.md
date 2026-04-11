@@ -12,21 +12,28 @@ In most cases, you do not need to run the site locally. You can edit the content
 2. [Recommended Workflow For Most Editors](#recommended-workflow-for-most-editors)
 3. [Website Structure](#website-structure)
 4. [Important Notes Before Editing](#important-notes-before-editing)
-5. [Which File Controls Each Page](#which-file-controls-each-page)
-6. [Editable Pages And What Can Be Updated](#editable-pages-and-what-can-be-updated)
-7. [Home Page](#home-page)
-8. [Leader Page](#leader-page)
-9. [Team Page](#team-page)
-10. [News Page](#news-page)
-11. [Publications Page](#publications-page)
-12. [Join Page](#join-page)
-13. [Contact Page](#contact-page)
-14. [Adding Images](#adding-images)
-15. [Recommended Editing Method](#recommended-editing-method)
-16. [Optional: Preview The Site Locally](#optional-preview-the-site-locally)
-17. [Quick Reference](#quick-reference)
-18. [Troubleshooting](#troubleshooting)
-19. [Final Note](#final-note)
+5. [Content Map](#content-map)
+   1. [Home Page](#home-page)
+   2. [Leader Page](#leader-page)
+   3. [Team Page](#team-page)
+   4. [News Page](#news-page)
+   5. [Publications Page](#publications-page)
+   6. [Join Page](#join-page)
+   7. [Contact Page](#contact-page)
+   8. [Images](#images)
+6. [Editing Guide](#editing-guide)
+   1. [Home Page](#home-page-1)
+   2. [Leader Page](#leader-page-1)
+   3. [Team Page](#team-page-1)
+   4. [News Page](#news-page-1)
+   5. [Publications Page](#publications-page-1)
+   6. [Join Page](#join-page-1)
+   7. [Contact Page](#contact-page-1)
+7. [Recommended Editing Method](#recommended-editing-method)
+8. [Optional: Preview The Site Locally](#optional-preview-the-site-locally)
+9. [Quick Reference](#quick-reference)
+10. [Troubleshooting](#troubleshooting)
+11. [Final Note](#final-note)
 
 ## Overview
 
@@ -84,253 +91,61 @@ If a page breaks after editing, the most common causes are:
 - a missing closing quote
 - an incorrect image path
 
-## Which File Controls Each Page
-
-### Home page
-
-Page URL:
-
-```text
-/
-```
-
-Main file:
-
-```text
-/index.html
-```
-
-This file contains:
-
-- the homepage welcome text
-- research area cards
-- homepage links
-- hero carousel image references
-
-### Leader page
-
-Page URL:
-
-```text
-/leader/
-```
-
-Main content file:
-
-```text
-/_data/leader.yml
-```
-
-Display file:
-
-```text
-/leader.html
-```
-
-In normal use, only `/_data/leader.yml` needs to be edited.
-
-### Team page
-
-Page URL:
-
-```text
-/team/
-```
-
-Main content file:
-
-```text
-/_data/team.yml
-```
-
-Display file:
-
-```text
-/team.html
-```
-
-In normal use, only `/_data/team.yml` needs to be edited.
-
-### News page
-
-Page URL:
-
-```text
-/news/
-```
-
-Main content file:
-
-```text
-/_data/news.yml
-```
-
-### Publications page
-
-Page URL:
-
-```text
-/publications/
-```
-
-Main content file:
-
-```text
-/_data/publications.yml
-```
-
-### Join page
-
-Page URL:
-
-```text
-/join/
-```
-
-Main content file:
-
-```text
-/_data/join.yml
-```
-
-### Contact page
-
-Page URL:
-
-```text
-/contact/
-```
-
-Main content file:
-
-```text
-/_data/contact.yml
-```
-
-## Editable Pages And What Can Be Updated
+## Content Map
 
 ### Home Page
 
-You can update:
-
-- welcome text
-- research area titles and descriptions
-- research links
-- homepage hero images
-
-Main file:
-
-```text
-/index.html
-```
+- URL: `/`
+- Main file: `/index.html`
+- You can update: welcome text, research area cards, research links, hero images
 
 ### Leader Page
 
-You can update:
-
-- leader name
-- title
-- tagline
-- photo
-- email
-- social links
-- bio
-- research interests
-- education
-- awards
-
-Main file:
-
-```text
-/_data/leader.yml
-```
+- URL: `/leader/`
+- Main file: `/_data/leader.yml`
+- Display file: `/leader.html`
+- You can update: name, title, tagline, photo, email, social links, bio, interests, education, awards
 
 ### Team Page
 
-You can update:
-
-- team member names
-- roles
-- photos
-- bios
-- email and profile links
-- keywords
-- alumni status
-
-Main file:
-
-```text
-/_data/team.yml
-```
+- URL: `/team/`
+- Main file: `/_data/team.yml`
+- Display file: `/team.html`
+- You can update: member names, roles, photos, bios, profile links, keywords, alumni status
 
 ### News Page
 
-You can update:
-
-- news titles
-- dates
-- descriptions
-- links inside the news text
-
-Main file:
-
-```text
-/_data/news.yml
-```
+- URL: `/news/`
+- Main file: `/_data/news.yml`
+- You can update: titles, dates, descriptions, links inside news text
 
 ### Publications Page
 
-You can update:
-
-- paper titles
-- authors
-- venue
-- year
-- type
-- badge
-- selected status
-- paper, code, dataset, video, and demo links
-
-Main file:
-
-```text
-/_data/publications.yml
-```
+- URL: `/publications/`
+- Main file: `/_data/publications.yml`
+- You can update: title, authors, venue, year, type, badge, selected status, and related links
 
 ### Join Page
 
-You can update:
-
-- page title
-- intro text
-- open positions
-- join instructions
-- contact email
-
-Main file:
-
-```text
-/_data/join.yml
-```
+- URL: `/join/`
+- Main file: `/_data/join.yml`
+- You can update: title, intro text, open positions, join instructions, contact email
 
 ### Contact Page
 
-You can update:
+- URL: `/contact/`
+- Main file: `/_data/contact.yml`
+- You can update: office hours, address, email, map embed link
 
-- office hours
-- address
-- contact email
-- map embed link
+### Images
 
-Main file:
+- Team photos: `/images/uploads/team/`
+- Leader photos: `/images/uploads/leader/`
+- Home page images: `/images/`
 
-```text
-/_data/contact.yml
-```
+## Editing Guide
 
-## How To Edit Each Page
-
-## Home Page
+### Home Page
 
 File:
 
@@ -400,7 +215,7 @@ to:
 '/images/new-group-photo.jpg'
 ```
 
-## Leader Page
+### Leader Page
 
 File:
 
@@ -484,7 +299,7 @@ interests:
   - Human-centered AI
 ```
 
-## Team Page
+### Team Page
 
 File:
 
@@ -561,7 +376,7 @@ alumni: true
 photo: "uploads/team/john.jpg"
 ```
 
-## News Page
+### News Page
 
 File:
 
@@ -616,7 +431,7 @@ Example:
 content: "We received an award. <a href='https://example.com' target='_blank'>Read more</a>."
 ```
 
-## Publications Page
+### Publications Page
 
 File:
 
@@ -669,7 +484,7 @@ links:
   paper: "https://example.com/paper.pdf"
 ```
 
-## Join Page
+### Join Page
 
 File:
 
@@ -704,7 +519,7 @@ positions:
     description: Short-term opportunities for motivated students.
 ```
 
-## Contact Page
+### Contact Page
 
 File:
 
@@ -756,7 +571,7 @@ Find:
 
 Replace both email values with the new address.
 
-## Adding Images
+## Images
 
 ### Team images
 

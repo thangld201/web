@@ -2,14 +2,24 @@ publications:
 
   - title: "Afri-MCQA: Multimodal Cultural Question Answering for African Languages"
     authors: "Atnafu Lambebo Tonja, Srija Anand, Emilio Villa-Cueva, Israel Abebe Azime, Jesujoba Oluwadara Alabi, Muhidin A Mohamed, Debela Desalegn Yadeta, Negasi Haile Abadi, Abigail Oppong, Nnaemeka Casmir Obiefuna, Idris Abdulmumin, Naome A Etori, Eric Peter Wairagala, Kanda Patrick Tshinu, Imanigirimbabazi Emmanuel, Gabofetswe Malema, Alham Fikri Aji, David Ifeoluwa Adelani, Thamar Solorio"
-    venue: "arXiv preprint"
+    venue: "Annual Meeting of the Association for Computational Linguistics (ACL)"
     year: 2026
-    type: "preprint"
-    badge: "preprint"
-    selected: false
+    type: "conference"
+    badge: "ACL"
+    selected: true
     links:
       paper: "https://arxiv.org/pdf/2601.05699"
       dataset: "https://huggingface.co/datasets/Atnafu/Afri-MCQA"
+
+  - title: "Towards Fast and Accurate Modeling for Cross-Lingual Label Projection"
+    authors: "Thang Le, Huy Huu Nguyen, Anh Tuan Luu, Thamar Solorio, Thien Huu Nguyen"
+    venue: "Annual Meeting of the Association for Computational Linguistics (ACL)"
+    year: 2026
+    type: "conference"
+    badge: "ACL"
+    selected: true
+    links:
+      paper: ""
 
   - title: "Beyond Understanding: Evaluating the Pragmatic Gap in LLMs' Cultural Processing of Figurative Language"
     authors: "Mena Attia, Aashiq Muhamed, Mai Alkhamissi, Thamar Solorio, Mona Diab"

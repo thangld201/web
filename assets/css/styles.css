@@ -1483,6 +1483,32 @@ img {
   box-shadow: 0 4px 12px rgba(10, 25, 47, 0.3);
 }
 
+.pub-link-btn-placeholder {
+  cursor: pointer;
+}
+
+.coming-soon-toast {
+  position: absolute;
+  z-index: 1200;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background-color: rgba(10, 25, 47, 0.96);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.2;
+  pointer-events: none;
+  box-shadow: 0 10px 24px rgba(10, 25, 47, 0.22);
+  opacity: 0;
+  transform: translate(8px, -50%) scale(0.96);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.coming-soon-toast.is-visible {
+  opacity: 1;
+  transform: translate(16px, -50%) scale(1);
+}
+
 @media (max-width: 768px) {
   .year-heading {
     font-size: 1.5rem;

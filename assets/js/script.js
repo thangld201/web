@@ -178,6 +178,70 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   };
 
+  const initPublicationPlaceholderButtons = () => {
+    const placeholderButtons = document.querySelectorAll('.pub-link-btn-placeholder[data-coming-soon]');
+    if (!placeholderButtons.length) return;
+
+    let activeToast = null;
+    let activeToastTimer = null;
+    let activeButton = null;
+
+    const positionToast = button => {
+      if (!activeToast || !button) return;
+      const rect = button.getBoundingClientRect();
+      const top = rect.top + window.scrollY + (rect.height / 2);
+      const left = rect.right + window.scrollX;
+      activeToast.style.top = `${top}px`;
+      activeToast.style.left = `${left}px`;
+    };
+
+    const removeToast = () => {
+      if (!activeToast) return;
+      const toastToRemove = activeToast;
+      activeToast = null;
+      activeButton = null;
+      if (activeToastTimer) {
+        window.clearTimeout(activeToastTimer);
+        activeToastTimer = null;
+      }
+      toastToRemove.classList.remove('is-visible');
+      window.setTimeout(() => {
+        toastToRemove.remove();
+      }, 180);
+    };
+
+    const showToast = button => {
+      removeToast();
+
+      const toast = document.createElement('div');
+      const message = button.getAttribute('data-coming-soon') || 'Coming soon!';
+
+      toast.className = 'coming-soon-toast';
+      toast.textContent = message;
+      document.body.appendChild(toast);
+      activeToast = toast;
+      activeButton = button;
+      positionToast(button);
+
+      window.requestAnimationFrame(() => {
+        toast.classList.add('is-visible');
+      });
+
+      activeToastTimer = window.setTimeout(removeToast, 1400);
+    };
+
+    placeholderButtons.forEach(button => {
+      button.addEventListener('click', event => {
+        event.preventDefault();
+        showToast(button);
+      });
+    });
+
+    window.addEventListener('resize', () => {
+      positionToast(activeButton);
+    });
+  };
+
   // Keep team cards uniform in default state while allowing independent hover expansion.
   const initTeamCardSizing = () => {
     const teamGrids = document.querySelectorAll('.team-grid-simple');
@@ -515,6 +579,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (pubSection) {
     initPublicationFilter();
     initPublicationAuthorToggles();
+    initPublicationPlaceholderButtons();
   }
 
   const teamSection = document.querySelector('.team-section');

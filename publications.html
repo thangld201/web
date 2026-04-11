@@ -75,6 +75,8 @@ permalink: /publications/
             <div class="pub-links">
               {% if pub.links.paper and pub.links.paper != "#" and pub.links.paper != "" %}
               <a href="{{ pub.links.paper }}" class="pub-link-btn paper-btn" target="_blank">Paper</a>
+              {% else %}
+              <a href="#" class="pub-link-btn pub-link-btn-placeholder paper-btn" aria-disabled="true" data-coming-soon="Coming soon!">Paper</a>
               {% endif %}
               {% if pub.links.code and pub.links.code != "#" and pub.links.code != "" %}
               <a href="{{ pub.links.code }}" class="pub-link-btn code-btn" target="_blank">Code</a>
